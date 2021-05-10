@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import DocRecrutado from './pages/documentos/recrutado/DocRecrutado';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DocRecrutado />
   </React.StrictMode>,
   document.getElementById('root')
 );
