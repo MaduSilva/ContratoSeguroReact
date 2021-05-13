@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+	background-color: #E9E9E9;
+}
+
+.AllSquares {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.SquareOne {
+	width: 237px;
+	height: 100px;
+	background-color: #F27405;
+	border-radius: 04px;
+	box-shadow: 5px 7px 13px 5px rgba(0, 0, 0, 0.2);
+   
+}
+
+.TextSquareOne{
+    font-family: Comfortaa;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: start;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+.NumberSquareOne{
+    position: relative;
+}
+
+.SquareTwo {
+	width: 237px;
+	height: 100px;
+	background-color: #80BFB0;
+	border-radius: 04px;
+	box-shadow: 5px 7px 13px 5px rgba(0, 0, 0, 0.2);
+	margin-left: 20px;
+    color: white;
+    font-family: Comfortaa;
+}
+
+.TextSquareTwo{
+    font-family: Comfortaa;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: start;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+
+.SquareThree {
+	width: 237px;
+	height: 100px;
+	background-color: #0367A6;
+	border-radius: 04px;
+	box-shadow: 5px 7px 13px 5px rgba(0, 0, 0, 0.2);
+	margin-left: 20px;
+    color: white;
+    font-family: Comfortaa;
+}
+
+.TextSquareThree{
+    font-family: Comfortaa;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: start;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+.BigSquare {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	width: 800px;
+	height: 400px;
+	margin-left: 260px;
+	margin-top: 5px;
+	background-color: white;
+	margin-bottom: 25px;
+}
+
+.FileIcon {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	margin-top: 90px;
+    cursor: pointer;
+}
+
+.ButtonFile {
+	border-radius: 0;
+	color: #FFFFFF;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-weight: 600;
+	padding: 11px;
+	background-color: #0367A6;
+	text-decoration: none;
+	display: inline-flex;
+	cursor: pointer;
+	text-align: center;
+    margin-left: 300px;
+}
