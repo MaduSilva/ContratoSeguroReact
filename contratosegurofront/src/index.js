@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+//pages
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado';
+import DocFuncionario from './pages/documentos/funcionario/DocFuncionario';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <DocRecrutado />
+    <DocFuncionario />
   </React.StrictMode>,
   document.getElementById('root')
 );
