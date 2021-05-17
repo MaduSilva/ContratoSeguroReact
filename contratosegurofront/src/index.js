@@ -4,13 +4,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
-import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario';
+import Home from './pages/home/home'
 
 ReactDOM.render(
   <React.StrictMode>
-    < CadRecrutado/>
+    < Home/>
   </React.StrictMode>,
   document.getElementById('root')
 );
