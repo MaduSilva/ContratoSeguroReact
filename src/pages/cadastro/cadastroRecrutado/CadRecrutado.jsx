@@ -3,6 +3,9 @@ import './index.css';
 
 //pages
 import { CadastroRec } from '../components/cadastroRecrutado';
+import Menu from "../../../components/menu/menu";
+import barraNome from "../components/barraNome"
+
 
 //images
 import iconcadastrorecrutado from '../../../img/iconcadastrorecrutado.png'
@@ -10,10 +13,15 @@ import iconcadastrorecrutado from '../../../img/iconcadastrorecrutado.png'
 const CadRecrutado = () => {
 
     return(
+
+
+    
         
         <div className="container mt-3.bg-white">
-            <div className="completo">
+            
+                
             <div className="row">
+                
                 <div className="col-md-5">
                     <CadastroRec/>
                 </div>
@@ -23,7 +31,7 @@ const CadRecrutado = () => {
                     </div>
                     </div>
                 
-            </div>
+           
         </div>
         
         

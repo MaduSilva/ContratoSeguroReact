@@ -10,7 +10,7 @@ import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario'
 
 ReactDOM.render(
   <React.StrictMode>
-    < CadRecrutado/>
+    < CadFuncionario/>
   </React.StrictMode>,
   document.getElementById('root')
 );
