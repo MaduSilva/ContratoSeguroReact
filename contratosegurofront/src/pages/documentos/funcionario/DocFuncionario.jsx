@@ -1,54 +1,127 @@
-import React from 'react'
-import Menu from '../../../components/menu/menu'
-import Rodape from '../../../components/rodape/rodape'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Anexo from '../../../components/anexo/anexo'
 import '../funcionario/DocFuncionario.css'
 
-import FileUploadIcon from '../../../assets/img/file-upload.png'
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
-
-
-const DocRecrutado = () => {
-    return (
-        <div>
-            <Menu />
-            <div class="tabinator">
-               
-                <input type="radio" id="tab1" name="tabs" checked />
-                
-                <label className="SquareOne" for="tab1">Aguardando minha assinatura</label>
-                <input type="radio" id="tab2" name="tabs" />
-                <label for="tab2">Documentos Enviados</label>
-                <input type="radio" id="tab3" name="tabs" />
-                <label for="tab3">Concluídos</label>
-                <div id="content1">
-                    <p>
-                    <div className="BigSquare">
-                <img src={FileUploadIcon} className="FileIcon" alt="icone de upload" />
-                <h6 style={{ textAlign: 'center', fontFamily: 'Montserrat' }}>Deposite seus documentos aqui</h6>
-                <a href="#" class="ButtonFile">Envie um arquivo</a>
-
-            </div>
-
-                    </p>
-                </div>
-                <div id="content2">
-                    <p>Donec mattis laoreet suscipit. Donec blandit quam sed justo mattis, et hendrerit leo sodales. Donec elit leo, sollicitudin sed purus vitae, iaculis iaculis lacus. Proin quis leo a purus gravida ultricies. Nam molestie a nisi sed scelerisque. Proin in suscipit sem, in viverra libero. Proin quam diam, consequat vitae arcu eget, egestas ultrices eros. Donec sed fermentum lorem. Nam dolor sem, aliquam dapibus rutrum id, tempor ac leo. Vestibulum in neque id eros tristique lacinia. Duis a bibendum dolor, nec cursus eros. Morbi quis enim eu quam gravida lacinia. Etiam tincidunt venenatis felis quis pellentesque. Sed sagittis elit vitae arcu malesuada, quis dapibus libero porttitor.
-    </p>
-                </div>
-                <div id="content3">
-                    <p>Integer consequat iaculis porta. Integer semper maximus erat, vel posuere libero fermentum ut. Quisque convallis imperdiet diam, eget mollis risus semper non. Quisque dictum feugiat finibus. Nulla quis lectus augue. Fusce id nulla quis ipsum consequat consectetur in sed felis. Nullam eu urna sollicitudin, sodales risus sit amet, lacinia magna. Mauris placerat metus vitae urna efficitur rutrum. Mauris lobortis ut ex vitae condimentum. Integer venenatis urna ut lectus efficitur pretium. Donec ut ullamcorper urna, nec commodo est. Fusce in nibh sed lectus laoreet fermentum vestibulum a dolor. Donec pulvinar urna sed leo consequat, et vulputate nunc pellentesque. Maecenas ex nisl, pretium sed efficitur vitae, ultricies ut risus.
-    </p>
-                </div>
-                <div id="content4">
-                    <p>Duis tempor sapien ac enim laoreet, volutpat tincidunt mi cursus. Integer bibendum pharetra nisl, non mollis dui ullamcorper vel. Curabitur lacinia consectetur velit. In finibus metus velit, quis mollis libero feugiat non. Maecenas est nunc, dapibus non sem eu, ornare consectetur ipsum. Phasellus elit metus, iaculis vitae est et, pharetra ornare lacus. Cras id tristique lorem, posuere molestie leo. Maecenas varius nisi non maximus sollicitudin. Phasellus et tellus tincidunt, porta mauris ut, faucibus augue. Mauris vehicula erat sed magna iaculis, vel fringilla velit sagittis.
-    </p>
-                </div>
-            </div>
-            <Rodape/>
-        </div>
-    )
-
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
 }
 
-export default DocRecrutado;
+
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: '#E9E9E9',
+  },
+  tab: {
+    backgroundColor: 'purple',
+  }
+}));
+
+export default function DocFuncionario() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <AppBar  elevation={0} position="static">
+        <Tabs style={{
+          backgroundColor: '#e9e9e9',
+          boxShadow: 'none',
+        }} value={value} onChange={handleChange}  TabIndicatorProps={{ style: { display: 'none' } }} aria-label="simple tabs example">
+
+          <Tab style={{
+            backgroundColor: '#F27405',
+            width: '237px',
+            height: '90px',
+	          borderRadius: '04px',
+            left: '154px',
+            marginTop: '20px'
+          }} label="Aguardando minha assinatura" {...a11yProps(0)} />
+
+          <Tab style={{
+            backgroundColor: '#80BFB0',
+            width: '237px',
+            height: '90px',
+	          borderRadius: '04px',
+            left: '172px',
+            marginTop: '20px'
+          }}
+            className="Tab1" label="Documentos Enviados" {...a11yProps(1)} />
+
+          <Tab style={{
+            backgroundColor: '#0367A6',
+            width: '237px',
+            height: '90px',
+	          borderRadius: '04px',
+            left: '190px',
+            marginTop: '20px'
+          }}
+            className="Tab2" label="Concluídos" {...a11yProps(2)} />
+
+          <Tab style={{
+            backgroundColor: '#A60303',
+            width: '237px',
+            height: '90px',
+	          borderRadius: '04px',
+            left: '210px',
+            marginTop: '20px'
+          }}
+           className="Tab3" label="Falhas" {...a11yProps(3)} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        <Anexo />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Aqui vamos listar todos os documentos
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+      Aqui vamos listar os documentos concluídos
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+      Aqui vamos listar os documentos com falha
+      </TabPanel>
+    </div>
+  );
+}

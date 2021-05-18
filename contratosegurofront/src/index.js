@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 //pages
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado';
 import DocFuncionario from './pages/documentos/funcionario/DocFuncionario';
+import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <DocFuncionario />
+    <PagDocFunc />
   </React.StrictMode>,
   document.getElementById('root')
 );
