@@ -153,7 +153,7 @@ export const cadastroFun = () =>  {
                    </Grid>
                </Grid>
                <div className="botoes">
-                        <button className="btn btn-dark mt-3" type="reset">Cancelar</button>
+                        <button className="btn btn-dark mt-3" >Cancelar</button>
                         <button className="btn btn-primary mt-3" type="submit" onClick={addUser}>Enviar</button>
             </div>
            </Paper>

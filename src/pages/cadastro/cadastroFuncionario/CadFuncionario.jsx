@@ -215,8 +215,8 @@ function CadFuncionario ()  {
                    </Grid>
                </Grid>
                <div className="button" >
-                        <Button className="botoes" variant="contained" type="reset" color="disabled">Cancelar</Button>
-                        <Button  variant="contained" type="submit" color="primary" >Enviar</Button>
+                        <button className="btn btn-dark mt-3" >Cancelar</button>
+                        <button className="btn btn-primary mt-3" type="submit" >Enviar</button>
                 </div>
            </Paper>
           

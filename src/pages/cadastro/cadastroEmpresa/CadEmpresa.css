@@ -1,24 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
-    max-width: 100vw;
+    background-color: #e9e9e9;
 }
 
-form{
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 60px;
-
+.botoes{
+    display: flex;
+    align-items: center;
+   margin-right: 10px;
+   font-family: 'Montserrat', sans-serif;
 }
 
-select, textarea, .radios, .checks {
-    margin-bottom: 20px;
-
+.MuiButton-text{
+    font-family: 'Montserrat', sans-serif;
 }
 
-.radios label, .checks label {
-    margin-right: 20;
+.my-3 {
+    margin-top: 2rem!important;
+    margin-bottom: 1rem!important;
+    padding-bottom: 20px;
 }
 
-input{
-    display: block;
-    margin-bottom: 20px;
+button{
+   margin-top: 20px; 
 }
