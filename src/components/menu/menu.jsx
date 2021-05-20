@@ -65,7 +65,7 @@ export default function Menu() {
               <Tab label="Planos" />
               <Tab label="Fale com a gente" />
 
-              <a className="exit" fontSize="large">Login</a>
+              <a className="exit" fontSize="large" href="/loginemp">Login</a>
             </Tabs>
           </Paper>
         </div>
