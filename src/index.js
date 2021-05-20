@@ -11,7 +11,7 @@ import CadEmpresa from "./pages/cadastro/cadastroEmpresa/CadEmpresa";
 
 ReactDOM.render(
   <React.StrictMode>
-    < CadRecrutado/>
+    < CadFuncionario/>
   </React.StrictMode>,
   document.getElementById('root')
 );
