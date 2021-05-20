@@ -5,7 +5,6 @@ import { Formik, Form } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import * as Yup from 'yup';
-import ReactPhoneInput from 'react-phone-input-material-ui';
 
 //pages
 import Menu from "../../../components/menu/menu";
