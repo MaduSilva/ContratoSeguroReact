@@ -9,6 +9,12 @@ import Tab from '@material-ui/core/Tab'
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+//jwt
+import jwt_decode from 'jwt-decode'
+
+//react router dom
+import { useHistory } from 'react-router-dom'
+
 //imagens 
 import logo from '../../assets/img/logo-brq.png';
 
@@ -20,7 +26,10 @@ const useStyles = makeStyles({
   }
 });
 
+
 export default function Menu() {
+
+  //style
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -28,39 +37,81 @@ export default function Menu() {
     setValue(newValue);
   };
 
+  //jwt login
+  const history = useHistory();
+  const sair = (event) => {
+    event.preventDefault();
+    localStorage.removeItem('token-contratoseguro');
+    history.push('/');
+  }
 
+  const renderMenu = () => {
+    const token = localStorage.getItem('token-contratoseguro')
 
-  return (
-    <div>
-      <img src={logo} className="nav-logo" alt="logo brq" />
+    if (token === null) {
+      return (
+        <div>
+          <Paper className={classes.root}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              TabIndicatorProps={{ style: { backgroundColor: "#011826", } }}
+              textColor="inherit"
+              centered
+            >
 
-      <Paper className={classes.root}>
+              <Tab label="Home" />
+              <Tab label="O que é" />
+              <Tab label="Planos" />
+              <Tab label="Fale com a gente" />
 
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          TabIndicatorProps={{ style: { backgroundColor: "#011826", } }}
-          textColor="inherit"
-          centered
-        >
+              <a className="exit" fontSize="large">Login</a>
+            </Tabs>
+          </Paper>
+        </div>
+      );
+    }
+    else if (jwt_decode(token).role === 'Admin') {
+      return (
+        <div>
+          <Paper className={classes.root}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              TabIndicatorProps={{ style: { backgroundColor: "#011826", } }}
+              textColor="inherit"
+              centered
+            >
 
-          <Tab label="Dashboard" />
-          <Tab label="Documentos" />
-          <Tab label="Chat" />
-          <Tab label="Perfil" />
+              <Tab label="Dashboard" />
+              <Tab label="Documentos" />
+              <Tab label="Chat" />
+              <Tab label="Cadastro" />
+              <Tab label="Perfil" />
 
-          {/* Icone notificação */}
-          <NotificationsIcon className="notification" />
+              {/* Icone notificação */}
+              <NotificationsIcon className="notification" />
 
-          {/* Icone Usuario */}
-          <div className="user" alt="icon user">
+              {/* Icone Usuario */}
+              <div className="user" alt="icon user">
 
-            {/* Icone sair */}
-            <ExitToAppIcon className="exit" fontSize="large" />
-
-          </div>
+                {/* Icone sair */}
+                <ExitToAppIcon className="exit" fontSize="large" />
+             
+        </div>
         </Tabs>
-      </Paper>
-    </div>
-  );
-}
+        </Paper>
+        </div>
+    );
+    }
+  }
+
+    return (
+          <div>
+            <img src={logo} className="nav-logo" alt="logo brq" />
+
+            {renderMenu()}
+          </div>
+    );
+
+    }
