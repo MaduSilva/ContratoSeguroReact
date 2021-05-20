@@ -5,16 +5,14 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-<<<<<<< HEAD:contratosegurofront/package.json
-=======
-    "@material-ui/styles": "^4.11.4",
->>>>>>> Matheus:package.json
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "bootstrap": "^5.0.0",
+    "bootstrap": "^4.6.0",
     "formik": "^2.2.6",
+    "npm": "^7.13.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",

@@ -37,6 +37,7 @@ function CadFuncionario ()  {
 
     }
 
+    //DEVE TER NOME EMAIL SENHA TELEFONE CPF RG FORMAÇÃO DATA NASCIMENTO TIPO DE USUÁRIO 
 
     const classes = useStyles();
             return(
@@ -50,6 +51,8 @@ function CadFuncionario ()  {
            <Paper component={Box} p={4}>
                <Grid container spacing={3}>
                    
+
+                
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{

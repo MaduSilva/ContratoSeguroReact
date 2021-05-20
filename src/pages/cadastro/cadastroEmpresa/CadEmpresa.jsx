@@ -1,5 +1,7 @@
 import react from 'react';
 
+
+// DEVE CONTER NOME EMAIL SENHA TELEFONE CNPJ RAZÃO SOCIAL MATRIZ LOGRADOURO UF CIDADE NÚMERO BAIRRO DATA ABERTURA
 const CadEmpresa = () => {
 
     return(

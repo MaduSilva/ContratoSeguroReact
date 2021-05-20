@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import Rodape from '../../../../contratosegurofront/src/Components/Rodape/rodape';
-import Menu from '../../../../contratosegurofront/src/Components/Menu/menu';
-import './loginRecrutado.css';
+import Rodape from '../../../components/rodape/rodape';
+import Menu from '../../../components/menu/menu';
+import './LoginRecrutado.css';
 import Foguete from '../../../assets/img/fuguete.png';
 import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';

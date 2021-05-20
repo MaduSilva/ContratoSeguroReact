@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import Rodape from '../../../../contratosegurofront/src/Components/Rodape/rodape';
-import Menu from '../../../../contratosegurofront/src/Components/Menu/menu';
-import './loginEmpresa.css';
+import Rodape from '../../../components/rodape/rodape';
+import Menu from '../../../components/menu/menu';
+import './LoginEmpresa.css';
 import Foguete from '../../../assets/img/fuguete.png';
 import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';
@@ -16,7 +16,7 @@ const LoginEmpresa = () => {
       <Menu/>
       <Container>
         <div class="loge">
-        <h1>Seja muito bem vindo!</h1>
+        <h1>Seja muito bem <br/> vindo!</h1>
         <ul>
           <li><a><b>+ Praticidade!</b></a></li>
           <li><a><b>+ Rapidez</b></a></li>

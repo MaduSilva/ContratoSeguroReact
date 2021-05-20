@@ -114,7 +114,7 @@ export default function DocFuncionario() {
         <Anexo />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Aqui vamos listar todos os documentos
+        Aqui vamos listar todos os documentos 
       </TabPanel>
       <TabPanel value={value} index={2}>
       Aqui vamos listar os documentos concluídos

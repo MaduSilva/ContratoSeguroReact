@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
 .Log{
     background-color: #0367A6;
     width: 450px;
@@ -12,8 +14,14 @@
     width: 320px;
     text-decoration: black;
     list-style-type: none;
-    
 }
+
+.loge h1{
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 .loge ul{
     margin-top: 80px;
     list-style-type: none;
