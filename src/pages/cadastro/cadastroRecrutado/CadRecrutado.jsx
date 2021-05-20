@@ -5,6 +5,7 @@ import './index.css';
 import { CadastroRec } from '../components/cadastroRecrutado';
 import Menu from "../../../components/menu/menu";
 import barraNome from "../components/barraNome"
+import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 
 //images

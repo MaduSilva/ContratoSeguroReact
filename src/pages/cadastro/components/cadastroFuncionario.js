@@ -139,6 +139,7 @@ export const cadastroFun = () =>  {
                         fullWidth
                         name="pai"
                         fullWidth
+                        
                         />
                    </Grid>
                    <Grid item md={3}>
@@ -149,6 +150,7 @@ export const cadastroFun = () =>  {
                         fullWidth
                         name="mae"
                         fullWidth
+                        
                         />
                    </Grid>
                </Grid>
