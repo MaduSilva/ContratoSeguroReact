@@ -4,12 +4,13 @@ import './CadFuncionario.css';
 //pages
 import { CadastroFuncio } from '../components/cadastroFuncionario';
 import Menu from "../../../components/menu/menu";
+import Rodape from "../../../components/rodape/rodape"
 import barraNome from "../components/barraNome"
 import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 
 //images
-import iconcadastrorecrutado from '../../../img/iconcadastrorecrutado.png'
+import iconcadastrofuncionario from '../../../img/iconcadastrofuncionario.png'
 
 const CadFuncionario = () => {
 
@@ -18,7 +19,8 @@ const CadFuncionario = () => {
     //DEVE TER NOME EMAIL SENHA TELEFONE CPF RG FORMAÇÃO DATA NASCIMENTO TIPO DE USUÁRIO 
 
     
-        
+        <div>
+        <Menu/>
         <div className="container mt-3.bg-white">
             
                 
@@ -27,13 +29,15 @@ const CadFuncionario = () => {
                 <div className="col-md-5">
                     <CadastroFuncio/>
                 </div>
-                
+                <div className="col-md-7">
+                        <img className="img-fluid w-500" src={iconcadastrofuncionario} style={{marginTop: '90px'}} alt="" />
+                    </div>
                     </div>
                 
            
         </div>
-        
-        
+        <Rodape/>
+        </div>
         
     )
 
