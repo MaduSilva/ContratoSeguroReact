@@ -39,7 +39,7 @@ export const CadastroEmpresa = () => {
                 cidade : '',
                 numero : '',
                 bairro : '',
-                data : '',
+                dataAbertura : '',
                 
             }}
             validationSchema={validate}
@@ -75,10 +75,9 @@ export const CadastroEmpresa = () => {
                         <TextField label="Bairro" name="bairro" type="text" />
                         <TextField
                             id="date"
-                            name= "data"
-                            label="Birthday"
-                            name="data"
-                            type="date"
+                            name= "dataAbertura"
+                            label="Data de Abertura"
+                            type="datetime-local"
                             
                             
                            
