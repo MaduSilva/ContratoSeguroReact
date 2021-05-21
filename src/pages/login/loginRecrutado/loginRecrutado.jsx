@@ -68,7 +68,6 @@ const LoginRecrutado = () => {
         <div Class="FundoForm">
           <div class="InputsForm">
             <div>
-
               <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa</b></a>
               <img class="setaEmpresa" src={Seta2} alt="seta" />
             </div>

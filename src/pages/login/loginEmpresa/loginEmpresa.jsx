@@ -1,105 +1,105 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 import Rodape from '../../../components/rodape/rodape';
-import Menu from '../../../components/menu/menu';
+import Menu from '../../../components/menu/menu'
 import './loginEmpresa.css';
 import Foguete from '../../../assets/img/fuguete.png';
 import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';
-import { useHistory } from 'react-router';
-
+import Seta2 from '../../../assets/img/seta2.png';
+import { useFormik } from 'formik';
+import ContaServico from '../loginEmpresa/contaEmpresaServico';
+import { useToasts } from 'react-toast-notifications';
 
 
 
 const LoginEmpresa = () => {
+
   const history = useHistory();
-     const[email , setEmail] = useState('');
-     const[cnpj , setCnpj] = useState('');
-     const[senha, setSenha] = useState('');
 
-     const logar = (event) => {
-      event.preventDefault();
-
-
-      fetch('http://192.168.15.9:5001/api/account/company/signin/empresa',{ 
-         method : 'POST',
-         body : JSON.stringify({
-
-            email: email,
-            senha: senha,
-            cnpj : cnpj,
-
-         }),
-         headers : {
-           'content-type' : 'application/json'
-         }
-         
-
-
-      
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      senha: '',
+      cnpj: '',
+    },
+    onSubmit: (values, { setSubmitting }) => {
+      ContaServico.logar(values)
+        .then(resultado => {
+            console.log(`Resultado ${resultado.data}`)
+            setSubmitting(false);
+            if(resultado.data.sucesso){
+                //mensagem
+                console.log("Logado")
+                //salvar local storage
+                localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+                //redirecionar tela admin
+                history.push('/documentos');
+            } else {
+                alert("Dados Inválidos")
+            }
         })
-        .then(response => {
-          if(response.ok === true){
-            return response.json();
-          }
-          alert('Dados Invalidos');
-          console.log(response);
-        })
-        .then(data =>{
+        .catch(error => console.error(error));
+    },
+});
 
-          localStorage.setItem('ChaveSecretaContratoSeguro', data.token);
-          
-          
-          history.push('/home')
-        })
-        .catch(err => console.error(err));
-      
-    }
-    return (
-     <div class="body">
-      <Menu/>
-      <Container>
-        <div class="loge">
-        <h1>Seja muito bem vindo!</h1>
-        <ul>
-          <li><a><b>+ Praticidade!</b></a></li>
-          <li><a><b>+ Rapidez</b></a></li>
-          <li><a><b>Menos Burocracia!</b></a></li>
-          </ul>
-          <img src={Foguete} className="fog-logo" alt="foguete" />
-        </div>
-      <div Class="Log">
-      <div class="Group">
-      <div>
-      <img class="set" src={Seta} alt="seta" />
-      <a class="vol" href="/"> <b>Voltar</b></a>
-      </div>
-     <div>
-     <Form>
-     <img src={Logo} class="logo-a" alt="logo" />
-     
-     
-     <Form.Group>
-     <Form.Control class="form-control" size="lg" type="email" onChange={ event => setEmail(event.target.value)} value={email} placeholder="Email Comercial" />
-     <br />
-     <Form.Control class="form-control" type="email" value={cnpj} onChange={ event => setCnpj(event.target.value)} placeholder="CNPJ" />
-     <br />
-     <Form.Control class="form-control" size="sm" type="password" value={senha} onChange={ event => setSenha(event.target.value)} placeholder="Senha" />
-     <Button class="Button"variant="primary" onClick={ event => logar(event)}  size="lg" active>
-      Entrar
-     </Button>{' '}
-     <a class="esq"><b>Esqueci a senha!</b></a>
-     </Form.Group>
-     </Form>
-     </div>
-     </div>
-     </div>
-     </Container>
-     <Rodape/>
-     </div>
+
+
+  return (
     
-            
+    <div class="body">
+      <Menu />
+      <Container>
+        <div class="Bemvindo">
+          <h1>Seja muito bem vindo!</h1>
+          <ul>
+            <li><a><b>+ Praticidade!</b></a></li>
+            <li><a><b>+ Rapidez</b></a></li>
+            <li><a><b>Menos burocracia!</b></a></li>
+          </ul>
+          <img src={Foguete} className="foguete-logo" alt="foguete" />
+        </div>
+        <div Class="FormFundo">
+          <div class="FormInputs">
+            <div>
+            <img class="set" src={Seta} alt="seta" />
+              <a class="Logar" href="/"> <b > Voltar </b></a>
+            </div>
+            <div>
+              <Form className='form-signin' onSubmit={formik.handleSubmit} >
+                <img src={Logo} class="logo-a" alt="logo" />
 
-    )
+
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="email" placeholder="EMAIL COMERCIAL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                </Form.Group>
+
+                <Form.Group  controlId="formBasicPassword">
+                 
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                </Form.Group>
+
+                <Form.Group >
+                
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="text" placeholder="CNPJ" name="cnpj" onChange={formik.handleChange} value={formik.values.cnpj} required />
+                </Form.Group>
+
+
+                <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
+                  Entrar
+                    </Button>
+                <br /><br />
+                <a style={{ marginTop: '30px' }}>Esqueci a senha!</a>
+              </Form>
+            </div>
+          </div>
+        </div>
+      </Container>
+      <Rodape />
+    </div>
+
+  )
 }
+
 export default LoginEmpresa;

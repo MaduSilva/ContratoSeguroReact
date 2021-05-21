@@ -82,7 +82,7 @@ export default function Menu() {
         </div>
       );
     }
-    else if (jwt_decode(token).role === '1') {
+    else if (jwt_decode(token).role === '3') {
       return (
         <div>
           <Paper className={classes.root}>
