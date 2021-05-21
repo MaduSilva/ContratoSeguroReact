@@ -5,6 +5,7 @@ import './index.css';
 import { CadastroRec } from '../components/cadastroRecrutado';
 import Menu from "../../../components/menu/menu";
 import barraNome from "../components/barraNome"
+import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 
 //images
@@ -13,7 +14,9 @@ import iconcadastrorecrutado from '../../../img/iconcadastrorecrutado.png'
 const CadRecrutado = () => {
 
     return(
+        <div>
 
+        <Menu/>
 
     
         
@@ -23,6 +26,7 @@ const CadRecrutado = () => {
             <div className="row">
                 
                 <div className="col-md-5">
+                 
                     <CadastroRec/>
                 </div>
                 
@@ -34,7 +38,7 @@ const CadRecrutado = () => {
            
         </div>
         
-        
+        </div>
         
     )
 

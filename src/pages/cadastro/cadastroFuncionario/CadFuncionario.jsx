@@ -56,10 +56,10 @@ function CadFuncionario ()  {
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
-                        label="Nome"
-                        placeholder="Digite o Nome do Funcionario"
+                        label="Nome do funcionário"
                         variant="outlined"
                         type="text"
                         name="nome"
@@ -71,10 +71,10 @@ function CadFuncionario ()  {
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
                         label="Email"
-                        placeholder="Digite o Email do Funcionario"
                         variant="outlined"
                         type="text"
                         name="email"
@@ -84,22 +84,37 @@ function CadFuncionario ()  {
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
                         label="Senha"
-                        placeholder="Digite a Senha do Funcionario"
                         variant="outlined"
                         name="senha"
                         fullWidth
                         />
                    </Grid>
+
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
+                         }}
+                        label="Telefone"
+                        variant="outlined"
+                        fullWidth
+                        name="telefone"
+                        fullWidth
+                        />
+                   </Grid>
+
+                   <Grid item md={3}>
+                       <TextField 
+                        InputLabelProps={{
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
                         label="CPF"
-                        placeholder="Digite o CPF do Funcionario"
                         variant="outlined"
                         fullWidth
                         name="cpf"
@@ -110,10 +125,10 @@ function CadFuncionario ()  {
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
                         label="RG"
-                        placeholder="Digite o RG do Funcionario"
                         variant="outlined"
                         fullWidth
                         name="rg"
@@ -123,103 +138,35 @@ function CadFuncionario ()  {
                    <Grid item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
-                         }}
-                        label="Estado Civil"
-                        placeholder="Digite o Estado Civil do Funcionario"
-                        variant="outlined"
-                        fullWidth
-                        name="estadoCivil"
-                        fullWidth
-                        />
-                    </Grid>
-                   <Grid item md={3}>
-                   <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="age-native-simple">Genero</InputLabel>
-                    <Select
-                    native
-                    inputProps={{
-                        name: 'genero',
-                        id: 'genero',
-                        
-                    }}
-                    >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Masculino</option>
-                    <option value={20}>Feminino</option>
-                    <option value={30}>Prefiro não dizer</option>
-                    </Select>
-                </FormControl>
-                   </Grid>
-                   <Grid item md={3}>
-                       <TextField 
-                        InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
                         label="Formação"
-                        placeholder="Digite a Formação do Funcionario"
                         variant="outlined"
                         fullWidth
                         name="formacao"
                         fullWidth
                         />
                    </Grid>
-                   <Grid item md={3}>
+                 
+                   <Grid  item md={3}>
                        <TextField 
                         InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
+                            style: { fontFamily: 'Comfortaa', marginTop: '-13px' },
+                            shrink: true,
                          }}
-                        label="Telefone"
-                        placeholder="Digite o Telefone do Funcionario"
+                        label="Nascimento"
                         variant="outlined"
                         fullWidth
-                        name="telefone"
-                        fullWidth
-                        />
-                   </Grid>
-                   <Grid item md={3}>
-                       <TextField 
-                        InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
-                         }}
-                        label="Endereço"
-                        placeholder="Digite o Endereço do Funcionario"
-                        variant="outlined"
-                        fullWidth
-                        name="endereco"
-                        fullWidth
-                        />
-                   </Grid>
-                   <Grid item md={3}>
-                       <TextField 
-                        InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
-                         }}
-                        label="Pai"
-                        placeholder="Digite o Nome do Pai do Funcionario"
-                        variant="outlined"
-                        fullWidth
-                        name="pai"
-                        fullWidth
-                        />
-                   </Grid>
-                   <Grid item md={3}>
-                       <TextField 
-                        InputLabelProps={{
-                            style: { fontFamily: 'Comfortaa' }
-                         }}
-                        label="Mãe"
-                        placeholder="Digite o Nome da Mãe do Funcionario"
-                        variant="outlined"
-                        fullWidth
-                        name="mae"
+                        name="nasicmento"
+                        type="date"
                         fullWidth
                         />
                    </Grid>
                </Grid>
                <div className="button" >
-                        <Button className="botoes" variant="contained" type="reset" color="disabled">Cancelar</Button>
-                        <Button  variant="contained" type="submit" color="primary" >Enviar</Button>
+                        <button className="btn btn-dark mt-3" >Cancelar</button>
+                        <button className="btn btn-primary mt-3" type="submit" >Enviar</button>
                 </div>
            </Paper>
           

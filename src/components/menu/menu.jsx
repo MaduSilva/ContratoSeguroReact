@@ -67,13 +67,16 @@ export default function Menu() {
             <Tabs
               value={value}
               onChange={handleChange}
-              TabIndicatorProps={{ style: { backgroundColor: "#011826", marginTop: '30px'} }}
+              TabIndicatorProps={{ style: {display: 'none'} }}
               textColor="inherit"
               centered
             >
 
               <Tab label="Home" />
-              <Tab label="Cadastro" />
+              <Tab href="/cadastrorec" label="Cad Recrutado" />
+              <Tab href="/cadastrofunc" label="Cad Funcionario" />
+              <Tab href="/cadastroemp" label="Cad Empresa" />
+
               <Tab href="/documentos" label="Documentos" />
 
               <a className="exit" fontSize="large" href="/">Login</a>
@@ -89,7 +92,7 @@ export default function Menu() {
             <Tabs
               value={value}
               onChange={handleChange}
-              TabIndicatorProps={{ style: { backgroundColor: "#011826", } }}
+              TabIndicatorProps={{ style: {  } }}
               textColor="inherit"
               centered
             >

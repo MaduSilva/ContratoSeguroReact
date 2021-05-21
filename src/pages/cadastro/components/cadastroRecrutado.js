@@ -6,6 +6,9 @@ import * as Yup from 'yup';
 import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import {  withStyles } from '@material-ui/core/styles';
+import RecrutadoServico from "../../../servicos/RecrutadoServico";
+import { div } from 'prelude-ls';
+
 
 export const CadastroRec = () => {
 
@@ -15,7 +18,7 @@ export const CadastroRec = () => {
             .max(15, 'Mais de 15 carcteries')
             .required('Required'),
         email: Yup.string()
-            .max(15, 'Mais de 15 carcteries')
+            .max(30, 'Mais de 15 carcteries')
             .required('email is Required'),
         cpf: Yup.string()
             .max(15, 'Mais de 15 carcteries')
@@ -26,16 +29,29 @@ export const CadastroRec = () => {
     })
     return(
         
+             
         <Formik
             initialValues={{
                 nome: '',
                 email: '',
-                cpf: '',
                 senha: '',
+                telefone:'',
+                cpf: '',
+                tipoUsuario: '1',
+                
             }}
             validationSchema={validate}
             onSubmit={values => {
-                console.log(values)
+                alert(JSON.stringify(values))
+                RecrutadoServico
+                    .cadastrar(values)
+                    .then(resultado => resultado.json())
+                    .then(resultado => {
+                        console.log(JSON.stringify(resultado))
+                    })
+                    .catch(erro => {
+                        console.error(" Erro na api " + erro);
+                    })
             }}
         >
             {formik => (
@@ -45,12 +61,16 @@ export const CadastroRec = () => {
                     <Form className='imputs'>
                         <TextField label="Nome" name="nome" type="text" />
                         <TextField label="Email" name="email" type="email" />
-                        <TextField label="CPF" name="cpf" type="cpf" />
                         <TextField label="Senha" name="senha" type="password" />
+                        <TextField label="Telefone" name="telefone" type="text" />
+                        <TextField label="CPF" name="cpf" type="cpf" />
+                        
+                        
+                        
                         
                         <div className="botoes">
-                            <Button className="button1" variant="contained" type="reset" >Cancelar</Button>
-                            <Button variant="contained" color="primary" type="submit">Enviar</Button>
+                        <button className="btn btn-dark mt-3" type="reset" >Cancelar</button>
+                        <button className="btn btn-primary mt-3" type="submit" value='Submit' >Enviar</button>
                             
                         </div>
                     </Form>
@@ -58,6 +78,5 @@ export const CadastroRec = () => {
             )}
         </Formik>
             
-        
     )
 }

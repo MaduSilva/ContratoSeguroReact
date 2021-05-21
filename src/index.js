@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 //Páginas
 import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario';
 import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
+import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
@@ -73,18 +74,19 @@ const routing = (
       <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
 
       {/* <RotaRecrutado path='/1/dashboard' component={DashboardRec} /> */}
-      <RotaRecrutado path='/1/documentos' component={DocRecrutado} />
+      {/* <RotaRecrutado path='/documentos' component={DocRecrutado} /> */}
       {/* <RotaRecrutado path='/1/chat' component={Chat} /> */}
       {/* <RotaRecrutado path='/1/Perfil' component={PerfilRec} /> */}
 
       {/* <RotaFuncionario path='/2/dashboard' component={DashboardFunc} /> */}
       <RotaNaoCadastrado path='/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/2/chat' component={Chat} /> */}
-      <RotaFuncionario path='/2/Cadastro' component={CadRecrutado} />
+      <RotaNaoCadastrado path='/Cadastrorec' component={CadRecrutado} />
       {/* <RotaFuncionario path='/2/Perfil' component={PerfilFunc} /> */}
  
       {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
-      <RotaEmpresa path='/3/cadastro' component={CadFuncionario} />
+      <RotaNaoCadastrado path='/cadastrofunc' component={CadFuncionario} />
+      <RotaNaoCadastrado path='/cadastroemp' component={CadEmpresa} />
       {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
      
       {/* <Route component ={NotFound}/> */}

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 import Rodape from '../../../components/rodape/rodape';
 import Menu from '../../../components/menu/menu'
-import './loginEmpresa.css';
+import './LoginEmpresa.css';
 import Foguete from '../../../assets/img/fuguete.png';
 import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';

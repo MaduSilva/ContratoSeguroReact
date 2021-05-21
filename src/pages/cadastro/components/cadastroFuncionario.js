@@ -139,6 +139,7 @@ export const cadastroFun = () =>  {
                         fullWidth
                         name="pai"
                         fullWidth
+                        
                         />
                    </Grid>
                    <Grid item md={3}>
@@ -149,11 +150,12 @@ export const cadastroFun = () =>  {
                         fullWidth
                         name="mae"
                         fullWidth
+                        
                         />
                    </Grid>
                </Grid>
                <div className="botoes">
-                        <button className="btn btn-dark mt-3" type="reset">Cancelar</button>
+                        <button className="btn btn-dark mt-3" >Cancelar</button>
                         <button className="btn btn-primary mt-3" type="submit" onClick={addUser}>Enviar</button>
             </div>
            </Paper>
