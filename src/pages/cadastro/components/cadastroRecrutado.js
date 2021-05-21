@@ -48,6 +48,7 @@ export const CadastroRec = () => {
                     .then(resultado => resultado.json())
                     .then(resultado => {
                         console.log(JSON.stringify(resultado))
+                        alert('Usuário Cadastrado, confira email')
                     })
                     .catch(erro => {
                         console.error(" Erro na api " + erro);
