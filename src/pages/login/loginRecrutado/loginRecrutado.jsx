@@ -9,13 +9,13 @@ import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
-
+import ContaServico from '../loginRecrutado/contaservico';
+import { useToasts } from 'react-toast-notifications';
 
 
 
 const LoginRecrutado = () => {
 
-  const { addToast } = useToasts();
   const history = useHistory();
 
   const formik = useFormik({
@@ -24,71 +24,79 @@ const LoginRecrutado = () => {
       senha: '',
       cpf: '',
     },
-    onSubmit: (values, { setSubmitting }) => {
-      ContaServico.logar(values)
+    onSubmit: (values) => {
+
+      ContaServico
+        .logar(values)
+        .then(resultado => resultado.json())
         .then(resultado => {
-          console.log(`Resultado ${resultado.data}`)
-          setSubmitting(false);
-          if (resultado.data.sucesso) {
+
+          if (resultado.sucesso) {
             //mensagem
-            addToast(resultado.data.mensagem, {
-              appearance: 'success',
-              autoDismiss: true,
-            })
+            alert("sucesso")
             //salvar local storage
-            localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+            localStorage.setItem('token-contratoseguro', resultado.data.token)
             //redirecionar tela admin
             history.push('/2/documentos');
           } else {
-            addToast(resultado.data.mensagem, {
-              appearance: 'error',
-              autoDismiss: true,
-            })
+            alert("erro")
           }
         })
-        .catch(error => console.error(error));
-    },
-  });
+        .catch(error => {
+          console.error('API ERROR' + error);
+        })
+      
+      }
+
+    });
+
 
   return (
+    
     <div class="body">
       <Menu />
       <Container>
-        <div class="loge1">
+        <div class="FundoInfo">
           <h1>Seja muito bem vindo recrutado!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
             <li><a><b>+ Rapidez</b></a></li>
-            <li><a><b>Menos Burocracia!</b></a></li>
+            <li><a><b>Menos burocracia!</b></a></li>
           </ul>
-          <img src={Foguete} className="fog-logo" alt="foguete" />
+          <img src={Foguete} className="foguete-logo" alt="foguete" />
         </div>
-        <div Class="Log1">
-          <div class="Group1">
+        <div Class="FundoForm">
+          <div class="InputsForm">
             <div>
 
-              <a class="vol1" href="/loginemp"> <b > Logar como empresa</b></a>
-              <img class="set1" src={Seta2} alt="seta" />
+              <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa</b></a>
+              <img class="setaEmpresa" src={Seta2} alt="seta" />
             </div>
             <div>
-              <Form className='form-signin'  >
+              <Form className='form-signin' onSubmit={formik.handleSubmit} >
                 <img src={Logo} class="logo-a" alt="logo" />
 
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email </Form.Label>
-                  <Form.Control type="email" placeholder="Informe o email" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Senha</Form.Label>
-                  <Form.Control type="password" placeholder="Senha" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                <Form.Group  controlId="formBasicPassword">
+                 
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
                 </Form.Group>
-                <Button variant="primary" type="submit" disabled={!formik.isValid || formik.isSubmitting}>
-                  Enviar
+
+                <Form.Group >
+                
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
+                </Form.Group>
+
+
+                <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
+                  Entrar
                     </Button>
                 <br /><br />
-                <a  style={{ marginTop: '30px' }}>Esqueci a senha!</a>
+                <a style={{ marginTop: '30px' }}>Esqueci a senha!</a>
               </Form>
             </div>
           </div>
@@ -97,8 +105,7 @@ const LoginRecrutado = () => {
       <Rodape />
     </div>
 
-
-
   )
 }
+
 export default LoginRecrutado;

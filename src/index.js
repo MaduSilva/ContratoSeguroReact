@@ -36,7 +36,7 @@ const RotaRecrutado = ({component : Component, ...rest}) => (
     render = { props => 
       token !== null && jwt_decode(token).role === '1' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/', state :{from : props.location}}} /> 
     }
   />
 );
@@ -48,7 +48,7 @@ const RotaFuncionario = ({component : Component, ...rest}) => (
     render = { props => 
       token !== null && jwt_decode(token).role === '2' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/2/documentos', state :{from : props.location}}} /> 
     }
   />
 );
@@ -60,7 +60,7 @@ const RotaEmpresa = ({component : Component, ...rest}) => (
     render = { props => 
       token !== null && jwt_decode(token).role === '3' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/3/cadastro', state :{from : props.location}}} /> 
     }
   />
 );
@@ -78,7 +78,7 @@ const routing = (
       {/* <RotaRecrutado path='/1/Perfil' component={PerfilRec} /> */}
 
       {/* <RotaFuncionario path='/2/dashboard' component={DashboardFunc} /> */}
-      <RotaFuncionario path='/2/documentos' component={PagDocFunc} />
+      <RotaNaoCadastrado path='/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/2/chat' component={Chat} /> */}
       <RotaFuncionario path='/2/Cadastro' component={CadRecrutado} />
       {/* <RotaFuncionario path='/2/Perfil' component={PerfilFunc} /> */}

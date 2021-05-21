@@ -29,6 +29,18 @@ const useStyles = makeStyles({
 
 export default function Menu() {
 
+  function LinkTab(props) {
+    return (
+      <Tab
+        component="a"
+        onClick={(event) => {
+          event.preventDefault();
+        }}
+        {...props}
+      />
+    );
+  }
+
   //style
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -55,15 +67,14 @@ export default function Menu() {
             <Tabs
               value={value}
               onChange={handleChange}
-              TabIndicatorProps={{ style: { backgroundColor: "#011826", } }}
+              TabIndicatorProps={{ style: { backgroundColor: "#011826", marginTop: '30px'} }}
               textColor="inherit"
               centered
             >
 
               <Tab label="Home" />
-              <Tab label="O que é" />
-              <Tab label="Planos" />
-              <Tab label="Fale com a gente" />
+              <Tab label="Cadastro" />
+              <Tab href="/documentos" label="Documentos" />
 
               <a className="exit" fontSize="large" href="/">Login</a>
             </Tabs>
