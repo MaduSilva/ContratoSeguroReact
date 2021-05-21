@@ -9,7 +9,7 @@ import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 
 //images
-import iconcadastrorecrutado from '../../../img/iconcadastrorecrutado.png'
+import iconcadastrorecrutado from '../../../assets/img/iconcadastrorecrutado.png'
 
 const CadRecrutado = () => {
 

@@ -72,8 +72,8 @@ const routing = (
     <Switch>
       <Route exact path='/' component={Home} />
       {/* <RotaNaoCadastrado path='/loginrec' component ={LoginRecrutado}/> */}
-      <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
-      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
+      <Route path='/login' component ={LoginRecrutado}/>
+      <Route path='/loginemp' component ={LoginEmpresa}/>
 
       {/* <RotaRecrutado path='/1/dashboard' component={DashboardRec} /> */}
       {/* <RotaRecrutado path='/documentos' component={DocRecrutado} /> */}
@@ -81,14 +81,14 @@ const routing = (
       {/* <RotaRecrutado path='/1/Perfil' component={PerfilRec} /> */}
 
       {/* <RotaFuncionario path='/2/dashboard' component={DashboardFunc} /> */}
-      <RotaNaoCadastrado path='/documentos' component={PagDocFunc} />
+      <Route path='/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/2/chat' component={Chat} /> */}
-      <RotaNaoCadastrado path='/Cadastrorec' component={CadRecrutado} />
+      <Route path='/Cadastrorec' component={CadRecrutado} />
       {/* <RotaFuncionario path='/2/Perfil' component={PerfilFunc} /> */}
  
       {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
-      <RotaNaoCadastrado path='/cadastrofunc' component={CadFuncionario} />
-      <RotaNaoCadastrado path='/cadastroemp' component={CadEmpresa} />
+      <Route path='/cadastrofunc' component={CadFuncionario} />
+      <Route path='/cadastroemp' component={CadEmpresa} />
       {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
      
       {/* <Route component ={NotFound}/> */}

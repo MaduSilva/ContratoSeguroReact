@@ -9,12 +9,6 @@ import Tab from '@material-ui/core/Tab'
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-//jwt
-import jwt_decode from 'jwt-decode'
-
-//react router dom
-import { useHistory } from 'react-router-dom'
-
 //imagens 
 import logo from '../../assets/img/logo-brq.png';
 
@@ -26,22 +20,7 @@ const useStyles = makeStyles({
   }
 });
 
-
 export default function Menu() {
-
-  function LinkTab(props) {
-    return (
-      <Tab
-        component="a"
-        onClick={(event) => {
-          event.preventDefault();
-        }}
-        {...props}
-      />
-    );
-  }
-
-  //style
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -49,83 +28,33 @@ export default function Menu() {
     setValue(newValue);
   };
 
-  //jwt login
-  const history = useHistory();
-  const sair = (event) => {
-    event.preventDefault();
-    localStorage.removeItem('token-contratoseguro');
-    history.push('/');
-  }
 
-  const renderMenu = () => {
-    const token = localStorage.getItem('token-contratoseguro')
 
-    if (token === null) {
-      return (
-        <div>
-          <Paper className={classes.root}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              TabIndicatorProps={{ style: {display: 'none'} }}
-              textColor="inherit"
-              centered
-            >
+  return (
+    <div>
+      <img src={logo} className="nav-logo" alt="logo brq" />
 
-              <Tab label="Home" />
-              <Tab href="/cadastrorec" label="Cad Recrutado" />
-              <Tab href="/cadastrofunc" label="Cad Funcionario" />
-              <Tab href="/cadastroemp" label="Cad Empresa" />
+      <Paper className={classes.root}>
 
-              <Tab href="/documentos" label="Documentos" />
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          TabIndicatorProps={{ style: {display: 'none'} }}
+          textColor="inherit"
+          centered
+        >
 
-              <a className="exit" fontSize="large" href="/">Login</a>
-            </Tabs>
-          </Paper>
-        </div>
-      );
-    }
-    else if (jwt_decode(token).role === '3') {
-      return (
-        <div>
-          <Paper className={classes.root}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              TabIndicatorProps={{ style: {  } }}
-              textColor="inherit"
-              centered
-            >
+          <Tab href="/" label="Home" />
+          <Tab href="/cadastrorec" label="Cad Recrutado" />
+          <Tab href="/cadastrofunc" label="Cad Funcionario" />
+          <Tab href="/cadastroemp" label="Empresa" />
+          <Tab href="/documentos" label="Documentos" />
+          
 
-              <Tab label="Dashboard" />
-              <Tab label="Documentos" />
-              <Tab label="Chat" />
-              <Tab label="Cadastro" />
-              <Tab label="Perfil" />
+          <a className="exit" fontSize="large" href="/login">Login</a>
 
-              {/* Icone notificação */}
-              <NotificationsIcon className="notification" />
-
-              {/* Icone Usuario */}
-              <div className="user" alt="icon user">
-
-                {/* Icone sair */}
-                <ExitToAppIcon className="exit" fontSize="large" />
-             
-        </div>
         </Tabs>
-        </Paper>
-        </div>
-    );
-    }
-  }
-
-    return (
-          <div>
-            <img src={logo} className="nav-logo" alt="logo brq" />
-
-            {renderMenu()}
-          </div>
-    );
-
-    }
+      </Paper>
+    </div>
+  );
+}

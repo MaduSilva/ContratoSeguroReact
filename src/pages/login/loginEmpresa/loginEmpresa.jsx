@@ -64,7 +64,7 @@ const LoginEmpresa = () => {
           <div class="FormInputs">
             <div>
             <img class="set" src={Seta} alt="seta" />
-              <a class="Logar" href="/"> <b > Voltar </b></a>
+              <a class="Logar" href="/login"> <b > Voltar </b></a>
             </div>
             <div>
               <Form className='form-signin' onSubmit={formik.handleSubmit} >
@@ -72,7 +72,7 @@ const LoginEmpresa = () => {
 
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="email" placeholder="EMAIL COMERCIAL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
                 <Form.Group  controlId="formBasicPassword">

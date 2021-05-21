@@ -10,7 +10,7 @@ import barraNome from "../components/barraNome"
 
 
 //images
-import iconcadastroempresa from '../../../img/iconcadastroempresa.png'
+import iconcadastroempresa from '../../../assets/img/iconcadastroempresa.png'
 
 const CadEmpresa = () => {
 
