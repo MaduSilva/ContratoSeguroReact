@@ -24,31 +24,25 @@ const LoginRecrutado = () => {
       senha: '',
       cpf: '',
     },
-    onSubmit: (values) => {
-
-      ContaServico
-        .logar(values)
-        .then(resultado => resultado.json())
+    onSubmit: (values, { setSubmitting }) => {
+      ContaServico.logar(values)
         .then(resultado => {
-
-          if (resultado.sucesso) {
-            //mensagem
-            alert("sucesso")
-            //salvar local storage
-            localStorage.setItem('token-contratoseguro', resultado.data.token)
-            //redirecionar tela admin
-            history.push('/2/documentos');
-          } else {
-            alert("erro")
-          }
+            console.log(`Resultado ${resultado.data}`)
+            setSubmitting(false);
+            if(resultado.data.sucesso){
+                //mensagem
+                console.log("Logado")
+                //salvar local storage
+                localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+                //redirecionar tela admin
+                history.push('/documentos');
+            } else {
+                alert("Dados Inválidos")
+            }
         })
-        .catch(error => {
-          console.error('API ERROR' + error);
-        })
-      
-      }
-
-    });
+        .catch(error => console.error(error));
+    },
+});
 
 
   return (

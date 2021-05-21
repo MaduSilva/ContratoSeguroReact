@@ -1,5 +1,5 @@
 const cadastrar = dados => {
-    return fetch("https://192.168.0.3:5001/api/account/company/signup", {
+    return fetch("https://localhost:5001/api/account/company/signup", {
         method:'POST',
         body : JSON.stringify(dados),
         headers : {
