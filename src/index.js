@@ -14,6 +14,7 @@ import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
+import Home from './pages/home/home'
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -69,8 +70,9 @@ const RotaEmpresa = ({component : Component, ...rest}) => (
 const routing = (
   <Router>
     <Switch>
-      <Route exact path='/' component={LoginRecrutado} />
+      <Route exact path='/' component={Home} />
       {/* <RotaNaoCadastrado path='/loginrec' component ={LoginRecrutado}/> */}
+      <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
       <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
 
       {/* <RotaRecrutado path='/1/dashboard' component={DashboardRec} /> */}
