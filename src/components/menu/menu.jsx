@@ -65,13 +65,13 @@ export default function Menu() {
               <Tab label="Planos" />
               <Tab label="Fale com a gente" />
 
-              <a className="exit" fontSize="large" href="/loginemp">Login</a>
+              <a className="exit" fontSize="large" href="/">Login</a>
             </Tabs>
           </Paper>
         </div>
       );
     }
-    else if (jwt_decode(token).role === 'Admin') {
+    else if (jwt_decode(token).role === '1') {
       return (
         <div>
           <Paper className={classes.root}>
