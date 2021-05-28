@@ -4,26 +4,30 @@ import Rodape from '../../components/rodape/rodape'
 import { Container, Carousel, Row, Col, Image, Card, Button, Nav, CardImg } from 'react-bootstrap';
 import './home.css'
 
+//importando banner
+import banner2 from '../../assets/img/banner2.png'
+import banner1 from '../../assets/img/banner1.png'
+
 const Home = () => {
     return (
         <div>
             <Menu />
 
-            <div style={{ backgroundColor: "#dcdcdc", width: "" }}>
+            <div id="fundo">
                 <Carousel>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://static.vagas.com.br/portais-de-carreira/images/components/galleries/original/vem-pra-brq-vagas-de-emprego-trabalhe-conosco-1.png?1570805928"
-                            alt="First slide"
+                            src={banner1}
+                            alt="banner brq"
                         />
                        
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://dtpr0iglcwflm.cloudfront.net/profissoes/wp-content/uploads/2020/07/vagas-na-BRQ-img-e1595932519589.png"
-                            alt="Second slide"
+                            src={banner2}
+                            alt="banner brq"
                         />
 
                         
@@ -31,7 +35,7 @@ const Home = () => {
                    
                 </Carousel>
 
-                <h1 style={{ display: "flex", justifyContent: "center", marginTop: "20px", fontWeight: "bold", color: "#011826", fontSize: "50px" }}>Seja bem vindo ao Lorem! </h1>
+                <h1 id="oquee" style={{ display: "flex", justifyContent: "center", marginTop: "20px", fontWeight: "bold", color: "#011826", fontSize: "50px", textAlign: 'center' }}>Seja bem vindo ao Lorem! </h1>
 
                 <h1 style={{ marginLeft: "7.8em", marginRight: "7.8em", fontFamily: "Comfortaa", fontSize: '30px', marginTop: "20px", marginBottom: "25px", textAlign: "center", color: "#000000" }}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec diam diam. Vivamus sed dignissim metus,
             mollis ultrices ante. Vivamus eget imperdiet purus. Sed eget molestie nisi. Integer faucibus non odio et fermentum. Proin sem risus, imperdiet eu dictum viverra, semper ac urna. Aenean non viverra nunc, nec posuere nulla. Pellentesque pellentesque pellentesque urna</h1>
@@ -71,7 +75,7 @@ const Home = () => {
                 <hr style={{ boxSizing: "border-box", width: "88%", marginRight: "6px" }} />
 
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginRight: "6em", marginLeft: "6em", marginTop: "50px" }}>
+                <div id="planos" style={{ display: "flex", justifyContent: "space-between", marginRight: "6em", marginLeft: "6em", marginTop: "50px" }}>
 
                     <div style={{ marginRight: "10px", backgroundColor: "#C4C4C4", height: "400px", width: "850px", marginRight: "4em" }}>
 
@@ -114,7 +118,7 @@ const Home = () => {
 
 
                 {/* Redes Sociais */}
-                <div style={{ display: "flex", marginLeft: "100px", marginTop: "85px" }}>
+                <div id="faleconosco" style={{ display: "flex", marginLeft: "100px", marginTop: "85px" }}>
 
                     <div style={{ height: "400px", width: "850px", marginRight: "4em" }}>
 

@@ -1,39 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-.MuiTab-wrapper {
-	font-family: 'Comfortaa', cursive;
-	text-transform: none;
-	font-weight: bold;
-}
 
-.nav-logo {
-	width: 100px;
-	position: absolute;
-	left: 140px;
-	top: -3px;
+.navbar-dark .navbar-nav .nav-link{
+	color: black;
 }
+  .nav-logo {
+	  float: left !important;
+	  width: 100px;
+	}
 
-.notification {
-	position: relative;
-	left: 100px;
-	margin-top: 15px;
-}
+  #navstyle{
+	  color: black;
+	  font-family: 'Comfortaa';
+	  margin-left: 10px;
+  }
 
-.exit {
-	position: relative;
-	left: 120px;
-	margin-top: 10px;
-}
-
-.user {
-	width: 50px;
-	height: 50px;
-	background-color: red;
-	border-radius: 100px;
-	margin-bottom: 5px;
-	margin-top: 5px;
-	background-size: cover;
-	position: relative;
-	left: 100px;
-	margin-left: 10px;
-	background-image: url("https://mediastorage.cnnbrasil.com.br/IMAGES/00/00/03/32221_45DAACE5110A05A0.jpeg");
+  #navstyle2{
+	color: black;
+	font-family: 'Comfortaa';
 }

@@ -84,7 +84,7 @@ export const CadastroFuncio = () => {
                         
                         <div className="botoes">
                         <button className="btn btn-dark mt-3" type="reset" >Cancelar</button>
-                        <button className="btn btn-primary mt-3" type="submit" value='Submit' >Enviar</button>
+                        <button className="btn btn-primary mt-3" type="submit" value='Submit' >Cadastrar</button>
                             
                         </div>
                     </Form>
