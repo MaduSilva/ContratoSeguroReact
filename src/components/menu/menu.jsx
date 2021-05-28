@@ -50,7 +50,7 @@ export default function Menu() {
           <Tab href="/cadastroemp" label="Empresa" />
           <Tab href="/documentos" label="Documentos" />
           <Tab href="/perfilemp" label="Perfil"/>
-          
+          <Tab href="/perfilrec" label="Perfil2"/>
 
           <a className="exit" fontSize="large" href="/login">Login</a>
 

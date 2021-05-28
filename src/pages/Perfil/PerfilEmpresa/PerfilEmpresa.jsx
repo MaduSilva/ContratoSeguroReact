@@ -2,7 +2,6 @@ import React from 'react';
 import Rodape from '../../../components/rodape/rodape';
 import Menu from '../../../components/menu/menu'
 import jwt_decode from 'jwt-decode';
-import './PerfilEmpresa.css';
 import { Button,Form, Col, Container, Row } from 'react-bootstrap';
 import Empresa from '../../../assets/img/fabrica.png'
 import { Height } from '@material-ui/icons';
@@ -25,8 +24,8 @@ const PerfilEmpresa = () => {
             </div>
             <div style={{display:"flex", marginTop:"50px"}}>
             <div>
-                <div style={{width: "200px", marginLeft: "120px", boxShadow:"1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px"}}>{nomeEmpresa}Nome Da Empresa</h1>
+                <div style={{width: "200px", marginLeft: "120px", boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
+                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeEmpresa}Nome Da Empresa</h1>
                 </div>
                 <div className="mb-2" style={{marginLeft:"105px", marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">

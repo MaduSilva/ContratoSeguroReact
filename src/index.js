@@ -16,6 +16,7 @@ import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import PerfilEmpresa from './pages/Perfil/PerfilEmpresa/PerfilEmpresa';
 import Home from './pages/home/home'
+import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado';
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -80,7 +81,7 @@ const routing = (
       {/* <RotaRecrutado path='/documentos' component={DocRecrutado} /> */}
       {/* <RotaRecrutado path='/1/chat' component={Chat} /> */}
       {/* <RotaRecrutado path='/1/Perfil' component={PerfilRec} /> */}
-
+      <Route path='/perfilrec' component={PerfilRecrutado}/>
       {/* <RotaFuncionario path='/2/dashboard' component={DashboardFunc} /> */}
       <Route path='/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/2/chat' component={Chat} /> */}
