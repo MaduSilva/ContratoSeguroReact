@@ -49,6 +49,7 @@ export default function Menu() {
           <Tab href="/cadastrofunc" label="Cad Funcionario" />
           <Tab href="/cadastroemp" label="Empresa" />
           <Tab href="/documentos" label="Documentos" />
+          <Tab href="/listagemEmp" label="Lista Empresa" />
           
 
           <a className="exit" fontSize="large" href="/login">Login</a>

@@ -11,6 +11,7 @@ import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario'
 import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
+import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa';
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
@@ -89,6 +90,7 @@ const routing = (
       {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
       <Route path='/cadastrofunc' component={CadFuncionario} />
       <Route path='/cadastroemp' component={CadEmpresa} />
+      <Route path='/listagemEmp' component={ListEmpresa} />
       {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
      
       {/* <Route component ={NotFound}/> */}
