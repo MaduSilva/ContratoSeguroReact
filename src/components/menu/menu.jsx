@@ -23,6 +23,7 @@ const Menu = () => {
            <Nav.Link className='hover' id="navstyle" href="#oquee">O que é</Nav.Link>
            <Nav.Link className='hover' id="navstyle" href="#planos">Planos</Nav.Link>
           <Nav.Link className='hover'  id="navstyle" href="#faleconosco">Fale conosco</Nav.Link>
+          <Nav.Link className='hover'  id="navstyle" href="/dashboard">Dashboard Funcionario</Nav.Link>
         
         </Nav>
       );

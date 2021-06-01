@@ -11,7 +11,9 @@ import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario'
 import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
+import DashbordFuncionario from './pages/dashboard/dashboard'
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
+
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import Home from './pages/home/home'
@@ -74,13 +76,14 @@ const routing = (
       <Route exact path='/' component={Home} />
       <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
       <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
+      <RotaNaoCadastrado path='/dashboard' component={DashbordFuncionario} />  
 
       {/* <RotaRecrutado path='/recrutado/dashboard' component={DashboardRec} />  */}
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
       {/* <RotaRecrutado path='/recrutado/chat' component={Chat} /> */}
       {/* <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRec} /> */}
 
-      {/* <RotaFuncionario path='/funcionario/dashboard' component={DashboardFunc} />  */}
+       {/* <RotaFuncionario path='/funcionario/dashboard' component={DashboardFuncionario} />   */}
       <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/funcionario/chat' component={Chat} /> */}
       <RotaFuncionario path='/funcionario/Cadastrorec' component={CadRecrutado} />

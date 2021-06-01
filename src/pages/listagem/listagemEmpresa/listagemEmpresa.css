@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
+.containerP{
+    width: 100%;
+    background-color: #011826;
+    display: flex;
+}
+
+.perfilRecrutado{
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Inicial{
+    margin-left: 30px;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffff;
+}
+.fotoetexto{
+    display: flex;
+    justify-content:flex-start;
+    width: 100%;
+    margin-left: 90px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.Titulo{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.listagem{
+    display: flex;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 50px;
+}
+
+.info{
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.funcao{
+    display: flex;
+    justify-content: space-between;
+}
+
+.telefone{
+    margin-left: 20px;
+}
+
+.btn-icon{
+    padding: 8px;
+
+}
+
+.IconButton{
+    width: 30px;
+    height: 30px;
+}
+
+.listagem{
+    background-color: #C4C4C4;
+    
+   
+}
+
+
+.buttom{
+    margin-left: -14px;
+}
+
+.barra{
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-left: 500px;
+}
+
+.InputBase{
+    background-color: #ffff;
+}

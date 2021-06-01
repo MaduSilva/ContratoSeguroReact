@@ -102,4 +102,6 @@ const LoginRecrutado = () => {
   )
 }
 
+
+
 export default LoginRecrutado;
