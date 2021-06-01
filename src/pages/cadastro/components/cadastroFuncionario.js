@@ -36,8 +36,8 @@ export const CadastroFuncio = () => {
                 cpf: '',
                 rg :'',
                 formacao :'',
-                data:'',
-                tipoUsuario: '2',
+                data: '',
+                tipo: '2',
                 
             }}
             validationSchema={validate}

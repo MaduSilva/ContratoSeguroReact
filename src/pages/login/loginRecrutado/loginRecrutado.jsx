@@ -25,7 +25,7 @@ const LoginRecrutado = () => {
       cpf: '',
     },
     onSubmit: (values, { setSubmitting }) => {
-      ContaServico.logar(values)
+        ContaServico.logar(values)
         .then(resultado => {
             console.log(`Resultado ${resultado.data}`)
             setSubmitting(false);
@@ -35,13 +35,14 @@ const LoginRecrutado = () => {
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/documentos');
+                history.push('/');
             } else {
                 alert("Dados Inválidos")
             }
         })
         .catch(error => console.error(error));
-    },
+    }
+      
 });
 
 

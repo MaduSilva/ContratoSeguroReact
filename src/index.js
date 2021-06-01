@@ -15,6 +15,7 @@ import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import Home from './pages/home/home'
+import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -36,9 +37,9 @@ const RotaRecrutado = ({component : Component, ...rest}) => (
   <Route
     {...rest}
     render = { props => 
-      token !== null && jwt_decode(token).role === '1' ?
+      token !== null && jwt_decode(token).role === 'recrutado' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
@@ -48,9 +49,9 @@ const RotaFuncionario = ({component : Component, ...rest}) => (
   <Route
     {...rest}
     render = { props => 
-      token !== null && jwt_decode(token).role === '2' ?
+      token !== null && jwt_decode(token).role === 'funcionario' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/2/documentos', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
@@ -60,9 +61,9 @@ const RotaEmpresa = ({component : Component, ...rest}) => (
   <Route
     {...rest}
     render = { props => 
-      token !== null && jwt_decode(token).role === '3' ?
+      token !== null && jwt_decode(token).role === 'Empresa' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/3/cadastro', state :{from : props.location}}} /> 
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
@@ -71,27 +72,26 @@ const routing = (
   <Router>
     <Switch>
       <Route exact path='/' component={Home} />
-      {/* <RotaNaoCadastrado path='/loginrec' component ={LoginRecrutado}/> */}
-      <Route path='/login' component ={LoginRecrutado}/>
-      <Route path='/loginemp' component ={LoginEmpresa}/>
+      <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
+      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
 
-      {/* <RotaRecrutado path='/1/dashboard' component={DashboardRec} /> */}
-      {/* <RotaRecrutado path='/documentos' component={DocRecrutado} /> */}
-      {/* <RotaRecrutado path='/1/chat' component={Chat} /> */}
-      {/* <RotaRecrutado path='/1/Perfil' component={PerfilRec} /> */}
+      {/* <RotaRecrutado path='/recrutado/dashboard' component={DashboardRec} />  */}
+      <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
+      {/* <RotaRecrutado path='/recrutado/chat' component={Chat} /> */}
+      {/* <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRec} /> */}
 
-      {/* <RotaFuncionario path='/2/dashboard' component={DashboardFunc} /> */}
-      <Route path='/documentos' component={PagDocFunc} />
-      {/* <RotaFuncionario path='/2/chat' component={Chat} /> */}
-      <Route path='/Cadastrorec' component={CadRecrutado} />
-      {/* <RotaFuncionario path='/2/Perfil' component={PerfilFunc} /> */}
+      {/* <RotaFuncionario path='/funcionario/dashboard' component={DashboardFunc} />  */}
+      <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
+      {/* <RotaFuncionario path='/funcionario/chat' component={Chat} /> */}
+      <RotaFuncionario path='/funcionario/Cadastrorec' component={CadRecrutado} />
+      {/* <RotaFuncionario path='/funcionario/Perfil' component={PerfilFunc} /> */}
  
-      {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
-      <Route path='/cadastrofunc' component={CadFuncionario} />
-      <Route path='/cadastroemp' component={CadEmpresa} />
-      {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
+      {/* <RotaEmpresa path='/empresa/dashboard' component={DashboardEmp} /> */}
+      <RotaEmpresa path='/empresa/cadastrofunc' component={CadFuncionario} />
+      <RotaEmpresa path='/empresa/cadastroemp' component={CadEmpresa} />
+      {/* <RotaEmpresa path='/empresa/perfil' component={PerfilEmp} /> */}
      
-      {/* <Route component ={NotFound}/> */}
+       <Route component ={NaoEncontrada}/>
     </Switch>
   </Router>
 )

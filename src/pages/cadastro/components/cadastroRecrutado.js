@@ -37,7 +37,7 @@ export const CadastroRec = () => {
                 senha: '',
                 telefone:'',
                 cpf: '',
-                tipoUsuario: '1',
+                tipo: '1',
                 
             }}
             validationSchema={validate}
