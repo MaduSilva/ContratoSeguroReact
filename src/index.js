@@ -16,8 +16,13 @@ import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
+import PerfilEmpresa from './pages/Perfil/PerfilEmpresa/PerfilEmpresa';
 import Home from './pages/home/home'
+<<<<<<< HEAD
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
+=======
+import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado';
+>>>>>>> origin/yan2
 
 const token = localStorage.getItem('token-contratoseguro') 
 
