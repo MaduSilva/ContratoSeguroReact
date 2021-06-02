@@ -77,6 +77,7 @@ const routing = (
       <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
       <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
       <RotaNaoCadastrado path='/dashboard' component={DashbordFuncionario} />  
+      <RotaNaoCadastrado path='/cadastroemp' component={CadEmpresa} />
 
       {/* <RotaRecrutado path='/recrutado/dashboard' component={DashboardRec} />  */}
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
