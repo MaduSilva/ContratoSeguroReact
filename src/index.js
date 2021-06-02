@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import jwt_decode from 'jwt-decode'
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
 //Páginas
 import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario';
@@ -14,6 +17,8 @@ import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import PerfilEmpresa from './pages/Perfil/PerfilEmpresa/PerfilEmpresa';
+import PerfilFuncionario from './pages/PerfilFuncionario/index'
+import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 
@@ -49,7 +54,7 @@ const RotaFuncionario = ({component : Component, ...rest}) => (
   <Route
     {...rest}
     render = { props => 
-      token !== null && jwt_decode(token).role === 'funcionario' ?
+      token !== null && jwt_decode(token).role === 'Funcionario' ?
         <Component {...props} /> :
         <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
@@ -73,25 +78,23 @@ const routing = (
     <Switch>
       <Route exact path='/' component={Home} />
       <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
-      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
-      <RotaNaoCadastrado path='/dashboard' component={DashbordFuncionario} />  
-      <RotaNaoCadastrado path='/cadastroemp' component={CadEmpresa} />
+      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/> 
 
       {/* <RotaRecrutado path='/recrutado/dashboard' component={DashboardRec} />  */}
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
       {/* <RotaRecrutado path='/recrutado/chat' component={Chat} /> */}
-      {/* <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRec} /> */}
+       <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} /> 
 
-       {/* <RotaFuncionario path='/funcionario/dashboard' component={DashboardFuncionario} />   */}
+     <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />   
       <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
       {/* <RotaFuncionario path='/funcionario/chat' component={Chat} /> */}
-      <RotaFuncionario path='/funcionario/Cadastrorec' component={CadRecrutado} />
-      {/* <RotaFuncionario path='/funcionario/Perfil' component={PerfilFunc} /> */}
+      <RotaFuncionario path='/funcionario/cadastrorec' component={CadRecrutado} />
+      <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} /> 
  
       {/* <RotaEmpresa path='/empresa/dashboard' component={DashboardEmp} /> */}
       <RotaEmpresa path='/empresa/cadastrofunc' component={CadFuncionario} />
       <RotaEmpresa path='/empresa/cadastroemp' component={CadEmpresa} />
-      {/* <RotaEmpresa path='/empresa/perfil' component={PerfilEmp} /> */}
+      <RotaEmpresa path='/empresa/perfilemp' component={PerfilEmpresa} />
      
        <Route component ={NaoEncontrada}/>
     </Switch>
@@ -100,9 +103,7 @@ const routing = (
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <PerfilFuncionario />
-  </React.StrictMode>,
+  routing,
   document.getElementById('root')
 );
 
