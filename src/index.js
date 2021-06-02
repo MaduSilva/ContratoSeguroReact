@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import jwt_decode from 'jwt-decode'
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
 //Páginas
 import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario';
@@ -18,11 +15,7 @@ import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import PerfilEmpresa from './pages/Perfil/PerfilEmpresa/PerfilEmpresa';
 import Home from './pages/home/home'
-<<<<<<< HEAD
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
-=======
-import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado';
->>>>>>> origin/yan2
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -107,8 +100,13 @@ const routing = (
 
 
 ReactDOM.render(
-  routing,
+  <React.StrictMode>
+    <PerfilFuncionario />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
