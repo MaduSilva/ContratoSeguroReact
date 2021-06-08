@@ -11,7 +11,17 @@ const PerfilEmpresa = () => {
 
     
 
-    const nomeEmpresa = jwt_decode.nameid;
+    const token = localStorage.getItem('token-contratoseguro')
+
+
+   
+
+    const nomeEmpresa = jwt_decode(token).nameid;
+    const emailEmpresa = jwt_decode(token).email;
+    const telefoneEmpresa = jwt_decode(token).telefone;
+    const cnpjEmpresa = jwt_decode(token).cnpj;
+    const razaoSocialEmpresa = jwt_decode(token).razaoSocial;
+   
     
     return (
         <div>
@@ -25,7 +35,7 @@ const PerfilEmpresa = () => {
             <div style={{display:"flex", marginTop:"50px"}}>
             <div>
                 <div style={{width: "200px", marginLeft: "120px", boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeEmpresa}Nome Da Empresa</h1>
+                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeEmpresa}</h1>
                 </div>
                 <div className="mb-2" style={{marginLeft:"105px", marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">
@@ -51,19 +61,19 @@ const PerfilEmpresa = () => {
             <div style={{marginLeft:"155px"}}>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Nome da instituição</h3>
-                <a  style={{fontSize:"15px"}}>{}Nome Da instituição</a>
+                <a  style={{fontSize:"15px"}}>{nomeEmpresa}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Email Empresarial</h3>
-                <a  style={{fontSize:"15px"}}>{}Email da instituição</a>
+                <a  style={{fontSize:"15px"}}>{emailEmpresa}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Telefone</h3>
-                <a  style={{fontSize:"15px"}}>{}Telefone da instituição</a>
+                <a  style={{fontSize:"15px"}}>{telefoneEmpresa}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>CNPJ</h3>
-                <a  style={{fontSize:"15px"}}>{}41.496.701/0001-40</a>
+                <a  style={{fontSize:"15px"}}>{cnpjEmpresa}</a>
                 </div>
                
 
@@ -71,7 +81,7 @@ const PerfilEmpresa = () => {
 			<div style={{marginRight:"155px"}}>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Área de atuação da empresa</h3>
-                <a  style={{fontSize:"15px"}}>{}Área Da instituição</a>
+                <a  style={{fontSize:"15px"}}>{razaoSocialEmpresa}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Pais/Estado</h3>
