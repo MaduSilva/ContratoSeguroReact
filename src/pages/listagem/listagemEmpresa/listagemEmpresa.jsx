@@ -1,4 +1,5 @@
-import {React} from 'react';
+import {React , useState , useEffect} from 'react';
+import { Table } from 'react-bootstrap';
 import  './listagemEmpresa.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
 
@@ -35,13 +36,33 @@ import logosenaiperfil from '../../../assets/img/logosenaiperfil.jpeg'
 
 const ListEmpresa = () => {
 
+    const [data, setData] = useState([]);
+
+
+
+
+    const getEmpresa = async () =>{
+        fetch("https://localhost:5001/api/account/employee/lister-employee")
+        .then((response) => response.json())
+        .then((responseJson) => (
+            console.log(responseJson),
+            setData(responseJson.data)
+        ));
+    }
+
+
+    useEffect(() =>{
+        getEmpresa();
+    },[])
+
+
     return(
 
 
-    
         <div>
+        
             <Menu/>
-        <div className="container1">
+       
             
                 
             <div className="containerP">
@@ -52,75 +73,39 @@ const ListEmpresa = () => {
                                 <h3>Escola SENAI </h3>    
                                 
                         </div>
-                       
-                       
-                        <form className="barra" noValidate autoComplete="off">
-                        <InputBase
-                            className=""
-                            placeholder="Pesquise um funcionario"
-                            inputProps={{ 'aria-label' : 'Pesquise um funcionario' }}
-                        />
-                        <IconButton type="submit" className="" aria-label="search">
-                            <SearchIcon />
-                        </IconButton>
-                            
-                        </form>
-                 
-
                     </div>
             </div>
+
+                        <h1>Funcionários Cadastrados</h1>
+                    <div className="wrapper">
+
+                    <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>Perfil</th>
+                        <th>Nome</th>
+                        <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {Object.values(data).map(recrutado => (
+                                            <tr key={recrutado.recrutado}>
+                                                <th scope="row"><img src="https://i.pravatar.cc/75?img=59"></img></th>
+                                                <td>{recrutado.nome}</td>
+                                                <td>
+
+                    <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                                            </tr>
+                                        ))}
+                    </tbody>
+                    </Table>
+                    </div>
+                       
                 
-                <div className="Titulo">
-                    <h1>Funcionarios Cadastrados</h1>
-                </div>
-
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={luccaPerfil} alt="" />
-                   
-                   
-                    <div className="info">
-                        <h4>Lucca Gomes</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>Lucca@gmail.com </h6>
-                             </div>
-
-                             <div className="telefone">  
-                            <h6>11 9999-9999 </h6>
-                             </div>
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={mariaPerfil} alt="" />
-                   
-                   
-                    <div className="info">
-                        <h4>Maria Eduarda</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>maria@gmail.com </h6>
-                             </div>
-
-                             <div className="telefone">  
-                            <h6>11 9999-9999 </h6>
-                             </div>
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-           
-        </div>
         <Rodape/>
         </div>
+        
         
         
     )

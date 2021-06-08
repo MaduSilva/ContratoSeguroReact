@@ -87,3 +87,25 @@
 .InputBase{
     background-color: #ffff;
 }
+
+.wrapper{
+    padding: 50px;
+    text-align: center;
+
+}
+img{
+    border-radius: 50px;
+}
+
+.table-dark td{
+    vertical-align: middle;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    font-weight: normal;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}

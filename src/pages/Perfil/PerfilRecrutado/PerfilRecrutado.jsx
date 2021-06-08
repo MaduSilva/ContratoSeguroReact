@@ -10,11 +10,7 @@ import Pessoa from '../../../assets/img/Pessoa.png'
 const PerfilRecrutado = () => {
 
     const token = localStorage.getItem('token-contratoseguro')
-
-
-   
-
-    const nomeRecrutado = jwt_decode(token).nameid;
+    const nomeRecrutado = jwt_decode(token).family_name;
     const emailRecrutado = jwt_decode(token).email;
     
     

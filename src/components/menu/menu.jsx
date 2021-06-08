@@ -85,4 +85,3 @@ return (
 )
 }
 
-export default Menu;

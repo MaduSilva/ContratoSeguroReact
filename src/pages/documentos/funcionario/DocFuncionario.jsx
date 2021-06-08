@@ -111,7 +111,7 @@ export default function DocFuncionario() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Anexo />
+     
       </TabPanel>
       <TabPanel value={value} index={1}>
         Aqui vamos listar todos os documentos 

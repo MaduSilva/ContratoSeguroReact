@@ -16,7 +16,7 @@ const PerfilEmpresa = () => {
 
    
 
-    const nomeEmpresa = jwt_decode(token).nameid;
+    const nomeEmpresa = jwt_decode(token).family_name;;
     const emailEmpresa = jwt_decode(token).email;
     const telefoneEmpresa = jwt_decode(token).telefone;
     const cnpjEmpresa = jwt_decode(token).cnpj;
