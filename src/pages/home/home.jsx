@@ -4,6 +4,17 @@ import Rodape from '../../components/rodape/rodape'
 import { Container, Carousel, Row, Col, Image, Card, Button, Nav, CardImg } from 'react-bootstrap';
 import './home.css'
 
+//icons
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import IconButton from '@material-ui/core/IconButton';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import EmailIcon from '@material-ui/icons/Email';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
+
+
 //importando banner
 import banner2 from '../../assets/img/banner2.png'
 import banner1 from '../../assets/img/banner1.png'
@@ -12,137 +23,150 @@ const Home = () => {
     return (
         <div>
             <Menu />
-
-            <div id="fundo">
+            {/* Carrossel */}
+            <div>
                 <Carousel>
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={banner1}
-                            alt="banner brq"
-                        />
-                       
+                        <img className="d-block w-100" src={banner1} alt="banner brq" />
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={banner2}
-                            alt="banner brq"
-                        />
-
-                        
+                        <img className="d-block w-100" src={banner2} alt="banner brq" />
                     </Carousel.Item>
-                   
                 </Carousel>
 
-                <h1 id="oquee" style={{ display: "flex", justifyContent: "center", marginTop: "20px", fontWeight: "bold", color: "#011826", fontSize: "50px", textAlign: 'center' }}>Seja bem vindo ao Lorem! </h1>
+                {/* Fim do Carrossel */}
+                {/* Início Texto */}
+                <h1 id="oquee">Seja bem vindo ao Contrato Seguro! </h1>
 
-                <h1 style={{ marginLeft: "7.8em", marginRight: "7.8em", fontFamily: "Comfortaa", fontSize: '30px', marginTop: "20px", marginBottom: "25px", textAlign: "center", color: "#000000" }}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec diam diam. Vivamus sed dignissim metus,
-            mollis ultrices ante. Vivamus eget imperdiet purus. Sed eget molestie nisi. Integer faucibus non odio et fermentum. Proin sem risus, imperdiet eu dictum viverra, semper ac urna. Aenean non viverra nunc, nec posuere nulla. Pellentesque pellentesque pellentesque urna</h1>
+                <h4 id="descricao">Criada em 2021 por um time de desenvolvedores, a Contrato Seguro é uma plataforma eficiente   <br />especializada em deixar seu processo de admissão ainda mais rápido!
+                Adquirindo um plano para <br /> empresas você pode administrar seus funcionários, utilizar  o chat exclusivo da plataforma, enviar e assinar<br /> documentos, além de ter acesso  à  gráficos  de forma rápida.    </h4>
 
+                {/* Fim Texto */}
+                {/* Início Cards */}
+                <div className="cards">
 
-                <div style={{ display: "flex", marginLeft: "95px", marginTop: "50px" }}>
-
-                    <div style={{ marginRight: "180px", textAlign: "center" }}>
-
-                        <img class="card-img-top" src="https://miriangasparin.com.br/wp-content/uploads/2020/04/BRQ.png" alt="Imagem de capa do card" style={{ width: 250 }}></img>
-
-
-                        <p style={{ fontWeight: "bold", justifyContent: "center", display: "flex", textAlign: "center", fontSize: "1.4em", marginTop: "1em", fontStyle: "normal", color: "#000000" }}>Economize <br /> no tempo e <br /> na papelada!</p>
-
-
+                    <div class="containercard">
+                        <img id="cardimg" src="https://www.mundorh.com.br/wp-content/uploads/2021/04/vazamento-de-dados-filme.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Economize no tempo e na papelada! </div>
+                        </div>
                     </div>
 
-                    <div style={{ marginRight: "100px", textAlign: "center" }}>
-
-                        <img class="card-img-top" src="https://noticiasconcursos.com.br/wp-content/uploads/2021/02/noticiasconcursos.com.br-brq-digital-solutions-divulga-10-vagas-de-emprego-em-sao-paulo-brq-digital-solutions-1024x683.jpg" alt="Imagem de capa do card" style={{ width: 250 }}></img>
-
-                        <p style={{ fontWeight: "bold", justifyContent: "center", display: "flex", textAlign: "center", fontSize: "1.4em", marginTop: "1em", fontStyle: "normal", color: "#000000" }}>Menos <br /> burocracia, mais <br /> produtividade!</p>
-
+                    <div class="containercard">
+                        <img id="cardimg" src="https://noticiasconcursos.com.br/wp-content/uploads/2021/02/noticiasconcursos.com.br-brq-digital-solutions-divulga-10-vagas-de-emprego-em-sao-paulo-brq-digital-solutions-1024x683.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Menos Burocracia, mais produtividade</div>
+                        </div>
                     </div>
 
-                    <div style={{ marginLeft: "78px", textAlign: "center" }}>
-
-                        <img class="card-img-top" src="https://portalerp.com/images/2020/06/26/brq-digital-solutions-anuncia-parceria-com-tableau-softwarejpg.jpeg" alt="Imagem de capa do card" style={{ width: 250 }}></img>
-
-                        <p style={{ fontWeight: "bold", justifyContent: "center", display: "flex", textAlign: "center", fontSize: "1.4em", marginTop: "1em", fontStyle: "normal", color: "#000000" }}>Segurança <br /> eficiente nos <br /> Termos da LGPD</p>
-
-                    </div>
-
-                </div>
-
-
-                <hr style={{ boxSizing: "border-box", width: "88%", marginRight: "6px" }} />
-
-
-                <div id="planos" style={{ display: "flex", justifyContent: "space-between", marginRight: "6em", marginLeft: "6em", marginTop: "50px" }}>
-
-                    <div style={{ marginRight: "10px", backgroundColor: "#C4C4C4", height: "400px", width: "850px", marginRight: "4em" }}>
-
-                        <h3 style={{ backgroundColor: "#011826", color: "white", height: "70px", alignItems: "center", display: "flex", justifyContent: "center", fontFamily: "Ubuntu" }}>PLANO 1</h3>
-
-                        <p style={{ fontWeight: "bold", alignItems: "center", display: "flex", textAlign: "center", fontSize: "18px", marginTop: "1em", marginBottom: "2em", fontStyle: "normal", color: "#000000" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
-
-                        <h3 style={{ fontWeight: "bold", fontSize: "3em", alignItems: "center", display: "flex", justifyContent: "center", color: "#000000" }}>R$ 00</h3>
-
-
-                    </div>
-                    <div style={{ marginRight: "10px", backgroundColor: "#C4C4C4", height: "400px", width: "850px", marginRight: "4em" }}>
-
-                        <h3 style={{ backgroundColor: "#011826", color: "white", height: "70px", alignItems: "center", display: "flex", justifyContent: "center" }}>PLANO 2</h3>
-
-                        <p style={{ fontWeight: "bold", alignItems: "center", display: "flex", textAlign: "center", fontSize: "18px", marginTop: "1em", marginBottom: "2em", color: "#000000" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
-
-                        <h3 style={{ fontWeight: "bold", fontSize: "3em", alignItems: "center", display: "flex", justifyContent: "center", color: "#000000" }}>R$ 00</h3>
-
-
-                    </div>
-                    <div style={{ marginRight: "10px", backgroundColor: "#C4C4C4", height: "400px", width: "850px", marginBottom: "50px" }}>
-
-                        <h3 style={{ backgroundColor: "#011826", color: "white", height: "70px", alignItems: "center", display: "flex", justifyContent: "center" }}>PLANO 3</h3>
-
-                        <p style={{ fontWeight: "bold", alignItems: "center", display: "flex", textAlign: "center", fontSize: "18px", marginTop: "1em", marginBottom: "2em", color: "#000000" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
-
-                        <h3 style={{ fontWeight: "bold", fontSize: "3em", alignItems: "center", display: "flex", justifyContent: "center", color: "#000000" }}>R$ 00</h3>
-
-
+                    <div class="containercard">
+                        <img id="cardimg" src="https://noticiasconcursos.com.br/wp-content/uploads/2021/04/noticiasconcursos.com.br-brq-digital-solutions-contrata-desenvolvedor-ios-em-sao-paulo-brq-digital-solutions-contrata-desenvolvedor-ios.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Segurança eficiente nos termos da  LGPD </div>
+                        </div>
                     </div>
 
 
                 </div>
+                {/* Fim Cards */}
+                {/* Linha */}
 
-                <hr style={{ boxSizing: "border-box", width: "88%", marginRight: "6px" }} />
+                <hr style={{ boxSizing: "border-box", width: "100%", marginRight: "6px", display: "flex", justifyContent: "center" }} />
+                {/* Fim Linha */}
+                {/* Começo Planos */}
+
+                <div id="planos" className="planos">
 
 
+                    <div className="planocard">
+                        <h3>PLANO 1</h3>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
+
+                        <h4>R$ 00</h4>
+                        <IconButton href="mailto:attackondev@gmail.com" aria-label="email">
+                            <ShoppingCartIcon />
+                        </IconButton>
+
+                    </div>
+
+                    <div className="planocard">
+                        <h3>PLANO 2</h3>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
+
+                        <h4>R$ 00</h4>
+                        <IconButton href="mailto:attackondev@gmail.com" aria-label="email">
+                            <ShoppingCartIcon />
+                        </IconButton>
+
+
+                    </div>
+
+                    <div className="planocard">
+
+                        <h3>PLANO 3</h3>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dignissimos quisquam consequuntur quia. Maiores odio voluptatibus odit debitis, quia non facere assumenda ut, unde fugiat architecto veniam pariatur harum temporibus? </p>
+
+                        <h4>R$ 00</h4>
+                        <IconButton href="mailto:attackondev@gmail.com" aria-label="email">
+                            <ShoppingCartIcon />
+                        </IconButton>
+
+                    </div>
+
+
+                </div>
+                {/* Fim Planos */}
+                {/* Linha */}
+                <hr style={{ boxSizing: "border-box", width: "100%", marginRight: "6px" }} />
+
+                {/* Fim Linha */}
 
 
 
                 {/* Redes Sociais */}
-                <div id="faleconosco" style={{ display: "flex", marginLeft: "100px", marginTop: "85px" }}>
+                <div id="faleconosco" >
 
-                    <div style={{ height: "400px", width: "850px", marginRight: "4em" }}>
+                    <div className="redessociais">
 
-                        <h3 style={{ fontWeight: "bolder", fontSize: "30px", color: "#000000" }}>FALE CONOSCO</h3>
+                        <h3>Fale Conosco</h3>
 
-                        <p style={{ fontWeight: "bold", fontSize: "20px", fontStyle: "normal", color: "#000000" }}>Acompanhe nossas redes sociais e <br /> fique por dentro do mundo das  <br /> tecnologias digitais. <p style={{ fontWeight: "bold", fontSize: "20px", color: "#F27405" }}>Toda semana conteúdo novo!</p>  </p>
+                        <p >Acompanhe nossas redes sociais e <br /> fique por dentro do mundo das  <br /> tecnologias digitais. <p id="pOrange">Toda semana conteúdo novo!</p>  </p>
 
 
+                        <div className="socialicons">
 
-                        <img src="https://image.flaticon.com/icons/png/512/87/87390.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
-                        <img src="https://image.flaticon.com/icons/png/512/60/60543.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
-                        <img src="https://image.flaticon.com/icons/png/512/61/61109.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
-                        <img src="https://i.pinimg.com/originals/6c/df/0f/6cdf0f336652ec166d79ab0a1929c4e6.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
-                        <img src="https://image.flaticon.com/icons/png/512/60/60580.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
-                        <img src="https://i.pinimg.com/originals/ca/3b/f0/ca3bf05cfab74677e5b73b130bd30991.png" alt="..." style={{ width: 40, height: 40, marginLeft: '10px' }} class="img-fluid" />
+                            <IconButton href="https://www.facebook.com/brqdigital">
+                                <FacebookIcon style={{ fontSize: 40 }}  />
+                            </IconButton>
 
+                            <IconButton href="https://www.youtube.com/user/brqitservices">
+                                <YouTubeIcon style={{ fontSize: 40 }}  />
+                            </IconButton>
+                            <IconButton href="https://twitter.com/brqdigital">
+                                <TwitterIcon style={{ fontSize: 40 }}  />
+                            </IconButton>
+                            <IconButton href="https://www.linkedin.com/company/brq/?originalSubdomain=br">
+                                <LinkedInIcon style={{ fontSize: 40 }}  />
+                            </IconButton>
+                            <IconButton  href="https://www.instagram.com/brqdigital/" >
+                                <InstagramIcon  style={{ fontSize: 40 }}  />
+                            </IconButton>
+                        </div>
 
                     </div>
+                    <div id="imagemlateral">
 
-                    <img class="card-img-top" src="https://noticiasconcursos.com.br/wp-content/uploads/2021/04/noticiasconcursos.com.br-brq-digital-solutions-contrata-desenvolvedor-ios-em-sao-paulo-brq-digital-solutions-contrata-desenvolvedor-ios.jpg" alt="Imagem de capa do card" style={{ width: 500, marginRight: "200px", marginBottom: "50px" }}></img>
 
+                        <img src="https://blog.brq.com/wp-content/uploads/2020/06/TDD-em-Nodejs-_-conhecendo-o-Jest.png" alt="Homem em tablet" ></img>
+
+                    </div>
                 </div>
 
             </div>
+            {/* Fim Redes Sociais */}
 
             <Rodape />
         </div>

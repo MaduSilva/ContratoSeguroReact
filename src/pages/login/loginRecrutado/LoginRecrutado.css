@@ -51,6 +51,10 @@
     background-color: #E9E9E9;
 } */
 
+.Container{
+    overflow: auto;
+}
+
 .InputsForm{
     
     background-color: #c9c7c738;
@@ -99,3 +103,8 @@
      background-color: #E9E9E9;
 }
 
+@media(max-width: 768px) {
+    .foguete-logo{
+        display: none;
+    }
+}

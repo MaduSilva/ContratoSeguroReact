@@ -17,6 +17,10 @@
   #navstyle2{
 	color: black;
 	font-family: 'Comfortaa';
-	
+}
+
+.end{
+	display: flex;
+	justify-content: end;
 }
 

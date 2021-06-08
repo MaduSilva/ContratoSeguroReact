@@ -10,8 +10,6 @@ import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
 import ContaServico from '../loginRecrutado/contaservico';
-import { useToasts } from 'react-toast-notifications';
-
 
 
 const LoginRecrutado = () => {

@@ -42,7 +42,7 @@ const RotaRecrutado = ({component : Component, ...rest}) => (
   <Route
     {...rest}
     render = { props => 
-      token !== null && jwt_decode(token).role === 'recrutado' ?
+      token !== null && jwt_decode(token).role === 'Recrutado' ?
         <Component {...props} /> :
         <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
