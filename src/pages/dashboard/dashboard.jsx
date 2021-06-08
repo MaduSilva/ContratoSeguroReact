@@ -1,4 +1,5 @@
-import {React} from 'react';
+import {React , useState , useEffect} from 'react';
+import { Table } from 'react-bootstrap';
 import  './dashboard.css';
 import recrutadoPerfil from '../../assets/img/recrutadoperfil.PNG'
 
@@ -35,6 +36,26 @@ import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
 
 const DashbordFuncionario = () => {
 
+    const [data, setData] = useState([]);
+
+
+
+
+    const getRecrutados = async () =>{
+        fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
+        .then((response) => response.json())
+        .then((responseJson) => (
+            console.log(responseJson),
+            setData(responseJson.data)
+        ));
+    }
+
+
+    useEffect(() =>{
+        getRecrutados();
+    },[])
+
+
     return(
 
 
@@ -52,19 +73,6 @@ const DashbordFuncionario = () => {
                                 <h2>Maria </h2>    
                                 
                         </div>
-                       
-                       
-                        <form className="barra" noValidate autoComplete="off">
-                        <InputBase
-                            className="pesquisa"
-                            placeholder="Pesquise um recrutado"
-                            inputProps={{ 'aria-label' : 'Pesquise um Recrutado' }}
-                        />
-                        <IconButton type="submit" className="" aria-label="search">
-                            <SearchIcon />
-                        </IconButton>
-                            
-                        </form>
                  
 
                     </div>
@@ -79,9 +87,9 @@ const DashbordFuncionario = () => {
                 <Chart/>
 
                 <div className="totalnumero">
-                <h3>Recrutados com sucesso : 112</h3>
-                <h3>Recrutados com pendências : 72</h3>
-                <h3>Recrutados a serem avaliados : 25 </h3>
+                <h5>Recrutados com sucesso : 112</h5>
+                <h5>Recrutados com pendências : 72</h5>
+                <h5>Recrutados a serem avaliados : 25 </h5>
                 
                 </div>
 
@@ -92,85 +100,32 @@ const DashbordFuncionario = () => {
                     <h1>Recrutados Cadastrados</h1>
                 </div>
 
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={mariaPerfil} alt="" />
-                   
-                
-                   
-                    <div className="info">
-                        <h4>Maria</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>Desenvolvedora Backend</h6>
-                            
+                <div className="wrapper">
 
-                            <div className="buttom">
-                            
-                            <IconButton aria-label="ChatBubbleOutlineIcon">
-                                <ChatBubbleOutlineIcon />
-                            </IconButton>
+            <Table striped bordered hover size="sm">
+            <thead>
+                <tr>
+                <th>Perfil</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+            {Object.values(data).map(recrutado => (
+                                    <tr key={recrutado.recrutado}>
+                                        <th scope="row"><img src="https://i.pravatar.cc/75?img=32"></img></th>
+                                        <td>{recrutado.nome}</td>
+                                        <td>{recrutado.email}</td>
+                                        <td>
 
-                            <IconButton aria-label="NotificationsActiveIcon">
-                                <NotificationsActiveIcon />
-                            </IconButton>
-                            
-                            </div>
-                            
-                            
-                            </div>
-
-
-                            
-
-                        
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={luccaPerfil} alt="" />
-                   
-                   
-                    <div className="info">
-                        <h4>Lucca</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>Desenvolvedor Mobile</h6>
-                            
-
-                            <div className="buttom">
-                            
-                            <IconButton aria-label="ChatBubbleOutlineIcon">
-                                <ChatBubbleOutlineIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="NotificationsActiveIcon">
-                                <NotificationsActiveIcon />
-                            </IconButton>
-                            
-                            </div>
-                            
-                            
-                            </div>
-
-
-                            
-
-                        
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-               
-               
+            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+                                    </tr>
+                                ))}
+            </tbody>
+            </Table>
+            </div>
            
         </div>
         <Rodape/>

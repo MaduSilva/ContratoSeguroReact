@@ -1,6 +1,8 @@
-import {React} from 'react';
+import {React , useState , useEffect} from 'react';
+import { Table } from 'react-bootstrap';
 import  './listagemRecrutado.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
+
 
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
@@ -14,6 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 //pages
 
@@ -25,11 +28,31 @@ import Rodape from "../../../components/rodape/rodape"
 
 //images
 import iconcadastroempresa from '../../../assets/img/iconcadastroempresa.png'
+import { Toast } from 'bootstrap';
 
 
 
 
 const ListRecrutado = () => {
+
+    const [data, setData] = useState([]);
+
+
+
+
+    const getRecrutados = async () =>{
+        fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
+        .then((response) => response.json())
+        .then((responseJson) => (
+            console.log(responseJson),
+            setData(responseJson.data)
+        ));
+    }
+
+
+    useEffect(() =>{
+        getRecrutados();
+    },[])
 
     return(
 
@@ -37,9 +60,8 @@ const ListRecrutado = () => {
     
         <div>
             <Menu/>
-        <div className="container1">
             
-                
+
             <div className="containerP">
                    <div className="fotoetexto">
                         <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
@@ -48,105 +70,38 @@ const ListRecrutado = () => {
                                 <h3>Kaua Deja</h3>    
                                 
                         </div>
-                       
-                       
-                        <form className="barra" noValidate autoComplete="off">
-                        <InputBase
-                            className=""
-                            placeholder="Pesquise um funcionario"
-                            inputProps={{ 'aria-label' : 'Pesquise um funcionario' }}
-                        />
-                        <IconButton type="submit" className="" aria-label="search">
-                            <SearchIcon />
-                        </IconButton>
-                            
-                        </form>
-                 
-
                     </div>
             </div>
+
+            <h1>Usuarios</h1>
+
+            <div className="wrapper">
+
+                <Table striped bordered hover variant="dark">
+                <thead>
+                    <tr>
+                    <th>Perfil</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {Object.values(data).map(recrutado => (
+                                        <tr key={recrutado.recrutado}>
+                                            <th scope="row"><img src="https://i.pravatar.cc/75?img=32"></img></th>
+                                            <td>{recrutado.nome}</td>
+                                            <td>{recrutado.email}</td>
+                                            <td>
                 
-                <div className="Titulo">
-                    <h1>Usúarios</h1>
-                </div>
-
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
-                   
-                   
-                    <div className="info">
-                        <h4>Maria</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>Desenvolvedora Backend</h6>
-                            
-
-                            <div className="buttom">
-                            
-                            <IconButton aria-label="ChatBubbleOutlineIcon">
-                                <ChatBubbleOutlineIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="NotificationsActiveIcon">
-                                <NotificationsActiveIcon />
-                            </IconButton>
-                            
-                            </div>
-                            
-                            
-                            </div>
-
-
-                            
-
-                        
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <div className="listagem">
-                    <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
-                   
-                   
-                    <div className="info">
-                        <h4>Nicolas</h4>
-                        
-                        <div className="funcao">
-                            <div className="descricao">  
-                            <h6>Desenvolvedor Mobile</h6>
-                            
-
-                            <div className="buttom">
-                            
-                            <IconButton aria-label="ChatBubbleOutlineIcon">
-                                <ChatBubbleOutlineIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="NotificationsActiveIcon">
-                                <NotificationsActiveIcon />
-                            </IconButton>
-                            
-                            </div>
-                            
-                            
-                            </div>
-
-
-                            
-
-                        
-
-                        </div>
-
-                    </div>
-                    
-                </div>
-           
-        </div>
+                <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+                                        </tr>
+                                    ))}
+                </tbody>
+                </Table>
+            </div>
+        
         <Rodape/>
         </div>
         
@@ -156,6 +111,3 @@ const ListRecrutado = () => {
 };
 
 export default ListRecrutado;
-
-
-
