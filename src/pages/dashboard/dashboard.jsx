@@ -114,7 +114,7 @@ const DashbordFuncionario = () => {
             <tbody>
             {Object.values(data).map(recrutado => (
                                     <tr key={recrutado.recrutado}>
-                                        <th scope="row"><img src="https://i.pravatar.cc/75?img=32"></img></th>
+                                        <th scope="row"><img id="avatarimg" src="https://i.pravatar.cc/75?img=32"></img></th>
                                         <td>{recrutado.nome}</td>
                                         <td>{recrutado.email}</td>
                                         <td>

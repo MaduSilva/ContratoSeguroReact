@@ -17,6 +17,16 @@
     margin-bottom: 10px;
 }
 
+
+
+#iframe-center {
+    text-align: center;
+  width:100%;
+}
+
+
+
+
 .Inicial{
     margin-left: 30px;
     margin-top: 20px;
@@ -93,7 +103,7 @@
     text-align: center;
 
 }
-img{
+.perfilRecrutado{
     border-radius: 50px;
 }
 

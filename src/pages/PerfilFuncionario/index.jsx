@@ -8,7 +8,9 @@ import { Button,Form, Col, Container, Row } from 'react-bootstrap';
 
 const PerfilFuncionario = () => {
 
-    const nomeFuncionario = jwt_decode.nameid;
+    const token = localStorage.getItem('token-contratoseguro')
+    const nomeFuncionario = jwt_decode(token).family_name;
+    const emailFuncionario = jwt_decode(token).email;
 
     return (
         <div>
@@ -22,7 +24,7 @@ const PerfilFuncionario = () => {
             <div style={{display:"flex", marginTop:"50px"}}>
             <div>
                 <div style={{width: "200px", marginLeft: "120px", boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeFuncionario}Nome Do Funcionário</h1>
+                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeFuncionario}</h1>
                 </div>
                 <div className="mb-2" style={{marginLeft:"105px", marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">
@@ -48,11 +50,11 @@ const PerfilFuncionario = () => {
             <div style={{marginLeft:"155px"}}>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Nome do Funcionário</h3>
-                <a  style={{fontSize:"15px"}}>Maria Eduarda</a>
+                <a  style={{fontSize:"15px"}}>{nomeFuncionario}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Email</h3>
-                <a  style={{fontSize:"15px"}}>marua@gmail.com</a>
+                <a  style={{fontSize:"15px"}}>{emailFuncionario}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Telefone</h3>

@@ -1,6 +1,6 @@
-import {React , useState , useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import  './listagemRecrutado.css';
+import './listagemRecrutado.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
 
 
@@ -40,40 +40,40 @@ const ListRecrutado = () => {
 
 
 
-    const getRecrutados = async () =>{
+    const getRecrutados = async () => {
         fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
-        .then((response) => response.json())
-        .then((responseJson) => (
-            console.log(responseJson),
-            setData(responseJson.data)
-        ));
+            .then((response) => response.json())
+            .then((responseJson) => (
+                console.log(responseJson),
+                setData(responseJson.data)
+            ));
     }
 
 
-    useEffect(() =>{
+    useEffect(() => {
         getRecrutados();
-    },[])
+    }, [])
 
-    return(
+    return (
 
 
-    
+
         <div>
-            <Menu/>
-            
+            <Menu />
+
 
             <div className="containerP">
-                   <div className="fotoetexto">
-                        <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
-                        <div className="Inicial">
-                                <h5>Bem vindo </h5>
-                                <h3>Kaua Deja</h3>    
-                                
-                        </div>
+                <div className="fotoetexto">
+                    <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
+                    <div className="Inicial">
+                        <h5>Bem vindo </h5>
+                        <h3>Kaua Deja</h3>
+
                     </div>
+                </div>
             </div>
 
-            <h1>Usuarios</h1>
+            {/* <h1>Usuarios</h1>
 
             <div className="wrapper">
 
@@ -100,12 +100,15 @@ const ListRecrutado = () => {
                                     ))}
                 </tbody>
                 </Table>
+            </div> */}
+            <div id="iframe-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ysf4Z_OrTqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        
-        <Rodape/>
+
+           
         </div>
-        
-        
+
+
     )
 
 };
