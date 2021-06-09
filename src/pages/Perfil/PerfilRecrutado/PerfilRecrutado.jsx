@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import Rodape from '../../../components/rodape/rodape';
 import Menu from '../../../components/menu/menu'
-import jwt_decode from 'jwt-decode';
+
 import { Button,Form, Col, Container, Row } from 'react-bootstrap';
 import Pessoa from '../../../assets/img/Pessoa.png'
 
@@ -9,13 +9,27 @@ import Pessoa from '../../../assets/img/Pessoa.png'
 
 const PerfilRecrutado = () => {
 
-    const token = localStorage.getItem('token-contratoseguro')
+  const [recrutado, setRecrutado] = useState([]);
+  const [nome, setNome] = useState(0);
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [cpf, setCPF] = useState('');
+  
 
+  useEffect(() => {
+      listar();
+  }, [])
 
-   
+  const listar = () => {
+    fetch(`v1/account/recruited/profile-recruited/{id}`)
+        .then(response => response.json())
+        .then(dados => {
+            setRecrutado(dados);
 
-    const nomeRecrutado = jwt_decode(token).nameid;
-    const emailRecrutado = jwt_decode(token).email;
+            
+        })
+        .catch(err => console.error(err))
+}
     
     
     return (
@@ -23,46 +37,46 @@ const PerfilRecrutado = () => {
             <Menu />
             
             <div style={{backgroundColor: "#0367A6", marginTop: "1px", display:"flex", justifyContent:"center" , height:"140px",  }}>
-            <img src={Pessoa} style={{width: "150px", position:"absolute", left:"150px", top:"120px"}}></img>
+            <img src={Pessoa} style={{width: "150px", position:"absolute", left:"280px", top:"120px"}}></img>
             <h1 style={{ marginTop: "50px", color:"white",  }}> Meus Dados</h1>
             <br />
             </div>
            
-            <div style={{display:"flex", marginTop:"50px"}}>
+            <div style={{display:"flex", marginTop:"50px" , justifyContent:"space-evenly"}}>
             <div>
-                <div style={{width: "200px", marginLeft: "120px", boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nomeRecrutado}</h1>
+                <div style={{width: "200px",  boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
+                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nome}</h1>
                 </div>
-                <div className="mb-2" style={{marginLeft:"105px", marginTop:"30px", }}>
+                <div className="mb-2" style={{ marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black"}} type="password" placeholder="      ALTERAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0"}} type="password" placeholder="      ALTERAR SENHA" name="senha"  />
                 </Form.Group>
 
                 </div>
-				<div className="mb-2" style={{marginLeft:"105px", marginTop:"30px", }}>
+				<div className="mb-2" style={{ marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black"}} type="password" placeholder="   CONFIRMAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0"}} type="password" placeholder="   CONFIRMAR SENHA" name="senha"  />
                 </Form.Group>
 
                 </div>
-                <div  style={{marginLeft:"120px", marginTop:"40px", marginBottom:"30px" }}>
+                <div  style={{ marginTop:"40px", marginBottom:"30px" }}>
                 <Button  variant="primary" size="lg">
                 Salvar
                 </Button>{' '}
                 </div>
             </div>
-            <div style={{width:"913px",  boxShadow:"4px 4px 4px 4px gray", marginBottom:"40px", marginLeft:"150px"}}>
+            <div style={{width:"913px",  boxShadow:"4px 4px 4px 4px gray", marginBottom:"40px"}}>
             <div style={{display:"flex", justifyContent:"space-around"}}>
             <div >
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Nome Completo</h3>
-                <a  style={{fontSize:"15px"}}>{nomeRecrutado}</a>
+                <a  style={{fontSize:"15px"}}>{nome}</a>
                 </div>
                 <div style={{marginTop:"30px"}}>
                 <h3 style={{fontSize:"20px"}}>Email </h3>
-                <a  style={{fontSize:"15px"}}>{emailRecrutado}</a>
+                <a  style={{fontSize:"15px"}}>{email}</a>
                 </div>
                 <div style={{marginTop:"25px"}}>
                 <h3 style={{fontSize:"20px"}}>Telefone</h3>
@@ -149,7 +163,7 @@ const PerfilRecrutado = () => {
                 </div>
                  </div>
                 </div>
-                <div className="mb-2" style={{display: 'flex', justifyContent:"space-around" }}>
+                <div className="mb-2" style={{display: 'flex', justifyContent:"space-evenly" }}>
                 <div style={{}}>
                 <Button  variant="secondary" size="lg">
                 Cancelar
