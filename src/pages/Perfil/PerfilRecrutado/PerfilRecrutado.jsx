@@ -9,27 +9,24 @@ import Pessoa from '../../../assets/img/Pessoa.png'
 
 const PerfilRecrutado = () => {
 
-  const [recrutado, setRecrutado] = useState([]);
-  const [nome, setNome] = useState(0);
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [cpf, setCPF] = useState('');
-  
+  const [data, setData] = useState([]);
 
-  useEffect(() => {
-      listar();
-  }, [])
 
-  const listar = () => {
-    fetch(`v1/account/recruited/profile-recruited/{id}`)
-        .then(response => response.json())
-        .then(dados => {
-            setRecrutado(dados);
 
-            
-        })
-        .catch(err => console.error(err))
-}
+
+    const getRecrutados = async () =>{
+        fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
+        .then((response) => response.json())
+        .then((responseJson) => (
+            console.log(responseJson),
+            setData(responseJson.data)
+        ));
+    }
+
+
+    useEffect(() =>{
+        getRecrutados();
+    },[])
     
     
     return (
@@ -44,9 +41,11 @@ const PerfilRecrutado = () => {
            
             <div style={{display:"flex", marginTop:"50px" , justifyContent:"space-evenly"}}>
             <div>
-                <div style={{width: "200px",  boxShadow:"1px 1px 1px 1px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{nome}</h1>
+            {Object.values(data).map(recrutado => (
+                <div key={recrutado.recrutado} style={{width: "200px",  boxShadow:"1px 1px 1px px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
+                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{recrutado.nome}</h1>
                 </div>
+                ))}
                 <div className="mb-2" style={{ marginTop:"30px", }}>
                 <Form.Group  controlId="formBasicPassword">
                  
@@ -70,14 +69,24 @@ const PerfilRecrutado = () => {
             <div style={{width:"913px",  boxShadow:"4px 4px 4px 4px gray", marginBottom:"40px"}}>
             <div style={{display:"flex", justifyContent:"space-around"}}>
             <div >
+            
                 <div style={{marginTop:"30px"}}>
+                
                 <h3 style={{fontSize:"20px"}}>Nome Completo</h3>
-                <a  style={{fontSize:"15px"}}>{nome}</a>
+                {Object.values(data).map(recrutado => (
+                <a key={recrutado.recrutado}   style={{fontSize:"15px"}}>{recrutado.nome}</a>
+                ))}
                 </div>
+                
+                
                 <div style={{marginTop:"30px"}}>
-                <h3 style={{fontSize:"20px"}}>Email </h3>
-                <a  style={{fontSize:"15px"}}>{email}</a>
+                
+                <h3 style={{fontSize:"20px"}}>Email</h3>
+                {Object.values(data).map(recrutado => (
+                <a key={recrutado.recrutado} style={{fontSize:"15px"}}>{recrutado.email}</a>
+                ))}
                 </div>
+               
                 <div style={{marginTop:"25px"}}>
                 <h3 style={{fontSize:"20px"}}>Telefone</h3>
                 <div>
@@ -114,39 +123,8 @@ const PerfilRecrutado = () => {
                 </div>
                 </div>
                 <div style={{marginTop:"20px"}}>
-                <h3 style={{fontSize:"20px"}}>Pais/Estado</h3>
-                <select name="estado">
-                <option selected="" value="">Brasil</option>
-                <option value="Acre">Acre</option>
-                <option value="Alagoas">Alagoas</option>
-                <option value="Amapá">Amapá</option>
-                <option value="Amazonas">Amazonas</option>
-                <option value="Bahia">Bahia</option>
-                <option value="Ceará">Ceará</option>
-                <option value="Distrito Federal">Distrito Federal</option>
-                <option value="Espírito Santo">Espírito Santo</option>
-                <option value="Goiás">Goiás</option>
-                <option value="Maranhão">Maranhão</option>
-                <option value="Mato Grosso">Mato Grosso</option>
-                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                <option value="Minas Gerais">Minas Gerais</option>
-                <option value="Pará">Pará</option>
-                <option value="Paraíba">Paraíba</option>
-                <option value="Paraná">Paraná</option>
-                <option value="Pernambuco">Pernambuco</option>
-                <option value="Piauí">Piauí</option>
-                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                <option value="Rondônia">Rondônia</option>
-                <option value="Roraima">Roraima</option>
-                <option value="Santa Catarina">Santa Catarina</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Sergipe">Sergipe</option>
-                <option value="Tocantins">Tocantins</option>
-                </select>
-                </div>
-                <div style={{marginTop:"20px"}}>
+                
+               
                 <h3 style={{fontSize:"20px"}}>Endereço</h3>
                 <div>
                 <Form.Group >
