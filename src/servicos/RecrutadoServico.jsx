@@ -1,26 +1,24 @@
-import axios from "axios"
+import http from '../utils/http-axios';
+
+const listar = dados => {
+    return http.get('account/recruited/lister-recruited', JSON.stringify(dados), {
+        headers : {
+            'authorization' : `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        }
+    });
+}
 
 const cadastrar = dados => {
-    return fetch("https://localhost:44309/v1/account/employee/signup", {
-        method:'POST',
-        body : JSON.stringify(dados),
+    return http.post('account/recruited/signup-recruited', JSON.stringify(dados), {
         headers : {
-            'content-type' : 'application/json'
+            'authorization' : `Bearer ${localStorage.getItem('token-contratoseguro')}`
         }
-    })
+    });
 }
 
-const deletar = dados => {
-    return fetch("https://localhost:5001/v1/account/recruited/delete-recruited", {
-        method:'DELETE',
-        body : JSON.stringify(dados),
-        headers : {
-            'content-type' : 'application/json'
-        }
-    })
-}
 
 
 export default {
-    cadastrar
+    listar,
+    cadastrar,
 }

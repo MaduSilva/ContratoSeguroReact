@@ -45,7 +45,7 @@ const ListEmpresa = () => {
 
 
     const getEmpresa = async () =>{
-        fetch("https://localhost:5001/api/account/employee/lister-employee")
+        fetch("https://localhost:5001/v1/account/employee/lister-employee")
         .then((response) => response.json())
         .then((responseJson) => (
             console.log(responseJson),
