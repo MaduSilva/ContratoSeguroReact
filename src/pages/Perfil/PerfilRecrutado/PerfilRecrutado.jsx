@@ -1,14 +1,17 @@
 import React, { useState, useEffect }  from 'react';
 import Rodape from '../../../components/rodape/rodape';
 import Menu from '../../../components/menu/menu'
-
+import { useFormik } from 'formik';
 import { Button,Form, Col, Container, Row } from 'react-bootstrap';
-import Pessoa from '../../../assets/img/Pessoa.png'
-
+import Pessoa from '../../../assets/img/Pessoa.png';
+import { useHistory } from 'react-router-dom';
+import PerfilRecrutadoServico from './PerfilRecrutadoServico';
 
 
 const PerfilRecrutado = () => {
 
+
+    const history = useHistory();
   const [data, setData] = useState([]);
 
 
@@ -27,6 +30,30 @@ const PerfilRecrutado = () => {
     useEffect(() =>{
         getRecrutados();
     },[])
+    const formik = useFormik({
+        initialValues: {
+          senha:'',
+          alterarsenha:''
+        },
+        onSubmit: (values, { setSubmitting }) => {
+          PerfilRecrutadoServico.alterarsenha(values)
+            .then(resultado => {
+                console.log(`Resultado ${resultado.data}`)
+                setSubmitting(false);
+                if(resultado.data.sucesso){
+                    //mensagem
+                    console.log("Senha Alterada")
+                    //salvar local storage
+                    localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+                    //redirecionar tela de perfil
+                    history.push('/perfilrec');
+                } else {
+                    alert("Dados Inválidos")
+                }
+            })
+            .catch(error => console.error(error));
+        },
+    });
     
     
     return (
@@ -41,37 +68,41 @@ const PerfilRecrutado = () => {
            
             <div style={{display:"flex", marginTop:"50px" , justifyContent:"space-evenly"}}>
             <div>
-            {Object.values(data).map(recrutado => (
-                <div key={recrutado.recrutado} style={{width: "200px",  boxShadow:"1px 1px 1px px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{recrutado.nome}</h1>
-                </div>
+            
+                <div  style={{width: "200px",  boxShadow:"1px 1px 1px px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
+                {Object.values(data).map(recrutado => (
+                <h1 key={recrutado.recrutado} style={{fontSize:"18px", marginTop:"5px"}}>{recrutado.nome}</h1>
                 ))}
-                <div className="mb-2" style={{ marginTop:"30px", }}>
+                </div>
+               
+                <Form className='form-signin' onSubmit={formik.handleSubmit} >
+                
+                
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0"}} type="password" placeholder="      ALTERAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0px"}} type="password" placeholder="      ALTERAR SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required  />
                 </Form.Group>
 
-                </div>
-				<div className="mb-2" style={{ marginTop:"30px", }}>
+               
+		
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0"}} type="password" placeholder="   CONFIRMAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black",marginLeft:"0px"}} type="password" placeholder="   CONFIRMAR SENHA" name="alterarsenha" onChange={formik.handleChange} value={formik.values.alterarsenha} required  />
                 </Form.Group>
 
-                </div>
-                <div  style={{ marginTop:"40px", marginBottom:"30px" }}>
-                <Button  variant="primary" size="lg">
+             
+                
+                <Button  variant="primary" size="lg"  type="submit" disabled={formik.isSubmitting}>
                 Salvar
                 </Button>{' '}
-                </div>
+                </Form>
             </div>
             <div style={{width:"913px",  boxShadow:"4px 4px 4px 4px gray", marginBottom:"40px"}}>
-            <div style={{display:"flex", justifyContent:"space-around"}}>
+            <div style={{display:"flex", justifyContent:"space-evenly", alignItems:"center", }}>
             <div >
             
-                <div style={{marginTop:"30px"}}>
-                
+                <div style={{marginTop:"100px"}}>
+                 
                 <h3 style={{fontSize:"20px"}}>Nome Completo</h3>
                 {Object.values(data).map(recrutado => (
                 <a key={recrutado.recrutado}   style={{fontSize:"15px"}}>{recrutado.nome}</a>
@@ -87,74 +118,30 @@ const PerfilRecrutado = () => {
                 ))}
                 </div>
                
-                <div style={{marginTop:"25px"}}>
+                </div>
+                <div>
+                <div style={{marginTop:"100px"}}>
                 <h3 style={{fontSize:"20px"}}>Telefone</h3>
-                <div>
-                <Form.Group >
-                 
-                  <Form.Control style={{backgroundColor: 'white', width: '230px', height:"30px", borderColor:"black", marginLeft:"-3px"}} type="Text" placeholder=" Informe seu Telefone aqui" name="telefone"  />
-                </Form.Group>
-
+                {Object.values(data).map(recrutado => (
+                <a key={recrutado.recrutado} style={{fontSize:"15px"}}>{recrutado.telefone}</a>
+                ))}
                 </div>
-                </div>
-                <div style={{marginTop:"20px"}}>
-                <h3 style={{fontSize:"20px"}}>Área de atuação</h3>
-                <div>
-                <Form.Group >
-                 
-                  <Form.Control style={{backgroundColor: 'white', width: '230px', height:"30px", borderColor:"black", marginLeft:"-3px"}} type="Text" placeholder=" Informe sua área de atuação" name="atuacao"  />
-                </Form.Group>
-
-                </div>
-                </div>
-               
-
-               </div>
-               <div>
-			          <div>
-                <div style={{marginTop:"30px"}}>
-                <h3 style={{fontSize:"20px"}}>Formação</h3>
-                <div>
-                <Form.Group >
-                 
-                  <Form.Control style={{backgroundColor: 'white', width: '230px', height:"30px", borderColor:"black", marginLeft:"-3px"}} type="Text" placeholder=" Informe sua formação aqui" name="formacao"  />
-                </Form.Group>
-
-                </div>
-                </div>
-                <div style={{marginTop:"20px"}}>
                 
                
-                <h3 style={{fontSize:"20px"}}>Endereço</h3>
-                <div>
-                <Form.Group >
-                 
-                  <Form.Control style={{backgroundColor: 'white', width: '230px', height:"30px", borderColor:"black", marginLeft:"-3px"}} type="Text" placeholder=" Informe seu Endereço" name="endereco"  />
-                </Form.Group>
-         
-                </div>
-                </div>
-                <div style={{marginTop:"22px"}}>
-                <h3 style={{fontSize:"20px"}}>Informações complementares</h3>
-                <input style={{marginTop:"7px"}} id="date" type="date"></input>
-                </div>
-                </div>
-                 </div>
-                </div>
-                <div className="mb-2" style={{display: 'flex', justifyContent:"space-evenly" }}>
-                <div style={{}}>
-                <Button  variant="secondary" size="lg">
-                Cancelar
-                </Button>{' '}
-                </div>
-                <div>
-                <Button variant="primary" size="lg">
-                Salvar
-                </Button>
-                </div>
-                </div>
 
-            
+               
+               
+			          <div>
+                <div style={{marginTop:"20px"}}>
+                <h3 style={{fontSize:"20px"}}>CPF</h3>
+                {Object.values(data).map(recrutado => (
+                <a key={recrutado.recrutado} style={{fontSize:"15px"}}>{recrutado.cpf}</a>
+                ))}
+                </div>
+                
+                </div>
+                </div>
+                </div>
             </div>
             </div>
             

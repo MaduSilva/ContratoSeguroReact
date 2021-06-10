@@ -1,17 +1,19 @@
 import React, { useState, useEffect }  from 'react';
 import Rodape from '../../../components/rodape/rodape';
 import Menu from '../../../components/menu/menu'
-
+import { useFormik } from 'formik';
 import { Button,Form, Col, Container, Row } from 'react-bootstrap';
 import Empresa from '../../../assets/img/fabrica.png'
-import { Height } from '@material-ui/icons';
+import { useHistory } from 'react-router-dom';
+import PerfilEmpresaServico from './PerfilEmpresaServico';
+
 
 
 const PerfilEmpresa = () => {
 
     const [data, setData] = useState([]);
 
-
+    const history = useHistory();
 
 
     const getEmpresas = async () =>{
@@ -27,6 +29,35 @@ const PerfilEmpresa = () => {
     useEffect(() =>{
         getEmpresas();
     },[])
+    
+    
+      
+      const formik = useFormik({
+        initialValues: {
+          senha:'',
+          alterarsenha:''
+        },
+        onSubmit: (values, { setSubmitting }) => {
+          PerfilEmpresaServico.alterarsenha(values)
+            .then(resultado => {
+                console.log(`Resultado ${resultado.data}`)
+                setSubmitting(false);
+                if(resultado.data.sucesso){
+                    //mensagem
+                    console.log("Senha Alterada")
+                    //salvar local storage
+                    localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+                    //redirecionar tela de perfil
+                    history.push('/perfilemp');
+                } else {
+                    alert("Dados Inválidos")
+                }
+            })
+            .catch(error => console.error(error));
+        },
+    });
+          
+       
     
 
 
@@ -45,35 +76,39 @@ const PerfilEmpresa = () => {
             </div>
             <div style={{display:"flex", marginTop:"50px" , justifyContent:"space-evenly"}}>
             <div>
-            {Object.values(data).map(empresa => (
-                <div key={empresa.empresa} style={{width: "200px",  boxShadow:"1px 1px 1px px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
-                <h1 style={{fontSize:"18px", marginTop:"5px"}}>{empresa.nome}</h1>
-                </div>
+            
+                <div  style={{width: "200px",  boxShadow:"1px 1px 1px px  gray", height:"30px" , display:"flex", justifyContent:"center", marginTop:"50px" }}>
+                {Object.values(data).map(empresa => (
+                <h1 key={empresa.empresa} style={{fontSize:"18px", marginTop:"5px"}}>{empresa.nome}</h1>
                 ))}
-                <div className="mb-2" style={{marginTop:"30px",  }}>
+                </div>
+                <Form className='form-signin' onSubmit={formik.handleSubmit} >
+                
                 
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0px"}} type="password" placeholder="      ALTERAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black", marginLeft:"0px"}} type="password" placeholder="      ALTERAR SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required  />
                 </Form.Group>
 
-                </div>
-				<div className="mb-2" style={{ marginTop:"30px", }}>
+               
+		
                 <Form.Group  controlId="formBasicPassword">
                  
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black",marginLeft:"0px"}} type="password" placeholder="   CONFIRMAR SENHA" name="senha"  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', height:"50px", borderColor:"black",marginLeft:"0px"}} type="password" placeholder="   CONFIRMAR SENHA" name="alterarsenha" onChange={formik.handleChange} value={formik.values.alterarsenha} required  />
                 </Form.Group>
 
-                </div>
-                <div  style={{ marginTop:"30px",  }}>
-                <Button  variant="primary" size="lg">
+             
+                
+                <Button  variant="primary" size="lg"  type="submit" disabled={formik.isSubmitting}>
                 Salvar
                 </Button>{' '}
-                </div>
+                </Form>
+                
+                
             </div>
             <div style={{width:"913px", height:"437px", boxShadow:"4px 4px 4px 4px gray", marginBottom:"40px",  display: "flex", justifyContent:"space-around" }}>
-            <div>
-            <div style={{marginTop:"30px"}}>
+            <div >
+            <div style={{marginTop:"80px"}}>
                 
                 <h3 style={{fontSize:"20px"}}>Nome Completo</h3>
                 {Object.values(data).map(empresa => (
@@ -104,8 +139,8 @@ const PerfilEmpresa = () => {
                
 
             </div>
-			<div style={{marginRight:""}}>
-                <div style={{marginTop:"30px"}}>
+			<div >
+                <div style={{marginTop:"80px"}}>
                 <h3 style={{fontSize:"20px"}}>Área de atuação da empresa</h3>
                 {Object.values(data).map(empresa => (
                 <a key={empresa.empresa} style={{fontSize:"15px"}}>{empresa.matriz}</a>
