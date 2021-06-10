@@ -11,7 +11,12 @@ import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario'
 import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
-import DashbordFuncionario from './pages/dashboard/dashboard';
+
+import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa';
+import ListRecrutado from './pages/listagem/listagemRecrutado/listagemRecrutado';
+import DashbordFuncionario from './pages/dashboard/dashboard'
+import RedefinirSenha from './pages/redefinirSenha/redefinirSenha'
+
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
@@ -91,7 +96,7 @@ const routing = (
       {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
       <Route path='/cadastrofunc' component={CadFuncionario} />
       <Route path='/cadastroemp' component={CadEmpresa} />
-      <Route path='/dasboard' component={DashbordFuncionario} />
+      <Route path='/dasboard' component={RedefinirSenha} />
       {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
      
       {/* <Route component ={NotFound}/> */}

@@ -30,6 +30,7 @@ import iconsenai from '../../assets/img/iconsenai.jpg'
 import luccaPerfil from '../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
+import { Search } from '@material-ui/icons';
 
 
 
@@ -37,7 +38,7 @@ import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
 const DashbordFuncionario = () => {
 
     const [data, setData] = useState([]);
-
+    const [busca, setBusca] = useState("");
 
 
 
@@ -56,6 +57,10 @@ const DashbordFuncionario = () => {
     },[])
 
 
+    const filteredRecrutados = data.filter( recrutado => {
+       return recrutado.nome.toLowerCase().includes( busca.toLowerCase() )
+    }) 
+
     return(
 
 
@@ -73,36 +78,69 @@ const DashbordFuncionario = () => {
                                 <h2>Maria </h2>    
                                 
                         </div>
+
+                        
                  
 
                     </div>
-            </div>
+                </div>
                 
                 <div className="Titulo">
                     <h1>Situação dos recrutados</h1>
                 </div>
 
+                <div className="Graficos">
+
                 <div className="grafico">
 
                 <Chart/>
 
-                <div className="totalnumero">
-                <h5>Recrutados com sucesso : 112</h5>
-                <h5>Recrutados com pendências : 72</h5>
-                <h5>Recrutados a serem avaliados : 25 </h5>
+                
+
+                <div className="cards">
+
+                    <div className="Pendencias">
+                        <h8>Pendencias</h8>
+                        <p>62</p>
+                    </div>
+
+                    <div className="Sucesso">
+                        <h8>Sucesso</h8>
+                        <p>70</p>
+                    </div>
+
+                    <div className="Analise">
+                        <h8>Analises</h8>
+                        <p>87</p>
+                    </div>
+
+                </div>
+                </div>
                 
                 </div>
 
-                </div>
+                
 
 
                 <div className="Titulo">
                     <h1>Recrutados Cadastrados</h1>
                 </div>
+                
+
+                
 
                 <div className="wrapper">
 
+
+                    <div className="procurar">
+                    <h7>Busque um recrutado : </h7>
+                    <input type="text" placeholder="Digite o nome do recrutado" onChange={ e=> setBusca(e.target.value) } ></input>
+                    </div>
+
+
             <Table striped bordered hover size="sm">
+            
+            
             <thead>
                 <tr>
                 <th>Perfil</th>
@@ -112,7 +150,7 @@ const DashbordFuncionario = () => {
                 </tr>
             </thead>
             <tbody>
-            {Object.values(data).map(recrutado => (
+            {Object.values(filteredRecrutados).map(recrutado => (
                                     <tr key={recrutado.recrutado}>
                                         <th scope="row"><img src="https://i.pravatar.cc/75?img=32"></img></th>
                                         <td>{recrutado.nome}</td>

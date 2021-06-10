@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const cadastrar = dados => {
-    return fetch("https://localhost:5001/v1/account/employee/signup", {
+    return fetch("https://localhost:5001/v1/account/recruited/signup-recruited", {
         method:'POST',
         body : JSON.stringify(dados),
         headers : {
