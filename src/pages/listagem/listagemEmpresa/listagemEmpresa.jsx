@@ -24,6 +24,9 @@ import Menu from "../../../components/menu/menu";
 import Rodape from "../../../components/rodape/rodape"
 
 
+//alert
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 //images
@@ -35,11 +38,12 @@ import logosenaiperfil from '../../../assets/img/logosenaiperfil.jpeg'
 import fundoListagem from '../../../assets/img/fundoListagem.png'
 
 
+import FuncionarioServico from '../../../servicos/FuncionarioServico'
 
 
 const ListEmpresa = () => {
     const token = localStorage.getItem('token-contratoseguro')
-    const nomeEmpresa = jwt_decode(token).family_name;;
+    const nomeEmpresa = jwt_decode(token).family_name[0];;
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
 
@@ -47,7 +51,7 @@ const ListEmpresa = () => {
 
 
     const getFuncionario = async () =>{
-        fetch("https://localhost:5001/api/account/employee/lister-employee")
+        fetch("https://localhost:5001/v1/account/employee/lister-employee")
         .then((response) => response.json())
         .then((responseJson) => (
             console.log(responseJson),
@@ -59,6 +63,32 @@ const ListEmpresa = () => {
     useEffect(() =>{
         getFuncionario();
     },[])
+
+    const remover = (id) => {
+        confirmAlert({
+            title: 'Remover Usuário',
+            message: 'Deseja excluir o usuário?',
+            buttons: [
+                {
+                    label: 'Não'
+                },
+                {
+                    label: 'Sim',
+                    onClick: () => {
+                        FuncionarioServico
+                        .remover(id)
+                            .then(() => {
+                                alert("Usuário Removido");
+                                getFuncionario();
+                            })
+                            .catch(erro => {
+                                console.log(`erro ${erro}`);
+                            })
+                    }
+                }
+            ]
+        });
+    }
 
    const filteredFuncionarios = data.filter( funcionario =>{
      return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
@@ -109,7 +139,7 @@ const ListEmpresa = () => {
                                                 <td>{recrutado.nome}</td>
                                                 <td>
 
-                    <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                                             </tr>
                                         ))}

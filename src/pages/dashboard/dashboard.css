@@ -193,8 +193,8 @@ input{
     text-align: center;
 }
 
-.cards{
-    display: table;
+.cardsGrafico{
+   
     margin-left: 50px;
     padding: 20px;
     background-color: rgba(196,196,196,0.3);
@@ -205,6 +205,6 @@ input{
     
 }
 
-.graficos{
-    margin-left: 250px;
+.Graficos{
+    margin-left: 200px;
 }

@@ -10,6 +10,9 @@ import Anexo from '../../../components/anexo/anexo'
 import '../funcionario/DocFuncionario.css'
 import IconButton from '@material-ui/core/IconButton';
 import PublishIcon from '@material-ui/icons/Publish';
+import ListDoc from '../../../pages/documentos/funcionario/ListDoc'
+import SendFile from '../../../pages/documentos/funcionario/SendFile'
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -80,7 +83,7 @@ export default function DocFuncionario() {
             height: '90px',
             borderRadius: '04px',
            
-          }} label="Aguardando minha assinatura" {...a11yProps(0)} />
+          }} label="Solicitar Assinatura" {...a11yProps(0)} />
 
           <Tab style={{
             backgroundColor: '#80BFB0',
@@ -109,21 +112,23 @@ export default function DocFuncionario() {
           }}
             className="Tab3" label="Falhas" {...a11yProps(3)} />
 
-          <IconButton color="secondary" aria-label="add an alarm">
-            <PublishIcon />
-          </IconButton>
+          {/* <IconButton color="secondary" aria-label="add an alarm">
+            <PublishIcon fontSize="large" />
+          </IconButton> */}
+
+
 
 
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Aqui vamos listar todos os documentos
+    Aqui vamos enviar o pedido de assinatura
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Aqui vamos listar todos os documentos
+      <ListDoc/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Aqui vamos listar os documentos concluídos
+     <SendFile/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Aqui vamos listar os documentos com falha

@@ -42,7 +42,7 @@ const Menu = () => {
   return (
     <Nav className="ml-auto" id="recrutado" >
       <Nav.Link className='hover' id="navstyle" href="/recrutado/dashboard">Dashboard</Nav.Link>
-      <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link>
+      {/* <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link> */}
       <Nav.Link className='hover' id="navstyle" href="/recrutado/chat">Chat</Nav.Link>
       <Nav.Link  className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
       <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name[0]}>
@@ -59,7 +59,7 @@ else {
       <Nav.Link className='hover' id="navstyle" href="/funcionario/chat">Chat</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/cadastrorec">Cadastro</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/perfilfunc">Perfil</Nav.Link>
-      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).family_name[0]}>
+      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).given_name}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
     </Nav>

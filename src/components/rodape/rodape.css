@@ -1,22 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-.navbar-dark .navbar-nav .nav-link{
-	color: black;
-}
-  .nav-logo {
-	  float: left !important;
-	  width: 100px;
-	}
 
-  #navstyle{
-	  color: black;
-	  font-family: 'Comfortaa';
-	  margin-left: 10px;
-  }
-
-  #navstyle2{
-	color: black;
-	font-family: 'Comfortaa';
-	
+.ContainerFooter{
+	height: 100px;
+	width: 100%;
+	background-color: white;
+	margin-top: 60px;
 }
 
+.footer-logo {
+	width: 100px;
+	position: absolute;
+	left: 140px;
+	margin-top: 20px;
+}
+
+.TextFooter1{
+    font-family: Comfortaa;
+    font-size: 17px;
+    color:black;
+    text-align: center; 
+    font-weight: 500;
+    position: relative;
+    left: 350px;
+    top: 40px;
+}
+
+
+.TextFooter2{
+    font-family: Comfortaa;
+    font-size: 17px;
+    color:black;
+    text-align: center; 
+    font-weight: 500;
+    position: relative;
+    left: 450px;
+    bottom: -35px;
+}
+
+
+.TextFooter3{
+    font-family: Comfortaa;
+    font-size: 17px;
+    color:black;
+    text-align: center; 
+    font-weight: 500;
+    position: relative;
+    left: 550px;
+    bottom: -35px;
+    text-decoration: none;
+    
+}
+
+.TextFooter3:hover{
+    color: blue;
+}

@@ -32,8 +32,10 @@ import luccaPerfil from '../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
 import { Search } from '@material-ui/icons';
-
+import jwt_decode from 'jwt-decode'
 import RecrutadoServico from '../../servicos/RecrutadoServico'
+
+const token = localStorage.getItem('token-contratoseguro')
 
 
 const DashbordFuncionario = () => {
@@ -101,8 +103,8 @@ const DashbordFuncionario = () => {
                    <div className="fotoetexto">
                         <img className='perfilRecrutado' src={mariaPerfil} alt="" />
                         <div className="Inicial">
-                                <h5>Bem vinda </h5>
-                                <h2>Maria </h2>    
+                                <h5>Bem vindo!</h5>
+                                <h2>{jwt_decode(token).given_name} </h2>    
                                 
                         </div>
 
@@ -113,7 +115,7 @@ const DashbordFuncionario = () => {
                 </div>
                 
                 <div className="Titulo">
-                    <h1>Situação dos recrutados</h1>
+                    <h1>Situação dos Recrutados</h1>
                 </div>
 
                 <div className="Graficos">
@@ -124,7 +126,7 @@ const DashbordFuncionario = () => {
 
                 
 
-                <div className="cards">
+                <div className="cardsGrafico">
 
                     <div className="Pendencias">
                         <h8>Pendencias</h8>
