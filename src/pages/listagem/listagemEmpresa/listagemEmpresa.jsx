@@ -32,6 +32,7 @@ import iconsenai from '../../../assets/img/iconsenai.jpg'
 import luccaPerfil from '../../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../../assets/img/logosenaiperfil.jpeg'
+import fundoListagem from '../../../assets/img/fundoListagem.png'
 
 
 
@@ -40,12 +41,18 @@ const ListEmpresa = () => {
     const token = localStorage.getItem('token-contratoseguro')
     const nomeEmpresa = jwt_decode(token).family_name;;
     const [data, setData] = useState([]);
+    const [busca, setBusca] = useState("");
 
 
 
 
+<<<<<<< HEAD
     const getEmpresa = async () =>{
         fetch("https://localhost:5001/v1/account/employee/lister-employee")
+=======
+    const getFuncionario = async () =>{
+        fetch("https://localhost:5001/api/account/employee/lister-employee")
+>>>>>>> origin/Barboza
         .then((response) => response.json())
         .then((responseJson) => (
             console.log(responseJson),
@@ -55,8 +62,12 @@ const ListEmpresa = () => {
 
 
     useEffect(() =>{
-        getEmpresa();
+        getFuncionario();
     },[])
+
+   const filteredFuncionarios = data.filter( funcionario =>{
+     return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
+  })
 
 
     return(
@@ -78,11 +89,17 @@ const ListEmpresa = () => {
                         </div>
                     </div>
             </div>
+            <div className="procurar">
+                    <h7>Busque um funcionario : </h7>
+                    <input type="text" placeholder="Digite o nome do funcionario" onChange={ e=> setBusca(e.target.value) } ></input>
+                    </div>
 
                         <h1>Funcionários Cadastrados</h1>
                     <div className="wrapper">
 
-                    <Table striped bordered hover variant="dark">
+                 
+
+                    <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
                         <th>Perfil</th>
@@ -91,7 +108,7 @@ const ListEmpresa = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {Object.values(data).map(recrutado => (
+                    {Object.values(filteredFuncionarios).map(recrutado => (
                                             <tr key={recrutado.recrutado}>
                                                 <th scope="row"><img id="avatarimagem" src="https://i.pravatar.cc/75?img=59"></img></th>
                                                 <td>{recrutado.nome}</td>
@@ -103,7 +120,12 @@ const ListEmpresa = () => {
                                         ))}
                     </tbody>
                     </Table>
+
+                  
+
                     </div>
+
+                  
                        
                 
         <Rodape/>

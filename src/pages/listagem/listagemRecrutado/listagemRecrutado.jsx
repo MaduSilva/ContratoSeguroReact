@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import './listagemRecrutado.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
+import VideoPlayer from 'react-video-js-player';
 
 
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -26,9 +27,13 @@ import Rodape from "../../../components/rodape/rodape"
 
 
 
-//images
-import iconcadastroempresa from '../../../assets/img/iconcadastroempresa.png'
+//Assets
+import iconcadastroempresa from '../../../assets/img/iconcadastroempresa.png';
 import { Toast } from 'bootstrap';
+import  recrutadolist from '../../../assets/img/recrutadolist.png';
+import information from '../../../assets/video/information.mp4'
+import Listagemui from '../../../assets/img/Listagemui.png'
+
 
 
 
@@ -36,6 +41,9 @@ import { Toast } from 'bootstrap';
 const ListRecrutado = () => {
 
     const [data, setData] = useState([]);
+    const [busca, setBusca] = useState("");
+    const videoSrc = information;   
+
 
 
 
@@ -56,6 +64,14 @@ const ListRecrutado = () => {
 
     return (
 
+<<<<<<< HEAD
+=======
+    const filteredUsuarios = data.filter( funcionario =>{
+        return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
+     })
+
+    return(
+>>>>>>> origin/Barboza
 
 
         <div>
@@ -73,6 +89,7 @@ const ListRecrutado = () => {
                 </div>
             </div>
 
+<<<<<<< HEAD
             {/* <h1>Usuarios</h1>
 
             <div className="wrapper">
@@ -106,6 +123,24 @@ const ListRecrutado = () => {
             </div>
 
            
+=======
+            <div className="fundotextimg">
+
+                <div className="Completo">
+                    <p>Parabens ! Voce está a um passo <br /> de se tonar um fera </p>
+                    <img className = "bannerRecru" src= {Listagemui} alt="" />
+                    <div className="Video">
+                        <VideoPlayer src={videoSrc} width="500" height="400" />
+                    </div>
+                </div>
+            </div>
+
+            
+
+           
+        
+        <Rodape/>
+>>>>>>> origin/Barboza
         </div>
 
 
