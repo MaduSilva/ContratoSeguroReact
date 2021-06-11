@@ -96,23 +96,43 @@ const DashbordFuncionario = () => {
                 <Chart/>
 
                 
+                <div className="CardsTotais"> 
+
+               
 
                 <div className="cards">
+                        
+              
 
-                    <div className="Pendencias">
-                        <h8>Pendencias</h8>
-                        <p>62</p>
+                        <div className="Pendencias">
+                            <h8>Pendencias</h8>
+                            <p>62</p>
+                        </div>
+
+                        <div className="Sucesso">
+                            <h8>Sucesso</h8>
+                            <p>70</p>
+                        </div>
+
+                        <div className="Analise">
+                            <h8>Analises</h8>
+                            <p>87</p>
+                        </div>
+
                     </div>
 
-                    <div className="Sucesso">
-                        <h8>Sucesso</h8>
-                        <p>70</p>
-                    </div>
+                    <div className="cards">
 
-                    <div className="Analise">
-                        <h8>Analises</h8>
-                        <p>87</p>
-                    </div>
+                        
+
+                        <div className="total1">
+                            <h8>Recrutados</h8>
+                            <p>219</p>
+                        </div>
+
+                </div>
+
+                    
 
                 </div>
                 </div>

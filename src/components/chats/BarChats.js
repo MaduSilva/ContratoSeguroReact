@@ -19,7 +19,8 @@ const BarChart = () => {
                }}
 
                height={400}
-               width={600}  
+               width={400}  
+               
 
 
 

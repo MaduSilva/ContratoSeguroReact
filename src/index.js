@@ -96,7 +96,7 @@ const routing = (
       {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
       <Route path='/cadastrofunc' component={CadFuncionario} />
       <Route path='/cadastroemp' component={CadEmpresa} />
-      <Route path='/dasboard' component={RedefinirSenha} />
+      <Route path='/dasboard' component={DashbordFuncionario} />
       {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
      
       {/* <Route component ={NotFound}/> */}
