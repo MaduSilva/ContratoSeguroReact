@@ -11,21 +11,10 @@ import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario'
 import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
-<<<<<<< HEAD
 import DashbordFuncionario from './pages/dashboard/dashboard'
 import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
 import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa'
 import ListRecrutado from './pages/listagem/listagemRecrutado/listagemRecrutado'
-=======
-
-import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa';
-import ListRecrutado from './pages/listagem/listagemRecrutado/listagemRecrutado';
-import DashbordFuncionario from './pages/dashboard/dashboard'
-import RedefinirSenha from './pages/redefinirSenha/redefinirSenha'
-
-import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
-
->>>>>>> origin/Barboza
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
 import LoginRecrutado from './pages/login/loginRecrutado/loginRecrutado';
 import PerfilEmpresa from './pages/Perfil/PerfilEmpresa/PerfilEmpresa';
@@ -105,18 +94,10 @@ const routing = (
       <RotaFuncionario path='/funcionario/cadastrorec' component={CadRecrutado} />
       <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} /> 
  
-<<<<<<< HEAD
       <RotaEmpresa path='/empresa/dashboard' component={ListEmpresa} /> 
       <RotaEmpresa path='/empresa/cadastrofunc' component={CadFuncionario} />
       <RotaEmpresa path='/empresa/cadastroemp' component={CadEmpresa} />
       <RotaEmpresa path='/empresa/perfilemp' component={PerfilEmpresa} />
-=======
-      {/* <RotaEmpresa path='/3/dashboard' component={DashboardEmp} /> */}
-      <Route path='/cadastrofunc' component={CadFuncionario} />
-      <Route path='/cadastroemp' component={CadEmpresa} />
-      <Route path='/dasboard' component={RedefinirSenha} />
-      {/* <RotaEmpresa path='/3/perfil' component={PerfilEmp} /> */}
->>>>>>> origin/Barboza
      
        <Route component ={NaoEncontrada}/>
     </Switch>
