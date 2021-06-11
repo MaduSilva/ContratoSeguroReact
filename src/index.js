@@ -22,6 +22,7 @@ import PerfilFuncionario from './pages/PerfilFuncionario/index'
 import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
+import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -79,6 +80,7 @@ const routing = (
     <Switch>
       <Route exact path='/' component={Home} />
       <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
+      <RotaNaoCadastrado path='/loginfunc' component ={LoginFuncionario}/>
       <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/> 
 
       <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  

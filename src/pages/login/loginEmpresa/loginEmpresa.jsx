@@ -9,9 +9,8 @@ import Logo from '../../../assets/img/logo2.png';
 import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
-import ContaServico from '../loginEmpresa/contaEmpresaServico';
 import { useToasts } from 'react-toast-notifications';
-
+import ContaServico from '../loginEmpresa/contaEmpresaServico';
 
 
 const LoginEmpresa = () => {

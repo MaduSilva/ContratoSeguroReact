@@ -33,7 +33,7 @@ const Menu = () => {
       <Nav.Link className='hover' id="navstyle" href="/empresa/dashboard">Dashboard</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/empresa/cadastrofunc">Cadastro</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/empresa/perfilemp">Perfil</Nav.Link>
-      <NavDropdown id="navstyle" title={jwt_decode(token).family_name}>
+      <NavDropdown id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
     </Nav>
@@ -45,7 +45,7 @@ const Menu = () => {
       <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/recrutado/chat">Chat</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
-      <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name}>
+      <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
     </Nav>
@@ -59,7 +59,7 @@ else {
       <Nav.Link className='hover' id="navstyle" href="/funcionario/chat">Chat</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/cadastrorec">Cadastro</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/perfilfunc">Perfil</Nav.Link>
-      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).family_name}>
+      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
     </Nav>

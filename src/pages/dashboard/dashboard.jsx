@@ -17,12 +17,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
 //pages
-
 import Menu from "../../components/menu/menu";
 import Rodape from "../../components/rodape/rodape"
 import Chart from '../../components/chats/BarChats'
 
-
+//alert
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 //images
@@ -31,15 +32,12 @@ import luccaPerfil from '../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
 
-
+import RecrutadoServico from '../../servicos/RecrutadoServico'
 
 
 const DashbordFuncionario = () => {
 
     const [data, setData] = useState([]);
-
-
-
 
     const getRecrutados = async () =>{
         fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
@@ -54,6 +52,32 @@ const DashbordFuncionario = () => {
     useEffect(() =>{
         getRecrutados();
     },[])
+
+    const remover = (id) => {
+        confirmAlert({
+            title: 'Remover Usuário',
+            message: 'Deseja excluir o usuário?',
+            buttons: [
+                {
+                    label: 'Não'
+                },
+                {
+                    label: 'Sim',
+                    onClick: () => {
+                        RecrutadoServico
+                        .remover(id)
+                            .then(() => {
+                                alert("Usuário Removido");
+                                getRecrutados();
+                            })
+                            .catch(erro => {
+                                console.log(`erro ${erro}`);
+                            })
+                    }
+                }
+            ]
+        });
+    }
 
 
     return(
@@ -112,14 +136,14 @@ const DashbordFuncionario = () => {
                 </tr>
             </thead>
             <tbody>
-            {Object.values(data).map(recrutado => (
+            {data.map(recrutado => (
                                     <tr key={recrutado.recrutado}>
                                         <th scope="row"><img id="avatarimg" src="https://i.pravatar.cc/75?img=32"></img></th>
                                         <td>{recrutado.nome}</td>
                                         <td>{recrutado.email}</td>
                                         <td>
 
-            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
             </td>
                                     </tr>
                                 ))}

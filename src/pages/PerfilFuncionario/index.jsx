@@ -9,7 +9,7 @@ import { Button,Form, Col, Container, Row } from 'react-bootstrap';
 const PerfilFuncionario = () => {
 
     const token = localStorage.getItem('token-contratoseguro')
-    const nomeFuncionario = jwt_decode(token).family_name;
+    const nomeFuncionario = jwt_decode(token).family_name.Nome;
     const emailFuncionario = jwt_decode(token).email;
 
     return (
