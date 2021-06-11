@@ -46,13 +46,8 @@ const ListEmpresa = () => {
 
 
 
-<<<<<<< HEAD
-    const getEmpresa = async () =>{
-        fetch("https://localhost:5001/v1/account/employee/lister-employee")
-=======
     const getFuncionario = async () =>{
         fetch("https://localhost:5001/api/account/employee/lister-employee")
->>>>>>> origin/Barboza
         .then((response) => response.json())
         .then((responseJson) => (
             console.log(responseJson),

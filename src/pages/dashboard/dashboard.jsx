@@ -39,12 +39,9 @@ import RecrutadoServico from '../../servicos/RecrutadoServico'
 const DashbordFuncionario = () => {
 
     const [data, setData] = useState([]);
-<<<<<<< HEAD
-=======
     const [busca, setBusca] = useState("");
 
 
->>>>>>> origin/Barboza
 
     const getRecrutados = async () =>{
         fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
@@ -180,11 +177,7 @@ const DashbordFuncionario = () => {
                 </tr>
             </thead>
             <tbody>
-<<<<<<< HEAD
-            {data.map(recrutado => (
-=======
             {Object.values(filteredRecrutados).map(recrutado => (
->>>>>>> origin/Barboza
                                     <tr key={recrutado.recrutado}>
                                         <th scope="row"><img id="avatarimg" src="https://i.pravatar.cc/75?img=32"></img></th>
                                         <td>{recrutado.nome}</td>

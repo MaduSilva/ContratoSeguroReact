@@ -145,6 +145,7 @@ input{
 
 .Completo{
     margin-left: 90px;
+    
 }
 
 .fundotextimg{
@@ -158,7 +159,11 @@ input{
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    box-shadow: -4px 6px 16px -1px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    
 }
+
 
 .bannerRecru{
     width: 400px;

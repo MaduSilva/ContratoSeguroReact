@@ -29,7 +29,7 @@ const Menu = () => {
     }
     else if (jwt_decode(token).role === 'Empresa') {
   return (
-    <Nav className='mg-r' id="empresa" >
+    <Nav className="ml-auto" id="empresa" >
       <Nav.Link className='hover' id="navstyle" href="/empresa/dashboard">Dashboard</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/empresa/cadastrofunc">Cadastro</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/empresa/perfilemp">Perfil</Nav.Link>
@@ -40,11 +40,11 @@ const Menu = () => {
   )
 } else if (jwt_decode(token).role === 'Recrutado') {
   return (
-    <Nav className='mg-r' id="recrutado" >
+    <Nav className="ml-auto" id="recrutado" >
       <Nav.Link className='hover' id="navstyle" href="/recrutado/dashboard">Dashboard</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/recrutado/chat">Chat</Nav.Link>
-      <Nav.Link className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
+      <Nav.Link  className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
       <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
@@ -53,7 +53,7 @@ const Menu = () => {
 }
 else {
   return (
-    <Nav className='mg-r' id="funcionario" >
+    <Nav className="ml-auto" id="funcionario" >
       <Nav.Link className='hover' id="navstyle" href="/funcionario/dashboard">Dashboard</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/documentos">Documentos</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/chat">Chat</Nav.Link>
@@ -75,7 +75,7 @@ return (
       <Navbar.Brand href="/"><img src={logo} className="nav-logo" alt="Contrato Seguro" /></Navbar.Brand>
       <Navbar.Toggle style={{ backgroundColor: '#e9e9e9', marginTop: '-4px' }} aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-
+  
         {renderMenu()}
 
       </Navbar.Collapse>

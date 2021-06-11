@@ -25,6 +25,7 @@
     "react-scripts": "4.0.3",
     "react-toast-notifications": "^2.4.4",
     "react-toastify": "^7.0.4",
+    "react-video-js-player": "^1.1.1",
     "signature_pad": "^3.0.0-beta.4",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1",
