@@ -51,6 +51,10 @@
     background-color: #E9E9E9;
 } */
 
+.Container{
+    overflow: auto;
+}
+
 .InputsForm{
     
     background-color: #c9c7c738;
@@ -73,6 +77,14 @@
     margin-top: 4px;
     color: #0367A6;
     margin-left: 180px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.Logarfuncionario{
+    font-size: 8px;
+    margin-top: 4px;
+    color: #0367A6;
+    margin-left: 29px;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -99,3 +111,8 @@
      background-color: #E9E9E9;
 }
 
+@media(max-width: 768px) {
+    .foguete-logo{
+        display: none;
+    }
+}

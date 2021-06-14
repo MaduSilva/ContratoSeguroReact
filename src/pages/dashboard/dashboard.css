@@ -119,10 +119,16 @@ h3{
     margin-right: 90px;
 
 }
-img{
+
+.perfilRecrutado img{
     border-radius: 50px;
 }
 
+#avatarimg img{
+    
+        border-radius: 50px;
+    
+}
 .table-sm td{
     vertical-align: middle; 
     

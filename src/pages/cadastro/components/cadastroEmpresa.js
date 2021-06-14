@@ -40,6 +40,7 @@ export const CadastroEmpresa = () => {
                 numero : '',
                 bairro : '',
                 dataAbertura : '',
+                tipo : '3',
                 
             }}
             validationSchema={validate}

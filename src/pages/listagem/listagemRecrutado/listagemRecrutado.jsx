@@ -34,6 +34,8 @@ import  recrutadolist from '../../../assets/img/recrutadolist.png';
 import information from '../../../assets/video/information.mp4'
 import Listagemui from '../../../assets/img/Listagemui.png'
 
+//jwt
+import jwt_decode from 'jwt-decode'
 
 
 
@@ -43,7 +45,7 @@ const ListRecrutado = () => {
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
     const videoSrc = information;   
-
+    const token = localStorage.getItem('token-contratoseguro')
 
 
 
@@ -79,7 +81,7 @@ const ListRecrutado = () => {
                         <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
                         <div className="Inicial">
                                 <h5>Bem vindo </h5>
-                                <h3>Kaua Deja</h3>    
+                                <h3>{jwt_decode(token).family_name[0]}</h3>    
                                 
                         </div>
                     </div>
@@ -88,8 +90,10 @@ const ListRecrutado = () => {
             <div className="fundotextimg">
 
                 <div className="Completo">
-                    <p>Parabens ! Voce está a um passo <br /> de se tonar um fera </p>
+
+                    <p>Parabéns! Você está a um passo <br /> de se tornar um fera BRQ </p>
                     <img className = "bannerRecru" src= {Listagemui} alt="" />
+                    
                     <div className="Video">
                         <VideoPlayer src={videoSrc} width="500" height="400" />
                     </div>

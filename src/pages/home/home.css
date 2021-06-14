@@ -8,3 +8,188 @@
 body{
     font-family: 'Ubuntu', sans-serif;
 }
+
+#line{
+ box-sizing: "border-box";
+ width: "100%";
+ margin-Right: "6px";
+ display:"flex";
+ justify-content:"center" 
+}
+
+#descricao{
+  margin-top: 1em;
+  font-family: "Montserrat";
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+#oquee{
+  font-size: 2em;
+  margin-top: 1em;
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.cards{
+  position: relative;
+  display: flex;
+ justify-content: center;
+}
+
+#cardimg{
+  display: block;
+  width: 257px;
+  height: 257px;
+  object-fit: cover;
+}
+
+.containercard {
+  position: relative;
+  margin: 50px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 257px;
+  width: 257px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #011826;
+}
+
+.containercard:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.planos{
+  position: relative;
+  display: flex;
+ justify-content: center;
+}
+
+.planocard{
+  background-color: #C4C4C4;
+  width: 257px;
+  text-align: center;
+  font-family: "Ubuntu";
+  height: 360px;
+  position: relative;
+  margin: 50px;
+}
+
+.cardinteiro{
+    position: relative;
+    margin: 50px;
+}
+
+
+.planocard h3{
+ background-color: #011826;
+ color: white;
+ font-weight: bold;
+ padding: 5px;
+ height: 50px;
+}
+
+.planocard h4{
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.planocard p{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.redessociais{
+  margin-left: 10px;
+}
+
+.redessociais h3{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 3em;
+ 
+}
+
+.redessociais p{
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#pOrange{
+  color: orange;
+}
+
+.socialicons{
+width: 200px;
+size: 200px;
+display: flex;
+
+}
+
+#imagemlateral img{
+  width: 400px;
+  display: flex;
+}
+
+#faleconosco{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+
+/* responsividade */
+
+@media(max-width: 1030px) {
+  .cards{
+   flex-direction: column;
+  }
+  p{
+    font-size: 10px;
+}
+
+.containercard{
+ display: flex;
+ justify-content: center;
+}
+
+.planos{
+  flex-wrap: wrap;
+}
+
+.cardinteiro{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#faleconosco{
+  flex-wrap: wrap;
+}
+
+}

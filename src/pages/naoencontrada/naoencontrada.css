@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.notfound h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+    text-align: center;
+    color: white;
+}
+
+.notfound img{
+    width: 140px;
+}
+
+.notfound{
+    height: 43.6em;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  flex-direction: column;
+  background-color: #011826;
+}
+
+.all{
+    background-color: #011826;
+    height: 100%;
+    width: 100%;
+}

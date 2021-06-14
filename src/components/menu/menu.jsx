@@ -1,61 +1,88 @@
-import React from 'react';
-import '../menu/menu.css'
-
-//material ui
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab'
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
-//imagens 
+import React from 'react'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import jwt_decode from 'jwt-decode'
+import { useHistory } from 'react-router-dom'
 import logo from '../../assets/img/logo-brq.png';
+import '../menu/menu.css';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    height: 60,
+const Menu = () => {
+  const history = useHistory();
+  const sair = (event) => {
+    event.preventDefault();
+    localStorage.removeItem('token-contratoseguro');
+    history.push('/');
+  }
+
+  const renderMenu = () => {
+    const token = localStorage.getItem('token-contratoseguro')
+
+    if (token === null) {
+      return (
+        <Nav className="ml-auto p-2">
+          <Nav.Link className='hover' id="navstyle" href="/">Home</Nav.Link>
+          <Nav.Link className='hover' id="navstyle" href="#oquee">O que é</Nav.Link>
+          <Nav.Link className='hover' id="navstyle" href="#planos">Planos</Nav.Link>
+          <Nav.Link className='hover' id="navstyle" href="#faleconosco">Fale conosco</Nav.Link>
+          <Nav.Link id="navstyle" href="/login">Login</Nav.Link>
+        </Nav>
+      );
+    }
+    else if (jwt_decode(token).role === 'Empresa') {
+  return (
+    <Nav className="ml-auto" id="empresa" >
+      <Nav.Link className='hover' id="navstyle" href="/empresa/dashboard">Dashboard</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/empresa/cadastrofunc">Cadastro</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/empresa/perfilemp">Perfil</Nav.Link>
+      <NavDropdown id="navstyle" title={jwt_decode(token).family_name[0]}>
+        <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
+      </NavDropdown>
+    </Nav>
+  )
+} else if (jwt_decode(token).role === 'Recrutado') {
+  return (
+    <Nav className="ml-auto" id="recrutado" >
+      <Nav.Link className='hover' id="navstyle" href="/recrutado/dashboard">Dashboard</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/recrutado/chat">Chat</Nav.Link>
+      <Nav.Link  className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
+      <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name[0]}>
+        <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
+      </NavDropdown>
+    </Nav>
+  )
+}
+else {
+  return (
+    <Nav className="ml-auto" id="funcionario" >
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/dashboard">Dashboard</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/documentos">Documentos</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/chat">Chat</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/cadastrorec">Cadastro</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/perfilfunc">Perfil</Nav.Link>
+      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).family_name[0]}>
+        <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
+      </NavDropdown>
+    </Nav>
+  )
+}
+
 
   }
-});
+return (
+  <div>
+    <Navbar collapseOnSelect className="d-flex justify-content-around" expand="lg" style={{ backgroundColor: 'white' }} variant="dark">
 
-export default function Menu() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+      <Navbar.Brand href="/"><img src={logo} className="nav-logo" alt="Contrato Seguro" /></Navbar.Brand>
+      <Navbar.Toggle style={{ backgroundColor: '#e9e9e9', marginTop: '-4px' }} aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+  
+        {renderMenu()}
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+      </Navbar.Collapse>
+    </Navbar>
 
-
-
-  return (
-    <div>
-      <img src={logo} className="nav-logo" alt="logo brq" />
-
-      <Paper className={classes.root}>
-
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          TabIndicatorProps={{ style: {display: 'none'} }}
-          textColor="inherit"
-          centered
-        >
-
-          <Tab href="/" label="Home" />
-          <Tab href="/cadastrorec" label="Cad Recrutado" />
-          <Tab href="/cadastrofunc" label="Cad Funcionario" />
-          <Tab href="/cadastroemp" label="Empresa" />
-          <Tab href="/documentos" label="Documentos" />
-          <Tab href="/dasboard" label="Dashboard" />
-          
-
-          <a className="exit" fontSize="large" href="/login">Login</a>
-
-        </Tabs>
-      </Paper>
-    </div>
-  );
+  </div>
+)
 }
+
+export default Menu;

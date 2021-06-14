@@ -15,6 +15,8 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import jwt_decode from 'jwt-decode';
+
 
 //pages
 
@@ -36,7 +38,8 @@ import fundoListagem from '../../../assets/img/fundoListagem.png'
 
 
 const ListEmpresa = () => {
-
+    const token = localStorage.getItem('token-contratoseguro')
+    const nomeEmpresa = jwt_decode(token).family_name;;
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
 
@@ -76,7 +79,7 @@ const ListEmpresa = () => {
                         <img className='perfilRecrutado' src={logosenaiperfil} alt="" />
                         <div className="Inicial">
                                 <h5>Bem vindo </h5>
-                                <h3>Escola SENAI </h3>    
+                                <h3>{nomeEmpresa} </h3>    
                                 
                         </div>
                     </div>
@@ -102,7 +105,7 @@ const ListEmpresa = () => {
                     <tbody>
                     {Object.values(filteredFuncionarios).map(recrutado => (
                                             <tr key={recrutado.recrutado}>
-                                                <th scope="row"><img src="https://i.pravatar.cc/75?img=59"></img></th>
+                                                <th scope="row"><img id="avatarimagem" src="https://i.pravatar.cc/75?img=59"></img></th>
                                                 <td>{recrutado.nome}</td>
                                                 <td>
 

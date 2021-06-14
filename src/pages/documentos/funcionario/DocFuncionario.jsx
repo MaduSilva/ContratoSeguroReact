@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Anexo from '../../../components/anexo/anexo'
 import '../funcionario/DocFuncionario.css'
+import IconButton from '@material-ui/core/IconButton';
+import PublishIcon from '@material-ui/icons/Publish';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,28 +66,28 @@ export default function DocFuncionario() {
 
   return (
     <div className={classes.root}>
-      <AppBar  elevation={0} position="static">
+      <AppBar elevation={0} position="static">
         <Tabs style={{
+       
+          flexWrap: 'wrap',
           backgroundColor: '#e9e9e9',
           boxShadow: 'none',
-        }} value={value} onChange={handleChange}  TabIndicatorProps={{ style: { display: 'none' } }} aria-label="simple tabs example">
+        }} value={value} onChange={handleChange} TabIndicatorProps={{ style: { display: 'none' } }} aria-label="simple tabs example">
 
           <Tab style={{
             backgroundColor: '#F27405',
             width: '237px',
             height: '90px',
-	          borderRadius: '04px',
-            left: '154px',
-            marginTop: '20px'
+            borderRadius: '04px',
+           
           }} label="Aguardando minha assinatura" {...a11yProps(0)} />
 
           <Tab style={{
             backgroundColor: '#80BFB0',
             width: '237px',
             height: '90px',
-	          borderRadius: '04px',
-            left: '172px',
-            marginTop: '20px'
+            borderRadius: '04px',
+          
           }}
             className="Tab1" label="Documentos Enviados" {...a11yProps(1)} />
 
@@ -93,9 +95,8 @@ export default function DocFuncionario() {
             backgroundColor: '#0367A6',
             width: '237px',
             height: '90px',
-	          borderRadius: '04px',
-            left: '190px',
-            marginTop: '20px'
+            borderRadius: '04px',
+           
           }}
             className="Tab2" label="Concluídos" {...a11yProps(2)} />
 
@@ -103,25 +104,31 @@ export default function DocFuncionario() {
             backgroundColor: '#A60303',
             width: '237px',
             height: '90px',
-	          borderRadius: '04px',
-            left: '210px',
-            marginTop: '20px'
+            borderRadius: '04px',
+           
           }}
-           className="Tab3" label="Falhas" {...a11yProps(3)} />
+            className="Tab3" label="Falhas" {...a11yProps(3)} />
+
+          <IconButton color="secondary" aria-label="add an alarm">
+            <PublishIcon />
+          </IconButton>
+
+
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Anexo />
+        Aqui vamos listar todos os documentos
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Aqui vamos listar todos os documentos 
+        Aqui vamos listar todos os documentos
       </TabPanel>
       <TabPanel value={value} index={2}>
-      Aqui vamos listar os documentos concluídos
+        Aqui vamos listar os documentos concluídos
       </TabPanel>
       <TabPanel value={value} index={3}>
-      Aqui vamos listar os documentos com falha
+        Aqui vamos listar os documentos com falha
       </TabPanel>
+
     </div>
   );
 }
