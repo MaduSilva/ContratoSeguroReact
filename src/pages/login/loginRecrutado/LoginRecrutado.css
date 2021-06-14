@@ -15,6 +15,7 @@
     color: #FFF8F8;
     list-style-type: none;
     
+    
 }
 .FundoInfo h1{
     margin-left: 10px;
@@ -76,7 +77,7 @@
     font-size: 8px;
     margin-top: 4px;
     color: #0367A6;
-    margin-left: 180px;
+    margin-left: 170px;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -84,7 +85,7 @@
     font-size: 8px;
     margin-top: 4px;
     color: #0367A6;
-    margin-left: 29px;
+    margin-left: 20px;
     font-family: 'Comfortaa', cursive;
 }
 
