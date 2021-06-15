@@ -8,7 +8,7 @@ import 'moment/locale/pt-br';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
-const SendFile = () => {
+const Completos = () => {
     const [data, setData] = useState([]);
     const [documento, setDocumentos] = useState("");
 
@@ -74,4 +74,4 @@ const SendFile = () => {
 
 }
 
-export default SendFile;
+export default Completos;

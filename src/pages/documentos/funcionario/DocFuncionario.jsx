@@ -10,8 +10,9 @@ import Anexo from '../../../components/anexo/anexo'
 import '../funcionario/DocFuncionario.css'
 import IconButton from '@material-ui/core/IconButton';
 import PublishIcon from '@material-ui/icons/Publish';
-import ListDoc from '../../../pages/documentos/funcionario/ListDoc'
-import SendFile from '../../../pages/documentos/funcionario/SendFile'
+import Enviados from './Enviados'
+import Completos from './Completos'
+import EnviarEmail from './EnviarEmail'
 
 
 function TabPanel(props) {
@@ -122,13 +123,13 @@ export default function DocFuncionario() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-    Aqui vamos enviar o pedido de assinatura
+         <EnviarEmail/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <ListDoc/>
+      <Enviados/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-     <SendFile/>
+      <Completos/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Aqui vamos listar os documentos com falha

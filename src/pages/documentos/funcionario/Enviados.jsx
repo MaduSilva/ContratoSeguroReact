@@ -7,7 +7,7 @@ import * as moment from 'moment';
 import DescriptionIcon from '@material-ui/icons/Description';
 import 'moment/locale/pt-br';
 
-const ListDoc = () => {
+const Enviados = () => {
     const [data, setData] = useState([]);
     const [documento, setDocumentos] = useState("");
 
@@ -73,4 +73,4 @@ const ListDoc = () => {
 
 }
 
-export default ListDoc;
+export default Enviados;
