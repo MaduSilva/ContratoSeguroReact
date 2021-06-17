@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { TextField } from './textField'
-import '../cadastroRecrutado/index.css'
+import { TextField } from '../textField'
+import '../../cadastroEmpresa/CadEmpresa.css'
 import * as Yup from 'yup';
 import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import {  withStyles } from '@material-ui/core/styles';
-import EmpresaServico from "../../../servicos/EmpresaServico";
+import EmpresaServico from "../../../../servicos/EmpresaServico";
 
 export const CadastroEmpresa = () => {
 

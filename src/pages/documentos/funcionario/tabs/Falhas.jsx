@@ -1,14 +1,10 @@
 import { React, useState, useEffect } from 'react';
-import Menu from '../../../components/menu/menu'
-import Rodape from '../../../components/rodape/rodape'
 import { Table } from 'react-bootstrap';
-import '../recrutado/EnvioDocRec.css'
 import * as moment from 'moment';
-import 'moment/locale/pt-br';
 import DescriptionIcon from '@material-ui/icons/Description';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import 'moment/locale/pt-br';
 
-const Completos = () => {
+const Falhas = () => {
     const [data, setData] = useState([]);
     const [documento, setDocumentos] = useState("");
 
@@ -50,7 +46,7 @@ const Completos = () => {
 
 
                         {
-                            data.filter(item=>item.status=="completed").map((item) => {
+                            data.filter(item=>item.status=="deleted").map((item) => {
                                 var dataEnvio = moment.parseZone(item.sentDateTime).format('llll')
                                 return (
 
@@ -74,4 +70,4 @@ const Completos = () => {
 
 }
 
-export default Completos;
+export default Falhas;

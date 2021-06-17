@@ -1,6 +1,7 @@
-import { Tooltip } from 'bootstrap';
+//Gráficos de documentos
+
 import React from 'react'
-import { Bar, Doughnut, Pie } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 
 const BarChart = () => {
     return (

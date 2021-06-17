@@ -1,12 +1,10 @@
+//react
 import React from 'react';
-import './index.css';
+import './CadRecrutado.css';
 
 //pages
-import { CadastroRec } from '../components/cadastroRecrutado';
+import { CadastroRec } from '../components/cadastros/cadastroRecrutado';
 import Menu from "../../../components/menu/menu";
-import barraNome from "../components/barraNome"
-import RecrutadoServico from "../../../servicos/RecrutadoServico";
-
 
 //images
 import iconcadastrorecrutado from '../../../assets/img/iconcadastrorecrutado.png'

@@ -2,7 +2,7 @@ import React from 'react';
 import './CadFuncionario.css';
 
 //pages
-import { CadastroFuncio } from '../components/cadastroFuncionario';
+import { CadastroFuncio } from '../components/cadastros/cadastroFuncionario';
 import Menu from "../../../components/menu/menu";
 import Rodape from "../../../components/rodape/rodape"
 import barraNome from "../components/barraNome"

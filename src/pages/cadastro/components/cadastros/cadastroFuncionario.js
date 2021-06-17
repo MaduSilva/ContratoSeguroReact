@@ -1,11 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { TextField } from './textField'
-import '../cadastroRecrutado/index.css'
+import { TextField } from '../textField'
+import '../../cadastroFuncionario/CadFuncionario.css'
 import * as Yup from 'yup';
 import { blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
-import FuncionarioServico from "../../../servicos/FuncionarioServico";
+import FuncionarioServico from "../../../../servicos/FuncionarioServico";
 import {Form, Button, Table, Card, Container, Jumbotron, Spinner} from 'react-bootstrap';
 import { Alert, AlertTitle } from '@material-ui/lab';
 

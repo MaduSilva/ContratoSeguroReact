@@ -2,7 +2,7 @@ import React from 'react';
 import './CadEmpresa.css';
 
 //pages
-import { CadastroEmpresa } from '../components/cadastroEmpresa';
+import { CadastroEmpresa } from '../components/cadastros/cadastroEmpresa';
 import Menu from "../../../components/menu/menu";
 import Rodape from "../../../components/rodape/rodape"
 import barraNome from "../components/barraNome"

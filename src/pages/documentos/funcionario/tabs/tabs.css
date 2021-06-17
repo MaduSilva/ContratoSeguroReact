@@ -1,0 +1,26 @@
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.Container_Doc{
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 2em 2em;
+    font-family: Comfortaa;
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.MuiBox-root-7{
+    display: flex;
+    justify-content: center;
+}

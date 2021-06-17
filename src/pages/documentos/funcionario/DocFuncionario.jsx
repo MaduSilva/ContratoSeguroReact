@@ -6,13 +6,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Anexo from '../../../components/anexo/anexo'
 import '../funcionario/DocFuncionario.css'
-import IconButton from '@material-ui/core/IconButton';
-import PublishIcon from '@material-ui/icons/Publish';
-import Enviados from './Enviados'
-import Completos from './Completos'
-import EnviarEmail from './EnviarEmail'
+import Enviados from './tabs/Enviados'
+import Completos from './tabs/Completos'
+import EnviarEmail from './tabs/EnviarEmail'
+import Falhas from './tabs/Falhas'
 
 
 function TabPanel(props) {
@@ -132,7 +130,7 @@ export default function DocFuncionario() {
       <Completos/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Aqui vamos listar os documentos com falha
+      <Falhas/>
       </TabPanel>
 
     </div>

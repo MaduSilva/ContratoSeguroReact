@@ -1,10 +1,13 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { TextField } from '../../cadastro/components/textField'
+import { TextField } from '../../../cadastro/components/textField'
 import * as Yup from 'yup';
 
 //pages
-import DocumentoServico from '../../../servicos/DocumentoServico'
+import DocumentoServico from '../../../../servicos/DocumentoServico'
+
+//css
+import '../tabs/tabs.css'
 
 
 const EnviarEmail = () => {
@@ -42,18 +45,19 @@ const EnviarEmail = () => {
             
 
                 {formik => (
-                    <div>
+                    <div className="Container_Doc">
                         <h1 className="my-3 font-weight-bold-display-7">Solicitar assinatura </h1>
 
-                        <Form className='imputs'>
-                            <TextField label="Nome" name="nome" type="text" />
-                            <TextField label="Email" name="email" type="email" />
-
+                        <Form className='imputs' style={{display:'grid', justifyContent: 'center'}}>
+                            <TextField style={{width:'500px', backgroundColor:'white', margin:'0', height:'50px'}}  placeholder="Nome do Recrutado" name="nome" type="text" />
+                           
+                            <TextField style={{width:'500px', backgroundColor:'white', margin:'0', height:'50px'}} placeholder="Email do Recrutado" name="email" type="email" />
 
                             <div className="botoes">
                                 <button className="btn btn-dark mt-3" type="reset" >Cancelar</button>
+                                
                                 <button className="btn btn-primary mt-3" type="submit" value='Submit' >Cadastrar</button>
-
+                                
                             </div>
                         </Form>
                     </div>

@@ -20,6 +20,7 @@
 .FundoInfo h1{
     margin-left: 10px;
     margin-top: 40px;
+
 }
 .FundoInfo ul{
     margin-top: 80px;
@@ -77,15 +78,14 @@
     font-size: 8px;
     margin-top: 4px;
     color: #0367A6;
-    margin-left: 170px;
     font-family: 'Comfortaa', cursive;
 }
 
-.Logarfuncionario{
+.LogarFuncionario{
     font-size: 8px;
     margin-top: 4px;
     color: #0367A6;
-    margin-left: 20px;
+    
     font-family: 'Comfortaa', cursive;
 }
 
@@ -109,8 +109,9 @@
 }
 
 .body{
-     background-color: #E9E9E9;
+    background-color: #E9E9E9;
 }
+
 
 @media(max-width: 768px) {
     .foguete-logo{

@@ -52,8 +52,8 @@ const LoginFuncionario = () => {
     <div class="body">
       <Menu />
       <Container>
-        <div class="FundoInfo">
-          <h1>Seja muito bem vindo Funcionario!</h1>
+        <div class="FundoInfo" style={{backgroundColor:'#f27405'}}>
+          <h1>Seja muito bem vindo funcionário!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
             <li><a><b>+ Rapidez</b></a></li>
@@ -88,7 +88,7 @@ const LoginFuncionario = () => {
 
                 <a class="Logarfuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
 
-                <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
+                <Button  style={{backgroundColor:'#f27405'}} className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
                   Entrar
                     </Button>
                 <br /><br />

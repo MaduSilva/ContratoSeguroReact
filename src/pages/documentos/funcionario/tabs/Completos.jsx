@@ -1,13 +1,10 @@
 import { React, useState, useEffect } from 'react';
-import Menu from '../../../components/menu/menu'
-import Rodape from '../../../components/rodape/rodape'
 import { Table } from 'react-bootstrap';
-import '../recrutado/EnvioDocRec.css'
 import * as moment from 'moment';
-import DescriptionIcon from '@material-ui/icons/Description';
 import 'moment/locale/pt-br';
+import DescriptionIcon from '@material-ui/icons/Description';
 
-const Enviados = () => {
+const Completos = () => {
     const [data, setData] = useState([]);
     const [documento, setDocumentos] = useState("");
 
@@ -49,7 +46,7 @@ const Enviados = () => {
 
 
                         {
-                            data.filter(item=>item.status=="sent").map((item) => {
+                            data.filter(item=>item.status=="completed").map((item) => {
                                 var dataEnvio = moment.parseZone(item.sentDateTime).format('llll')
                                 return (
 
@@ -73,4 +70,4 @@ const Enviados = () => {
 
 }
 
-export default Enviados;
+export default Completos;

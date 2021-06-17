@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { TextField } from './textField'
-import '../cadastroRecrutado/index.css'
+import { TextField } from '../textField'
+import '../../cadastroRecrutado/CadRecrutado.css'
 import * as Yup from 'yup';
 import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
-import RecrutadoServico from "../../../servicos/RecrutadoServico";
+import RecrutadoServico from "../../../../servicos/RecrutadoServico";
 import { div } from 'prelude-ls';
 
 
@@ -59,12 +59,12 @@ export const CadastroRec = () => {
                 <div>
                     <h1 className="my-3 font-weight-bold-display-7">Cadastro de Recrutado </h1>
 
-                    <Form className='imputs'>
-                        <TextField label="Nome" name="nome" type="text" />
-                        <TextField label="Email" name="email" type="email" />
-                        <TextField label="Senha" name="senha" type="password" />
-                        <TextField label="Telefone" name="telefone" type="text" />
-                        <TextField label="CPF" name="cpf" type="cpf" />
+                    <Form className='imputs' style={{display:'grid', justifyContent: 'center'}}>
+                        <TextField   style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}} placeholder="NOME" name="nome" type="text" />
+                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="EMAIL" name="email" type="email" />
+                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="SENHA" name="senha" type="password" />
+                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}} placeholder="TELEFONE" name="telefone" type="text" />
+                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="CPF" name="cpf" type="cpf" />
 
 
 
