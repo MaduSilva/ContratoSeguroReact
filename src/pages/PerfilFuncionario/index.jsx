@@ -35,7 +35,7 @@ const PerfilFuncionario = () => {
                 .alterarSenha(values)
                 .then(resultado => {
                     if(resultado.data.sucesso){
-                        alert('Muito bom conseguiu');
+                        alert('Senha alterada com sucesso');
                         formik.resetForm();
                     } else {
                        alert('Erro! Dados inválidos ou repetidos')
@@ -66,7 +66,20 @@ const PerfilFuncionario = () => {
 
     })
 
+    // const imageHandler = (e) => {
+    //     const reader = new FileReader();
+    //     reader.onload = () =>{
+    //       if(reader.readyState === 2){
+    //         this.setState({profileImg: reader.result})
+    //       }
+    //     }
+    //     reader.readAsDataURL(e.target.files[0])
+    //   };
+
+    // const {perfilimage} = this.state
+    
     return (
+        
         <div>
             <Menu />
 

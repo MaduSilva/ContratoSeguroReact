@@ -25,6 +25,7 @@ import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
 // import ChatNode from '../src/publicChat'
 
+
 const token = localStorage.getItem('token-contratoseguro') 
 
 // Sem cadastro

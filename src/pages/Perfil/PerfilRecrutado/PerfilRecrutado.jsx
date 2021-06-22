@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 import Menu from "../../../components/menu/menu";
 import Rodape from "../../../components/rodape/rodape"
@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 import { Button, Form, Col, Container, Row } from 'react-bootstrap';
 import FuncionarioServico from '../../../servicos/FuncionarioServico';
 import RecrutadoServico from '../../../servicos/RecrutadoServico';
+import "./PerfilRecrutado.css";
 
 
 const PerfilRecrutado = () => {
@@ -14,11 +15,29 @@ const PerfilRecrutado = () => {
     const token = localStorage.getItem('token-contratoseguro')
     const nomeFuncionario = jwt_decode(token).family_name.Nome;
     const emailFuncionario = jwt_decode(token).email;
+    const [image, setImage] = useState();
+    const [preview, setPreview] = useState();
+    const fileInputRef = useRef();
+    
+
 
     const [recruited, setRecruited] = useState("");
     useEffect(() => {
         listarUser()
     }, []);
+
+    useEffect(()=> {
+        if(image) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+
+            };
+            reader.readAsDataURL(image);
+        }else{
+            setPreview(null);
+        }
+    }, [image]);
 
 
     const listarUser = () => {
@@ -30,8 +49,9 @@ const PerfilRecrutado = () => {
             })
     }
 
-console.log(token)
+      
     return (
+        
         <div>
             <Menu />
 
@@ -42,10 +62,47 @@ console.log(token)
             <div className="teste">
                 <div className="Container_totality">
                     <div className="Container_perfil">
-                        <img src={Funcionario}></img>
+                        
+                       <form>
+                       {preview ? (
+                            <img
+                                src={preview}
+                                style={{ objectFit: "cover" }}
+                                onClick={() => {
+                                setImage(null);
+                                }}
+                            />
+                            ) : (
+                            <button
+                                onClick={(event) => {
+                                event.preventDefault();
+                                fileInputRef.current.click();
+                                }}
+                            >
+                              
+                            </button>
+                            )}
+
+                            <input
+                                    type="file"
+                                    style={{ display: "none" }}
+                                    ref={fileInputRef}
+                                    accept="image/*"
+                                    onChange={(event) => {
+                                        const file = event.target.files[0];
+                                        if (file && file.type.substr(0, 5) === "image") {
+                                        setImage(file);
+                                        } else {
+                                        setImage(null);
+                                        }
+                                    }}
+                                    />
+                       </form>
                         <div className="Barra_nome">
                             <h1>{jwt_decode(token).family_name[0]}</h1>
                         </div>
+
+                       
 
 
                         <div className="mb-2">
@@ -91,6 +148,7 @@ console.log(token)
             </div>
             )
 }
+
 
             export default PerfilRecrutado;
 
