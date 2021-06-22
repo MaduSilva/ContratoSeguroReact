@@ -53,8 +53,10 @@
     background-color: #E9E9E9;
 } */
 
-.Container{
+.container{
     overflow: auto;
+    margin-bottom: 106px;
+    margin-top: 70px;
 }
 
 .InputsForm{

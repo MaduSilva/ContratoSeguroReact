@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import Menu from "../../components/menu/menu";
 import Rodape from "../../components/rodape/rodape"
 import Funcionario from '../../assets/img/avatar.jpg'
@@ -29,6 +30,41 @@ const PerfilFuncionario = () => {
             })
     }
 
+    const alterar = (values) => {
+        FuncionarioServico
+                .alterarSenha(values)
+                .then(resultado => {
+                    if(resultado.data.sucesso){
+                        alert('Muito bom conseguiu');
+                        formik.resetForm();
+                    } else {
+                       alert('Erro! Dados inválidos ou repetidos')
+                    }
+
+                    formik.setSubmitting(false);
+                })
+    }
+
+    const formik = useFormik({
+        initialValues : {
+            idUsuario : jwt_decode(token).jti[1] ,
+            senhaAtual : '',
+            novaSenha : '',
+            
+        },
+        onSubmit : values => {
+            console.log(values);
+                alterar(values);
+        },
+        validationSchema : Yup.object().shape({
+            novaSenha: Yup.string()         
+              .min(6, 'A nova senha deve ter no mínimo 6 caracteres')
+              .required('Campo nova senha obrigatório'),
+            senhaAtual: Yup.string()
+            .required('Campo senha atual obrigatório'),
+          })
+
+    })
 
     return (
         <div>
@@ -48,23 +84,39 @@ const PerfilFuncionario = () => {
 
 
                         <div className="mb-2">
-                            <Form.Group controlId="formBasicPasswordProfile">
+                            <Form.Group >
 
-                                <Form.Control className="Input_senha" type="password" placeholder="ALTERAR SENHA" name="senha" />
+                                <Form.Control
+                                    className="Input_senha"
+                                    type="password"
+                                    placeholder="SENHA ATUAL"
+                                    name="senhaAtual"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.senhaAtual}
+                                    required />
+                                {formik.errors.senhaAtual && formik.touched.senhaAtual ? (<div className="error">{formik.errors.senhaAtual}</div>) : null}
                             </Form.Group>
 
                         </div>
                         <div className="mb-2">
-                            <Form.Group controlId="formBasicPasswordProfile">
+                            <Form.Group>
 
-                                <Form.Control className="Input_senha" type="password" placeholder="CONFIRMAR SENHA" name="senha" />
+                                <Form.Control
+                                    className="Input_senha"
+                                    type="password"
+                                    placeholder="NOVA SENHA"
+                                    name="novaSenha"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.novaSenha}
+                                    required />
+                                {formik.errors.novaSenha && formik.touched.novaSenha ? (<div className="error">{formik.errors.novaSenha}</div>) : null}
                             </Form.Group>
 
                         </div>
                         <div >
-                            <Button variant="primary" size="lg">
+                            <Button onClick={formik.handleSubmit} type="submit" value="Submit" variant="primary" size="lg">
                                 Salvar
-                            </Button>{' '}
+                            </Button>
                         </div>
                     </div>
 
@@ -89,12 +141,12 @@ const PerfilFuncionario = () => {
                         </div>
                     </div>
                 </div>
-                </div>
-
-                < Rodape />
             </div>
-            )
+
+            < Rodape />
+        </div>
+    )
 }
 
-            export default PerfilFuncionario;
+export default PerfilFuncionario;
 

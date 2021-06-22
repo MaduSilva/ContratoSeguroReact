@@ -64,10 +64,6 @@ const LoginFuncionario = () => {
         <div Class="FundoForm">
           <div class="InputsForm">
             <div>
-              <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa</b></a>
-              <img class="setaEmpresa" src={Seta2} alt="seta" />
-            </div>
-            <div>
               <Form className='form-signin' onSubmit={formik.handleSubmit} >
                 <img src={Logo} class="logo-a" alt="logo" />
 
@@ -86,19 +82,21 @@ const LoginFuncionario = () => {
                   <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
                 </Form.Group>
 
-                <a class="Logarfuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
+                <a class="LogarFuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
+                <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
+                <br/>
 
-                <Button  style={{backgroundColor:'#f27405'}} className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
+                <Button  style={{backgroundColor:'#f27405'}} className="ButtonSignIn" variant="default" type="submit" disabled={formik.isSubmitting}>
                   Entrar
                     </Button>
                 <br /><br />
-                <a style={{ marginTop: '30px' }}>Esqueci a senha!</a>
+                <a style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
               </Form>
             </div>
           </div>
         </div>
       </Container>
-      <Rodape />
+      <Rodape/>
     </div>
 
   )

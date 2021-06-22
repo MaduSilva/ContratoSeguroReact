@@ -3,16 +3,16 @@ import axios from "axios";
 
 const listar = dados => {
     return http.get('account/employee/lister-employee', JSON.stringify(dados), {
-        headers : {
-            'authorization' : `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
         }
     });
 }
 
 const cadastrar = dados => {
     return http.post('account/employee/signup', JSON.stringify(dados), {
-        headers : {
-            'authorization' : `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
         }
     });
 }
@@ -34,10 +34,20 @@ const buscarId = id => {
     return http.get('/account/employee/profile-employee/' + id)
 }
 
+const alterarSenha = dados => {
+    return http.put('/account/users/update-password', JSON.stringify(dados), {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        }
+    });
+}
+
+
 
 export default {
     listar,
     cadastrar,
     remover,
-    buscarId
+    buscarId,
+    alterarSenha
 }

@@ -23,6 +23,7 @@ import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
+// import ChatNode from '../src/publicChat'
 
 const token = localStorage.getItem('token-contratoseguro') 
 
@@ -90,7 +91,7 @@ const routing = (
 
      <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />   
       <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
-      {/* <RotaFuncionario path='/funcionario/chat' component={Chat} /> */}
+      {/* <RotaFuncionario path='/funcionario/chat' component={ChatNode} /> */}
       <RotaFuncionario path='/funcionario/cadastrorec' component={CadRecrutado} />
       <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} /> 
  
