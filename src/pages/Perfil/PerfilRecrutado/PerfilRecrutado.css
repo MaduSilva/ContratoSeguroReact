@@ -1,0 +1,20 @@
+
+.Imgem_upload, button{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.Container_perfil img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}

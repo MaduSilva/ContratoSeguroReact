@@ -86,7 +86,7 @@ const LoginFuncionario = () => {
                   <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
                 </Form.Group>
 
-                <a class="Logarfuncionario" href="/login"> <b > Logar como recrutado?</b></a>
+                <a class="Logarfuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
 
                 <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
                   Entrar

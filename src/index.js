@@ -24,6 +24,7 @@ import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
 
+
 const token = localStorage.getItem('token-contratoseguro') 
 
 // Sem cadastro

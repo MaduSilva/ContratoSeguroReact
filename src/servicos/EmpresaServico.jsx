@@ -10,17 +10,14 @@ const cadastrar = dados => {
     })
 }
 
-const listar = idRecrutado => {
-    return http.get(`/account/company/profile-company/${idRecrutado}`, {
-        headers : {
-            'authorization' : `Bearer ${localStorage.getItem('token-contratoseguro')}`
-        }
-    });
+
+const buscarId = id => {
+    return http.get('/account/company/profile-company/' + id)
 }
 
 
 
 export default {
     cadastrar,
-    listar
+    buscarId
 }

@@ -34,7 +34,7 @@ const LoginEmpresa = () => {
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/empresa/dashboard');
+                history.push('/');
             } else {
                 alert("Dados Inválidos")
             }
@@ -88,7 +88,7 @@ const LoginEmpresa = () => {
                   Entrar
                     </Button>
                 <br /><br />
-                <a style={{ marginTop: '30px' }}>Esqueci a senha!</a>
+                {/* <a style={{ marginTop: '30px' }}>Esqueci a senha!</a> */}
               </Form>
             </div>
           </div>

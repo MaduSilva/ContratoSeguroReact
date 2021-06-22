@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import  './dashboard.css';
 import recrutadoPerfil from '../../assets/img/recrutadoperfil.PNG'
 
+
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import IconButton from '@material-ui/core/IconButton';
@@ -20,6 +21,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Menu from "../../components/menu/menu";
 import Rodape from "../../components/rodape/rodape"
 import Chart from '../../components/chats/BarChats'
+import ContactCards from "../../pages/dashboard/ContactCards";
 
 //alert
 import { confirmAlert } from 'react-confirm-alert'; // Import
@@ -32,8 +34,12 @@ import luccaPerfil from '../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../assets/img/logosenaiperfil.jpeg'
 import { Search } from '@material-ui/icons';
+import jwt_decode from 'jwt-decode';
+import RecrutadoServico from '../../servicos/RecrutadoServico';
+import fundoDashboard from '../../assets/img/fundoDashboard.png';
+import freeperfil from "../../assets/img/freeperfil.png";
 
-import RecrutadoServico from '../../servicos/RecrutadoServico'
+const token = localStorage.getItem('token-contratoseguro')
 
 
 const DashbordFuncionario = () => {
@@ -89,133 +95,142 @@ const DashbordFuncionario = () => {
     }) 
 
     return(
-
-
-    
-        <div>
-            <Menu/>
-        <div className="container1">
-            
-                
-            <div className="containerP">
-                   <div className="fotoetexto">
-                        <img className='perfilRecrutado' src={mariaPerfil} alt="" />
-                        <div className="Inicial">
-                                <h5>Bem vinda </h5>
-                                <h2>Maria </h2>    
-                                
-                        </div>
-
-                        
-                 
-
-                    </div>
-                </div>
-                
-                <div className="Titulo">
-                    <h1>Situação dos recrutados</h1>
-                </div>
-
-                <div className="Graficos">
-
-                <div className="grafico">
-
-                <Chart/>
-
-                
-                <div className="CardsTotais"> 
-
-               
-
-                <div className="cards">
-                        
-              
-
-                        <div className="Pendencias">
-                            <h8>Pendencias</h8>
-                            <p>62</p>
-                        </div>
-
-                        <div className="Sucesso">
-                            <h8>Sucesso</h8>
-                            <p>70</p>
-                        </div>
-
-                        <div className="Analise">
-                            <h8>Analises</h8>
-                            <p>87</p>
-                        </div>
-
-                    </div>
-
-                    <div className="cards">
-
-                        
-
-                        <div className="total1">
-                            <h8>Recrutados</h8>
-                            <p>219</p>
-                        </div>
-
-                </div>
-
-                    
-
-                </div>
-                </div>
-                
-                </div>
-
-                
-
-
-                <div className="Titulo">
-                    <h1>Recrutados Cadastrados</h1>
-                </div>
-                
-
-                
-
-                <div className="wrapper">
-
-
-                    <div className="procurar">
-                    <h7>Busque um recrutado : </h7>
-                    <input type="text" placeholder="Digite o nome do recrutado" onChange={ e=> setBusca(e.target.value) } ></input>
-                    </div>
-
-
-            <Table striped bordered hover size="sm">
-            
-            
-            <thead>
-                <tr>
-                <th>Perfil</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-            {Object.values(filteredRecrutados).map(recrutado => (
-                                    <tr key={recrutado.recrutado}>
-                                        <th scope="row"><img id="avatarimg" src="https://i.pravatar.cc/75?img=32"></img></th>
-                                        <td>{recrutado.nome}</td>
-                                        <td>{recrutado.email}</td>
-                                        <td>
-
-            <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-                                    </tr>
-                                ))}
-            </tbody>
-            </Table>
-            </div>
-           
-        </div>
-        <Rodape/>
-        </div>
         
+        <div>
+                <Menu/>
+                            <div className="col boasVindas">
+                                <img className='perfildashboard' src={mariaPerfil} alt="" />
+                                <p> Bem vindo! </p>
+                                <h2>{jwt_decode(token).given_name} </h2>  
+                                
+                            </div>
+
+                                <div className="titulo_situacao">
+                                    <h4>Situação dos Recrutados</h4>
+                                </div>
+                                <div className="container ">
+
+                                    <div className="row complet">
+                                        
+                                        <div className="col-20 col-sm-5 col-md-2 grafico ">
+                                            <Chart/>
+                                        </div>
+
+                                        <div className="row imagetext">
+                                            <div className="cardsresponsivo">
+                                                <div className="col-20 cards_das">
+                                                    <div className="Pendencias">
+                                                        <h8>Pendentes</h8>
+                                                        <p>62</p>
+                                                    </div>
+
+                                                    <div className="Sucesso">
+                                                        <h8>Sucesso</h8>
+                                                        <p>70</p>
+                                                    </div>
+
+                                                    <div className="Analise">
+                                                        <h8>Analises</h8>
+                                                        <p>87</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="col imgdash">
+                                                <img className='fundodashboard' src={fundoDashboard} alt="" />
+                                            </div>
+
+                                        </div>
+
+                                        
+                                    </div>
+
+                                  
+
+
+                                </div>
+
+                                <div className="titulo">
+                                    <p>Recrutados cadastrados</p>
+
+                                </div>
+
+                               
+                                    <div className="container-list"> 
+                                    <section>
+                                                <form className="inputcompleto">
+                                                    <input 
+                                                        type="text"
+                                                        className="ml-50 mt-3 rounded-md p-2 imputpesquisa"
+                                                        placeholder="Digite o nome do recrutado"
+                                                        onChange={ e=> setBusca(e.target.value)}
+                                                    />
+                                                </form>
+                                            </section>
+                                    
+                                     
+                                        <div key={data} className="bg-gray listrecrutados">
+                                            
+                                            <section className="recrutadostt pb-5">
+                                            
+                                                <div className="container">
+                                                    <div className="row">
+                                                    {Object.values(filteredRecrutados).map(recrutado => (
+                                                        <div className="col-md-3 col-sm-5  text-center">
+                                                            <div className="completo_card">
+                                                                <div className="avtar">
+                                                                    <img className="img-fluid" src={freeperfil} alt=""/>
+                                                                </div>
+    
+                                                                <div className="box_content">
+                                                                    <h3 className="title">{recrutado.nome}</h3>
+                                                                    <span className="post">{recrutado.email}</span>
+                                                                </div>
+    
+                                                                <ul className="icons">
+                                                                    <li>
+                                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                                    </li>
+    
+                                                                </ul>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                       
+                                                         
+    
+                                                    ))}
+                                                    </div>
+    
+                                                </div>
+                                               
+                                                
+                                            </section>
+    
+                                           
+                                        </div>
+                                         
+                                    </div>
+                                
+
+                            
+
+                                
+                                        
+
+                               
+
+                                
+                
+
+                            
+
+                
+                
+                <Rodape/>
+        
+        </div>
         
     )
 

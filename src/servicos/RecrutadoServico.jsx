@@ -30,10 +30,14 @@ const remover = async id => {
     })
 }
 
+const buscarId = id => {
+    return http.get('/account/recruited/profile-recruited/' + id)
+}
 
 
 export default {
     listar,
     cadastrar,
     remover,
+    buscarId
 }

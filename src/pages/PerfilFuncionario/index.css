@@ -1,0 +1,75 @@
+.Barra_superior{
+    background-color: #0367A6;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Titulo_perfilfunc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+}
+.Barra_nome{
+    width: 30%;
+    height: 100%;
+}
+.Container_perfil{
+    width: 400px;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    justify-content: flex-start;
+    padding: 2em 2em;
+}
+.Container_perfil img{
+    width: 30%;
+}
+.Container_totality{
+    justify-content: center;
+    align-content: center;
+    max-width: 1600px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    font-family: Comfortaa;
+    padding: 3em 0;
+
+}
+.Input_senha{
+    margin-left: 0 !important;
+    height: 50px;
+}
+
+.Container_totality2{
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 2em 2em;
+    font-family: Comfortaa;
+    margin-left: 17%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-around;
+
+
+}
+.infoprofile{
+    width: 210px;
+    text-align: right;
+}
+
+.teste{
+    background-image: url('http://capacitar.institutoprotege.com.br/img/header_banner_full.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background:transparent\1
+
+}

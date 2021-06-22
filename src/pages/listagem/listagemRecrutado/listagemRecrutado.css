@@ -150,17 +150,18 @@ input{
 
 .fundotextimg{
     background-color: #ffff;
-    width: 1200px;
+    max-width: 1200px;
     height: 500px;
-    margin-left: 80px;
-    margin-right: 90px;
     margin-top: 20px;
-    margin-bottom: 20px;
-    align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: -4px 6px 16px -1px rgba(0,0,0,0.45);
     border-radius: 5px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
     
 }
 

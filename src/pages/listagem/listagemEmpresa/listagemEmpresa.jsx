@@ -22,8 +22,12 @@ import jwt_decode from 'jwt-decode';
 
 import Menu from "../../../components/menu/menu";
 import Rodape from "../../../components/rodape/rodape"
+import freeperfil from "../../../assets/img/freeperfil.png";
 
 
+//alert
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 //images
@@ -35,11 +39,12 @@ import logosenaiperfil from '../../../assets/img/logosenaiperfil.jpeg'
 import fundoListagem from '../../../assets/img/fundoListagem.png'
 
 
+import FuncionarioServico from '../../../servicos/FuncionarioServico'
 
 
 const ListEmpresa = () => {
     const token = localStorage.getItem('token-contratoseguro')
-    const nomeEmpresa = jwt_decode(token).family_name;;
+    const nomeEmpresa = jwt_decode(token).family_name[0];;
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
 
@@ -47,7 +52,7 @@ const ListEmpresa = () => {
 
 
     const getFuncionario = async () =>{
-        fetch("https://localhost:5001/api/account/employee/lister-employee")
+        fetch("https://localhost:5001/v1/account/employee/lister-employee")
         .then((response) => response.json())
         .then((responseJson) => (
             console.log(responseJson),
@@ -60,6 +65,32 @@ const ListEmpresa = () => {
         getFuncionario();
     },[])
 
+    const remover = (id) => {
+        confirmAlert({
+            title: 'Remover Usuário',
+            message: 'Deseja excluir o usuário?',
+            buttons: [
+                {
+                    label: 'Não'
+                },
+                {
+                    label: 'Sim',
+                    onClick: () => {
+                        FuncionarioServico
+                        .remover(id)
+                            .then(() => {
+                                alert("Usuário Removido");
+                                getFuncionario();
+                            })
+                            .catch(erro => {
+                                console.log(`erro ${erro}`);
+                            })
+                    }
+                }
+            ]
+        });
+    }
+
    const filteredFuncionarios = data.filter( funcionario =>{
      return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
   })
@@ -68,61 +99,81 @@ const ListEmpresa = () => {
     return(
 
 
-        <div>
         
-            <Menu/>
-       
-            
-                
-            <div className="containerP">
-                   <div className="fotoetexto">
-                        <img className='perfilRecrutado' src={logosenaiperfil} alt="" />
-                        <div className="Inicial">
-                                <h5>Bem vindo </h5>
-                                <h3>{nomeEmpresa} </h3>    
+        <div>
+                <Menu/>
+                            <div className="col boasVindasempresa">
+                                <img className='perfildashboard' src={mariaPerfil} alt="" />
+                                <p>Bem vindo!</p>
+                                <h2>{nomeEmpresa} </h2>  
                                 
-                        </div>
-                    </div>
-            </div>
-            <div className="procurar">
-                    <h7>Busque um funcionario : </h7>
-                    <input type="text" placeholder="Digite o nome do funcionario" onChange={ e=> setBusca(e.target.value) } ></input>
-                    </div>
+                            </div>
 
-                        <h1>Funcionários Cadastrados</h1>
-                    <div className="wrapper">
+                            <div className="titulo_situacao">
+                                    <p>Funcionarios Cadastrados</p>
+                            </div>
 
-                 
+                            <div className="container-list"> 
+                                    <section>
+                                                <form className="inputcompleto">
+                                                    
+                                                        <input 
+                                                            type="text"
+                                                            className="ml-50 mt-3 rounded-md p-2 imputpesquisa"
+                                                            placeholder="Digite o nome do recrutado"
+                                                            onChange={ e=> setBusca(e.target.value)}
+                                                        />
+                                                   
+                                                </form>
+                                            </section>
+                                    
+                                     
+                                        <div key={data} className="bg-gray listrecrutados">
+                                            
+                                            <section className="recrutadostt pb-5">
+                                            
+                                                <div className="container">
+                                                    <div className="row">
+                                                    {Object.values(filteredFuncionarios).map(funcionario => (
+                                                        <div className="col-md-3 col-sm-5  text-center">
+                                                            <div className="completo_card">
+                                                                <div className="avtar">
+                                                                    <img className="img-fluid" src={freeperfil} alt=""/>
+                                                                </div>
+    
+                                                                <div className="box_content">
+                                                                    <h3 className="title">{funcionario.nome}</h3>
+                                                                    <span className="post">{funcionario.email}</span>
+                                                                        
+                                                                </div>
+    
+                                                                <ul className="icons">
+                                                                    <li>
+                                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(funcionario.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                                    </li>
+    
+                                                                </ul>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                       
+                                                         
+    
+                                                    ))}
+                                                    </div>
+    
+                                                </div>
+                                               
+                                                
+                                            </section>
+    
+                                           
+                                        </div>
+                                         
+                                    </div>
 
-                    <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                        <th>Perfil</th>
-                        <th>Nome</th>
-                        <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {Object.values(filteredFuncionarios).map(recrutado => (
-                                            <tr key={recrutado.recrutado}>
-                                                <th scope="row"><img id="avatarimagem" src="https://i.pravatar.cc/75?img=59"></img></th>
-                                                <td>{recrutado.nome}</td>
-                                                <td>
 
-                    <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                                            </tr>
-                                        ))}
-                    </tbody>
-                    </Table>
-
-                  
-
-                    </div>
-
-                  
-                       
-                
         <Rodape/>
         </div>
         

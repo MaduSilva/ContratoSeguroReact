@@ -87,6 +87,7 @@ const ListRecrutado = () => {
                     </div>
             </div>
 
+        <div className="container completo">
             <div className="fundotextimg">
 
                 <div className="Completo">
@@ -95,14 +96,14 @@ const ListRecrutado = () => {
                     <img className = "bannerRecru" src= {Listagemui} alt="" />
                     
                     <div className="Video">
-                        <VideoPlayer src={videoSrc} width="500" height="400" />
+                        <VideoPlayer src={videoSrc} width="500" height="400"  />
                     </div>
                 </div>
             </div>
 
             
 
-           
+        </div>
         
         <Rodape/>
         </div>

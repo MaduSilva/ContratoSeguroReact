@@ -26,17 +26,15 @@ export const CadastroFuncio = () => {
         },
         onSubmit: values => {
             FuncionarioServico
-                .cadastrar(values)
-                .then(resultado => resultado.json())
-                .then(resultado => {
-              
-                        alert('Cadastrado com Sucesso')
-                        formik.resetForm();
-                    } 
-                )
-                .catch(erro => {
-                    console.log(`erro ${erro}`);
-                })
+            .cadastrar(values)
+            .then(resultado => {
+                console.log(resultado)
+                if (resultado.data.sucesso) {
+                    alert('Usuário Cadastrado, confira email')
+                } else {
+                    alert('Dados inválidos ou repetidos')
+                }
+            })
         },
 
         validationSchema: Yup.object().shape({

@@ -84,19 +84,19 @@ return (
                 <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
               </Form.Group>
 
-              <a class="Logarfuncionario" href="/loginfunc"> <b > Logar como funcionário?</b></a>
+              <a class="Logarfuncionario" href="/loginfunc"> <b > Logar como funcionário?<br/></b></a>
 
               <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
                 Entrar
                     </Button>
               <br /><br />
-              <a style={{ marginTop: '30px' }}>Esqueci a senha!</a>
+              {/* <a style={{ marginTop: '30px' }}>Esqueci a senha!</a> */}
             </Form>
           </div>
         </div>
       </div>
     </Container>
-    <Rodape />
+    
   </div>
 
 )

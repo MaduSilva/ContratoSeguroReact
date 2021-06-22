@@ -1,5 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
 
 
 .containerP{
@@ -89,16 +94,6 @@
     background-color: #ffff;
 }
 
-.grafico{
-    background-color: rgba(196,196,196,0.3);
-    margin-left: 90px;
-    margin-right: 90px;
-    width: 415px;
-    height: 500px;
-    align-items: center;
-    
-    display: flex;
-}
 
 .totalnumero{
     text-align: center;
@@ -160,9 +155,7 @@ input{
 }
 
 .Pendencias{
-    margin-left: 32px;
     border-radius: 10px;
-    margin-top: 50px;
     background-color: #F66F6F;
     height: 90px;
     width: 150px;
@@ -174,12 +167,9 @@ input{
 
 .Sucesso{
     border-radius: 10px;
-    margin-left: 25px;
-    margin-top: 50px;
     background-color: #7CF66F;
     height: 90px;
     width: 150px;
-    align-items: center;
     color: black;
     padding: 20px;
     text-align: center;
@@ -187,28 +177,22 @@ input{
 
 .Analise{
     border-radius: 10px;
-    margin-left: 25px;
-    margin-top: 50px;
     background-color: #FFFF84;
-    margin-bottom: 20px;
     height: 90px;
     width: 150px;
-    align-items: center;
     color: black;
     padding: 20px;
     text-align: center;
 }
 
-.cards{
-    margin-top: 10px;
-    text-align: center;
+.cardsGrafico{
+   
+
     display: flex;
-    height: 250px;
-    width: 600px;
-    margin-left: 170px;
+    justify-content: space-between;
     padding: 20px;
     background-color: rgba(196,196,196,0.3);
-    margin-bottom: 10px;
+    box-shadow: 7px 5px 15px -5px #6b6b6b;
    
     
 }
@@ -218,29 +202,10 @@ input{
 }
 
 .Graficos{
-    align-items: center;
-    
-}
-
-.total1{
-    border-radius: 10px;
-    margin-top: 50px;
-    background-color: #0367a6;
-    margin-bottom: 20px;
-    height: 90px;
-    width: 150px;
-    align-items: center;
-    color: black;
-    padding: 20px;
-    text-align: center;
-    margin-left: 208px;
-    
-}
-
-.titulorecrutado{
-    align-items: center;
-    font-size: 28px;
-    text-align: center;
+    display: flex;
+    justify-content: right;
+    margin-left: 90px;
+    margin-right: 90px;
 }
 
 .TituloCards{
@@ -248,4 +213,227 @@ input{
     font-size: 25px;
    
 }
+
+.titulo_situacao{
+    text-align: center;
+    font-size: 35px;
+    color:#6b6b6b;
+    padding: 20px;
+}
+
+.fundodashboard{
+    width: 600px;
+    height: 400px;
+}
+
+.Container_Imgetotal{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 780px;
+}
+
+.complet{
+    display: flex;
+    justify-content: space-between;
+    width: 1300px;
+
+    
+}
+
+.cards_das{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(196,196,196,0.3);
+    max-height: 150px;
+    padding: 28px;
+    box-shadow: 7px 5px 15px -5px #6b6b6b;
+    
+}
+
+.cards_das:hover{
+    z-index: 1;
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.imagetext{
+    display: flex;
+    flex-direction: column;
+}
+
+.boasVindas{
+
+  width: 100%;
+  height: 150px;
+  background-color: hsl(203, 96%, 33%);
+  padding-left: 60px;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.boasVindas p{
+    color: #ffff;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.perfildashboard{
+    width: 125px;
+    height: 125px;
+    border-radius: 70px;
+    align-self: center ;
+    margin-left: 60px;
+    
+   
+}
+
+.grafico{
+    background-color: rgba(196,196,196,0.3);    
+    max-width: 415px;
+    height: 500px;
+    padding: 60px;
+    box-shadow: 7px 5px 15px -5px #6b6b6b;
+
+    
+}
+
+.grafico:hover{
+    z-index: 1;
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.imputpesquisa{
+    background-color: #ffff;
+   
+
+}
+
+.inputcompleto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardslist{
+    height: 80;
+    background-color: #6b6b6b;
+    border-radius: 10px;
+}
+
+.listcards{
+    height: 20rem;
+}
+
+.completo_card{
+    background-color: rgba(196,196,196,0.3);
+    box-shadow: 7px 5px 15px -5px #6b6b6b;
+    padding: 60px 10px;
+    position: relative;
+    z-index: 0;
+    transition: 0.2s all;
+    margin-top: 25px;
+    
+}
+
+.img-fluid{
+    margin-left: 0;
+    border-radius: 100px;
+}
+
+.completo_card:hover{
+    z-index: 1 ;
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.completo_card .freeperfil{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+}
+
+.completo_card .completo_card_content{
+    margin: 10px 0;
+}
+
+.completo_card .icons{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.2s all;
+    margin-top: 10px;
+}
+
+.completo_card:hover .icons{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.titulo{
+    text-align: center;
+    font-size: 35px;
+    color:#6b6b6b;
+}
+
+.recrutadostt{
+    display: flex;
+    align-items: center;
+}
+
+.inputcomplet{
+    display: flex;
+    align-items: center;
+    background-color: #0367a6;
+}
+
+
+
+/* responsividade */
+
+@media(max-width: 1125px) {
+    .cards_das{
+        width: 429px;
+    }
+    .Pendencias{
+        width: 110px;
+    }
+    .Sucesso{
+        width: 110px;
+    }
+    .Analise{
+        width: 110px;
+    }
+    .graficoecards{
+        display: flex;
+    }
+    .imagetext{
+        display: flex;
+    }
+    .complet{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cardsresponsivo{
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5px;
+    }
+}
+
+  @media(max-width: 1030px) {
+    .p{
+        font-size: 30px;
+    }
+}
+
 
