@@ -90,7 +90,7 @@ const LoginFuncionario = () => {
                   Entrar
                     </Button>
                 <br /><br />
-                <a style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
+                <a href="/resetsenha" style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
               </Form>
             </div>
           </div>

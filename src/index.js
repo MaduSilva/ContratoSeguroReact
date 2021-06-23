@@ -23,6 +23,7 @@ import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
+import RedefinirSenha from './pages/redefinirSenha/redefinirSenha'
 // import ChatNode from '../src/publicChat'
 
 
@@ -83,8 +84,9 @@ const routing = (
       <Route exact path='/' component={Home} />
       <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
       <RotaNaoCadastrado path='/loginfunc' component ={LoginFuncionario}/>
-      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/> 
-
+      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
+      <RotaNaoCadastrado path='/resetsenha' component ={RedefinirSenha}/> 
+      -----------------------------------------------------------------------
       <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
       {/* <RotaRecrutado path='/recrutado/chat' component={Chat} /> */}
