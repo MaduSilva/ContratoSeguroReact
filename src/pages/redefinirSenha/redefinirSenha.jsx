@@ -21,25 +21,29 @@ const RedefinirSenha = () => {
   
   
 
-  const initialValues = {
-    email: '',
-  };
-
-  const formSchema = Yup.object().shape({
-    email: Yup.string().email('E-mail inválido').required('Obrigatório'),
-  });
-
   const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: formSchema,
-    onSubmit: (values) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        formik.setSubmitting(false);
-      }, 3000);
+    initialValues: {
+      email: '',
     },
-  });
-
+    onSubmit: (values, { setSubmitting }) => {
+      ContaServico.redefinir(values)
+        .then(resultado => {
+            console.log(`Resultado ${resultado.data}`)
+            setSubmitting(false);
+            if(resultado.data.sucesso){
+                //mensagem
+                console.log("senha redefinida")
+                //salvar local storage
+                localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+                //redirecionar tela de login
+                history.push('/');
+            } else {
+                alert("Email não encontrado")
+            }
+        })
+        .catch(error => console.error(error));
+    },
+});
 
   return (
     
@@ -64,7 +68,7 @@ const RedefinirSenha = () => {
 
                 
                 <Form.Group controlId="formBasicEmail" >
-                  <Form.Control style={{backgroundColor: 'white', width: '200px'}}  id="email" placeholder="Email" onChange={formik.handleChange} value={formik.values.email} error={formik.touched.email && Boolean(formik.errors.email)} helperText={formik.touched.email && formik.errors.email}  />
+                  <Form.Control style={{backgroundColor: 'white', width: '200px'}}  type="email" placeholder="Email" onChange={formik.handleChange} value={formik.values.email} required  />
                 </Form.Group>
 
                
