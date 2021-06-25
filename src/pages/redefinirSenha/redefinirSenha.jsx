@@ -57,28 +57,27 @@ const RedefinirSenha = () => {
         </div>
         <div Class="FundForm" >
           <div class="InputForms" >
+          
             <div >
-              
-              <img class="setaEmpresa" src={Seta2} alt="seta" />
-            </div>
-            <div >
-              <Form className='form-signin' onSubmit={formik.handleSubmit}>
+              <Form className='form-reset' onSubmit={formik.handleSubmit}>
                 
                 <img src={Logo} class="logo-a" alt="logo" />
 
-                
-                <Form.Group controlId="formBasicEmail" >
-                  <Form.Control style={{backgroundColor: 'white', width: '200px'}}  type="email" placeholder="Email" onChange={formik.handleChange} value={formik.values.email} required  />
+                <a style={{marginTop:"10px"}}>Insira seu email:</a>
+                <Form.Group controlId="formBasicEmail"  >
+                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft:"0px", marginBottom:"0px", marginTop:"10px"}}  type="email" placeholder="Email" name="email" onChange={formik.handleChange} value={formik.values.email} required  />
                 </Form.Group>
 
-               
-
-
+                
+                <div class="button1">
+                <Button className="ButtonSignInt" variant="secondary" type="button" href="/" >
+                  Cancelar
+                    </Button>
                 <Button className="ButtonSignIng" variant="primary" type="submit" disabled={formik.isSubmitting} >
-                  Confirmar
+                Confirmar
                     </Button>
                 <br /><br />
-                
+                </div>
                 
               </Form>
             </div>

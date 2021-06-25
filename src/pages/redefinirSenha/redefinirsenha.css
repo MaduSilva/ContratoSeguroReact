@@ -55,45 +55,55 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px 1px 1px #c9c7c738;
+   
     width: 300px;
+    height: 200px;
     
     text-align: center;
     
 }
-.setaEmpresa{
-   width: 11px;
-   margin-top: 2px;
-   margin-left: 10px;
+.form-reset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
 }
 
-.LogarEmpresa{
-    font-size: 8px;
-    margin-top: 4px;
-    color: #0367A6;
-    margin-left: 180px;
-    font-family: 'Comfortaa', cursive;
-}
 
 .ButtonSignIng{
     height: 35px;
     background-color: #0367A6;
-    margin-top: 10px;
+    
     border-radius: 3px;
     
-    width: 170px;
+    width: 120px;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
-
+.ButtonSignInt{
+    height: 35px;
+    background-color: #6c757d;
+    
+    border-radius: 3px;
+    margin-top: 0px;
+    width: 100px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
 .logo-a{
     width: 40px;
     margin-top: 10px;
     text-align: center;  
    margin-left: 0px;
 }
-
+.button1{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0px;
+    width: 240px;
+}
 .body{
      background-color: #E9E9E9;
 }
@@ -125,6 +135,11 @@
     }
     .InputForms{
          width: 220px;
+    }
+    .button1{
+        display: flex;
+        justify-content: space-evenly;
+        
     }
     
     
@@ -166,7 +181,7 @@
 
 .ButtonSignIng{
     height: 35px;
-    background-color: #0367A6;
+    background-color:#0367A6;
     margin-top: 10px;
     border-radius: 3px;
     
