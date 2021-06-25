@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-*, ::after, ::before {
-    box-sizing: unset; 
-}
+
 
 .FundoForm{
     background-color: #FFF8F8;
@@ -112,6 +110,10 @@
 
 
 @media(max-width:500px){
+    
+    *, ::after, ::before {
+        box-sizing: unset; 
+    }
     [vw] [vw-access-button] .access-button {
         width: 30%;
         margin-left: 2.9em;
