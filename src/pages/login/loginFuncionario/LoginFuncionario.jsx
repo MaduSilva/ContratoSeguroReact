@@ -10,8 +10,10 @@ import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
 import ContaServicoFunc from '../loginFuncionario/contaservicofunc';
+import { useToasts } from 'react-toast-notifications';
 
 const LoginFuncionario = () => {
+  const {addToast} = useToasts(); 
 
   const history = useHistory();
 
@@ -32,13 +34,19 @@ const LoginFuncionario = () => {
             setSubmitting(false);
             if (resultado.data.sucesso) {
               //mensagem
-              console.log("Logado")
+              addToast(resultado.data.mensagem, {
+                appearance: 'success',
+                autoDismiss: true,
+            })
               //salvar local storage
               localStorage.setItem('token-contratoseguro', resultado.data.data.token)
               //redirecionar tela admin
-              history.push('/');
+              history.push('/funcionario/dashboard');
             } else {
-              alert("Dados Inválidos")
+              addToast(resultado.data.mensagem, {
+                appearance: 'error',
+                autoDismiss: true,
+            })
             }
           })
 

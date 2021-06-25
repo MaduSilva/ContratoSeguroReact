@@ -23,6 +23,9 @@ import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
+import {ToastProvider} from 'react-toast-notifications';
+
+
 // import ChatNode from '../src/publicChat'
 
 
@@ -108,7 +111,9 @@ const routing = (
 
 
 ReactDOM.render(
-  routing,
+  <ToastProvider>
+  {routing}
+  </ToastProvider>,
   document.getElementById('root')
 );
 

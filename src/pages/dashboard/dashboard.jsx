@@ -38,12 +38,13 @@ import jwt_decode from 'jwt-decode';
 import RecrutadoServico from '../../servicos/RecrutadoServico';
 import fundoDashboard from '../../assets/img/fundoDashboard.png';
 import freeperfil from "../../assets/img/freeperfil.png";
+import { useToasts } from 'react-toast-notifications';
 
 const token = localStorage.getItem('token-contratoseguro')
 
 
 const DashbordFuncionario = () => {
-
+    const {addToast} = useToasts(); 
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
 
@@ -76,12 +77,18 @@ const DashbordFuncionario = () => {
                     onClick: () => {
                         RecrutadoServico
                             .remover(id)
-                            .then(() => {
-                                alert("Usuário Removido");
+                            .then(resultado => {
+                                addToast(resultado.data.mensagem, {
+                                    appearance: 'success',
+                                    autoDismiss: true,
+                                })
                                 getRecrutados();
                             })
-                            .catch(erro => {
-                                console.log(`erro ${erro}`);
+                            .catch(resultado => {
+                                addToast(resultado.data.mensagem, {
+                                    appearance: 'error',
+                                    autoDismiss: true,
+                                })
                             })
                     }
                 }
