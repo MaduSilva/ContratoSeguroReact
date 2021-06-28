@@ -88,6 +88,7 @@ return (
     <Menu />
     <ReactNotification/>
     <Container>
+      <div class="mediaLogin">
       <div class="FundoInfo">
         <h1>Seja muito bem vindo recrutado!</h1>
         <ul>
@@ -107,20 +108,20 @@ return (
 
 
               <Form.Group controlId="formBasicEmail">
-                <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
 
-                <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
               </Form.Group>
 
               <Form.Group >
 
-                <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
               </Form.Group>
 
-              <a class="LogarFuncionario" href="/loginfunc"> <b > Logar como funcionário?<br/></b></a>
+              <a class="LogarFuncionario" href="/loginfunc"style={{ fontSize:'0.8em'}}> <b> Logar como funcionário?<br/></b></a>
               <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
               <br/>
 
@@ -183,9 +184,17 @@ return (
 >>>>>>> 8d10c5bed0dba8a53d5aed2e657d480b7e53dcf5
           </div>
         </div>
+<<<<<<< HEAD
       </Container>
       <Rodape />
     </div>
+=======
+      </div>
+      </div>
+    </Container>
+    <Rodape/>
+  </div>
+>>>>>>> origin/BenjaminFront
 
   )
 }

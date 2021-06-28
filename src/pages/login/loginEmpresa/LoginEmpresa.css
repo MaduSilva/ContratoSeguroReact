@@ -46,9 +46,8 @@
     display: flex;
     font-family: 'Montserrat';
     justify-content: center;
-    width: 1440px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-family: 'Montserrat';
+    width: 100%;
     background-color: #E9E9E9;
 }
 

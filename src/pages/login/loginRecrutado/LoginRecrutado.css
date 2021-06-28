@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
+
+
 .FundoForm{
     background-color: #FFF8F8;
-    width: 450px;
-    height: 434px;
+    width: 60%;
+    height: 110%;
 }
 
 .FundoInfo{
     background-color: #0367A6;
     border-radius: 3px;
-    height: 434px;
-    width: 320px;
+    height: 110%;
+    width: 40%;
     color: #FFF8F8;
     list-style-type: none;
     
@@ -42,32 +44,23 @@
     margin-left: 130px;
 }
 
-/* .Container{
-    display: flex;
+ .Container{
     font-family: 'Montserrat';
-    justify-content: center;
-    width: 1440px;
-    
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width: 100%;
     background-color: #E9E9E9;
-} */
+} 
 
-.container{
-    margin-bottom: 106px;
-    margin-top: 70px;
+.mediaLogin{
+    display: flex;
+    align-content: center;
+    margin: 5%;
 }
-
 .InputsForm{
-    
     background-color: #c9c7c738;
-    margin-top: 30px;
-    margin-right: 30px;
-    margin-left: 80px;
-    width: 300px;
-    height: 370px;
+    margin: 0 auto;
+    margin-top: 3em;
+    width: 80%;
     text-align: center;
-    justify-content: center;
 }
 .setaEmpresa{
    width: 11px;
@@ -76,17 +69,16 @@
 }
 
 .LogarEmpresa{
-    font-size: 8px;
+    font-size: 0.8em;
     margin-top: 4px;
     color: #0367A6;
     font-family: 'Comfortaa', cursive;
 }
 
 .LogarFuncionario{
-    font-size: 8px;
+    font-size: 1em;
     margin-top: 4px;
     color: #0367A6;
-    
     font-family: 'Comfortaa', cursive;
 }
 
@@ -96,7 +88,7 @@
     margin-top: 15px;
     border-radius: 3px;
     margin-left: 00px;
-    width: 170px;
+    width: 50%;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -111,11 +103,91 @@
 
 .body{
     background-color: #E9E9E9;
+   
 }
+
+
+
+
+@media(max-width:500px){
+    
+    *, ::after, ::before {
+        box-sizing: unset; 
+    }
+    [vw] [vw-access-button] .access-button {
+        width: 30%;
+        margin-left: 2.9em;
+        /* float: right; */
+    }
+
+    .container {
+        margin-bottom: 20%;
+        margin-top: 10%;
+    }
+
+    .FundoInfo h1 {
+        margin-top: 40px;
+    }
+
+    .FundoInfo {
+        background-color: #0367A6;
+        border-radius: 3px;
+        height: 110%;
+        width: 40%;
+        color: #FFF8F8;
+        list-style-type: none;
+    }
+
+    .FundoForm {
+        background-color: #FFF8F8;
+        width: 50%;
+        height: 110%;
+    }
+
+    .FundoInfo ul li {
+        margin-top: 20px;
+        /* margin-right: 30px; */
+    }
+
+    .ButtonSignIn {
+        height: 35px;
+        background-color: #0367A6;
+        margin-top: 15px;
+        border-radius: 3px;
+        margin-left: 00px;
+        width: 60%;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .FundoInfo ul {
+        margin-top: 2.5em;
+        list-style-type: none;
+        margin-left: 30px;
+    }
+
+    
+
+}
+
+
+
 
 
 @media(max-width: 768px) {
     .foguete-logo{
         display: none;
     }
+
+   
 }
