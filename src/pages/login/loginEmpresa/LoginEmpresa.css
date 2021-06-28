@@ -43,11 +43,11 @@
 
 
 .container{
-    display: flex;
+   
     font-family: 'Montserrat';
     justify-content: center;
-    font-family: 'Montserrat';
-    width: 100%;
+    width: 1440px;
+    
     background-color: #E9E9E9;
 }
 

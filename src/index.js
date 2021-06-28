@@ -25,6 +25,8 @@ import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
 import Chat from './pages/chat/chat';
 import {ToastProvider} from 'react-toast-notifications';
+import RedefinirSenha from './pages/redefinirSenha/redefinirSenha'
+
 
 
 
@@ -83,11 +85,12 @@ const routing = (
   <Router basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route exact path='/' component={Home} />
-      <RotaNaoCadastrado path='/login' component={LoginRecrutado} />
-      <RotaNaoCadastrado path='/loginfunc' component={LoginFuncionario} />
-      <RotaNaoCadastrado path='/loginemp' component={LoginEmpresa} />
-
-      <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />
+      <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
+      <RotaNaoCadastrado path='/loginfunc' component ={LoginFuncionario}/>
+      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/>
+      <RotaNaoCadastrado path='/resetsenha' component ={RedefinirSenha}/> 
+    
+      <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
       <RotaRecrutado exact path='/recrutado/chat' component={Chat} />
       <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} />
