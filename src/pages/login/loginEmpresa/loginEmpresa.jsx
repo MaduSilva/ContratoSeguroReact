@@ -14,7 +14,7 @@ import ContaServico from '../loginEmpresa/contaEmpresaServico';
 
 
 const LoginEmpresa = () => {
-
+  const {addToast} = useToasts(); 
   const history = useHistory();
 
   const formik = useFormik({
@@ -30,13 +30,20 @@ const LoginEmpresa = () => {
             setSubmitting(false);
             if(resultado.data.sucesso){
                 //mensagem
-                console.log("Logado")
+                //mensagem
+              addToast(resultado.data.mensagem, {
+                appearance: 'success',
+                autoDismiss: true,
+            })
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/');
+                history.push('/empresa/dashboard');
             } else {
-                alert("Dados Inválidos")
+              addToast(resultado.data.mensagem, {
+                appearance: 'error',
+                autoDismiss: true,
+            })
             }
         })
         .catch(error => console.error(error));

@@ -37,12 +37,14 @@ import luccaPerfil from '../../../assets/img/luccaPerfil.jpeg'
 import mariaPerfil from '../../../assets/img/mariaPerfil.jpeg'
 import logosenaiperfil from '../../../assets/img/logosenaiperfil.jpeg'
 import fundoListagem from '../../../assets/img/fundoListagem.png'
+import { useToasts } from 'react-toast-notifications';
 
 
 import FuncionarioServico from '../../../servicos/FuncionarioServico'
 
 
 const ListEmpresa = () => {
+    const {addToast} = useToasts(); 
     const token = localStorage.getItem('token-contratoseguro')
     const nomeEmpresa = jwt_decode(token).family_name[0];;
     const [data, setData] = useState([]);
@@ -78,12 +80,18 @@ const ListEmpresa = () => {
                     onClick: () => {
                         FuncionarioServico
                         .remover(id)
-                            .then(() => {
-                                alert("Usuário Removido");
+                            .then(resultado => {
+                                addToast(resultado.data.mensagem, {
+                                    appearance: 'success',
+                                    autoDismiss: true,
+                                })
                                 getFuncionario();
                             })
-                            .catch(erro => {
-                                console.log(`erro ${erro}`);
+                            .catch(resultado => {
+                                addToast(resultado.data.mensagem, {
+                                    appearance: 'error',
+                                    autoDismiss: true,
+                                })
                             })
                     }
                 }

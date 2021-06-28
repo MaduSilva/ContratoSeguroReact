@@ -7,16 +7,17 @@ import ReactNotification from 'react-notifications-component';
 import { store } from 'react-notifications-component';
 import 'animate.css';
 import 'react-notifications-component/dist/theme.css';
+import { useFormik, Formik, Form } from 'formik';
+import { TextField } from '../../../cadastro/components/textField'
+import * as Yup from 'yup';
+import { useToasts } from 'react-toast-notifications';
 
 //pages
 import DocumentoServico from '../../../../servicos/DocumentoServico'
 
 //css
 import '../tabs/tabs.css'
-
-
 const EnviarEmail = () => {
-
     const handleOnClickDefault = () => {
         store.addNotification({
             title: "Sucesso!",
@@ -35,9 +36,9 @@ const EnviarEmail = () => {
         })
     }
 
+    const {addToast} = useToasts(); 
     const validate = Yup.object({
         nome: Yup.string()
-            .min(3, 'Nome deve ter no mínimo 3 caracteres')
             .required('Obrigatório'),
         email: Yup.string()
             .min(3, 'Email deve ter no mínimo 3 caracteres')
@@ -62,6 +63,13 @@ const EnviarEmail = () => {
 
                         alert('Email enviado com sucesso')
 
+                      
+                        addToast(resultado.data.mensagem, {
+                            appearance: 'success',
+                            autoDismiss: true,
+                        })
+                        
+                          
                     })
             }
             }
@@ -79,8 +87,8 @@ const EnviarEmail = () => {
 
                         <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '50px' }} placeholder="Email do Recrutado" name="email" type="email" />
 
-                        <div className="botoes">
-                            <button className="btn btn-dark mt-3" type="reset" >Cancelar</button>
+                            <div className="botoes">
+                                <button className="btn btn-dark mt-3" type="reset" >Cancelar</button>
 
                             <Button onClick={handleOnClickDefault} className="btn btn-primary mt-3" type="submit" value='Submit' >Enviar</Button>
 

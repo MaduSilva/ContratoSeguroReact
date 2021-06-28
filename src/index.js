@@ -24,6 +24,8 @@ import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
 import Chat from './pages/chat/chat';
+import {ToastProvider} from 'react-toast-notifications';
+
 
 
 const token = localStorage.getItem('token-contratoseguro')
@@ -108,7 +110,9 @@ const routing = (
 
 
 ReactDOM.render(
-  routing,
+  <ToastProvider>
+  {routing}
+  </ToastProvider>,
   document.getElementById('root')
 );
 

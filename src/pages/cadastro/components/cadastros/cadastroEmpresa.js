@@ -7,11 +7,12 @@ import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import {  withStyles } from '@material-ui/core/styles';
 import EmpresaServico from "../../../../servicos/EmpresaServico";
-
+import { useToasts } from 'react-toast-notifications';
 export const CadastroEmpresa = () => {
-
+    const { addToast } = useToasts();
       
     const validate= Yup.object({
+
         nome: Yup.string()
             .max(30, 'Mais de 100 carcteries')
             .required('Required'),
@@ -51,10 +52,18 @@ export const CadastroEmpresa = () => {
                     .then(resultado => resultado.json())
                     .then(resultado => {
                         console.log(JSON.stringify(resultado))
-                        alert('Usuário Cadastrado, confira email')
-                    })
-                    .catch(erro => {
-                        console.error(" Erro na api " + erro);
+                        if (resultado.data.sucesso) {
+                            addToast(resultado.data.mensagem, {
+                                appearance: 'success',
+                                autoDismiss: true,
+                            })
+                        } else {
+                            addToast(resultado.data.mensagem, {
+                                appearance: 'error',
+                                autoDismiss: true,
+                            })
+                        }
+                        
                     })
             }}
         >

@@ -8,9 +8,10 @@ import jwt_decode from 'jwt-decode';
 import { Button, Form, Col, Container, Row } from 'react-bootstrap';
 import FuncionarioServico from '../../servicos/FuncionarioServico';
 import './index.css';
+import { useToasts } from 'react-toast-notifications';
 
 const PerfilFuncionario = () => {
-
+    const {addToast} = useToasts(); 
     const token = localStorage.getItem('token-contratoseguro')
     const nomeFuncionario = jwt_decode(token).family_name.Nome;
     const emailFuncionario = jwt_decode(token).email;
@@ -35,10 +36,16 @@ const PerfilFuncionario = () => {
                 .alterarSenha(values)
                 .then(resultado => {
                     if(resultado.data.sucesso){
-                        alert('Senha alterada com sucesso');
+                        addToast(resultado.data.mensagem, {
+                            appearance: 'success',
+                            autoDismiss: true,
+                        })
                         formik.resetForm();
                     } else {
-                       alert('Erro! Dados inválidos ou repetidos')
+                        addToast(resultado.data.mensagem, {
+                            appearance: 'warning',
+                            autoDismiss: true,
+                        })
                     }
 
                     formik.setSubmitting(false);

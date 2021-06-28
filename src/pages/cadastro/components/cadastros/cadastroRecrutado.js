@@ -8,10 +8,12 @@ import { blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 import RecrutadoServico from "../../../../servicos/RecrutadoServico";
 import { div } from 'prelude-ls';
+import { useToasts } from 'react-toast-notifications';
+
 
 
 export const CadastroRec = () => {
-
+    const { addToast } = useToasts();
     const validate = Yup.object({
         nome: Yup.string()
             .max(15, 'Mais de 15 carcteries')
@@ -46,9 +48,15 @@ export const CadastroRec = () => {
                     .then(resultado => {
                         console.log(resultado)
                         if (resultado.data.sucesso) {
-                            alert('Usuário Cadastrado, confira email')
+                            addToast(resultado.data.mensagem, {
+                                appearance: 'success',
+                                autoDismiss: true,
+                            })
                         } else {
-                            alert('Dados inválidos ou repetidos')
+                            addToast(resultado.data.mensagem, {
+                                appearance: 'error',
+                                autoDismiss: true,
+                            })
                         }
                     })
             }
@@ -59,12 +67,12 @@ export const CadastroRec = () => {
                 <div>
                     <h1 className="my-3 font-weight-bold-display-7">Cadastro de Recrutado </h1>
 
-                    <Form className='imputs' style={{display:'grid', justifyContent: 'center'}}>
-                        <TextField   style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}} placeholder="NOME" name="nome" type="text" />
-                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="EMAIL" name="email" type="email" />
-                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="SENHA" name="senha" type="password" />
-                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}} placeholder="TELEFONE" name="telefone" type="text" />
-                        <TextField  style={{width:'500px', backgroundColor:'white', margin:'0', height:'40px'}}  placeholder="CPF" name="cpf" type="cpf" />
+                    <Form className='imputs' style={{ display: 'grid', justifyContent: 'center' }}>
+                        <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '40px' }} placeholder="NOME" name="nome" type="text" />
+                        <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '40px' }} placeholder="EMAIL" name="email" type="email" />
+                        <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '40px' }} placeholder="SENHA" name="senha" type="password" />
+                        <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '40px' }} placeholder="TELEFONE" name="telefone" type="text" />
+                        <TextField style={{ width: '500px', backgroundColor: 'white', margin: '0', height: '40px' }} placeholder="CPF" name="cpf" type="cpf" />
 
 
 
