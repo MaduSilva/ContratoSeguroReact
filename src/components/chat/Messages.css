@@ -1,0 +1,48 @@
+.Messages {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    grid-gap: 8px;
+    overflow: auto;
+}
+.Messages .Message {
+    display: flex;
+    animation: pop 0.25s ease;
+}
+@keyframes pop {
+    from {
+        transform: scale(0);
+   }
+    to {
+        transform: scale(1);
+   }
+}
+.Messages .Message.outgoing {
+    justify-content: flex-end;
+}
+.Messages .Message .outgoing, .Messages .Message .incoming {
+    display: flex;
+    grid-gap: 8px;
+}
+.Messages .Message .outgoing span, .Messages .Message .incoming span {
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 7px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .10);
+}
+.Messages .Message .outgoing {
+    flex-direction: row-reverse;
+}
+.Messages .Message .outgoing span {
+    background-color: #1e94d2;
+    color: #fff;
+}
+.Messages .Message .incoming span {
+    background-color: #fff;
+    color: #1e94d2;
+}
+.Messages .Message img {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}

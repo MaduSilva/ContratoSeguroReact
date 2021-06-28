@@ -4,7 +4,7 @@ import './index.css';
 import jwt_decode from 'jwt-decode'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 //Páginas
 import CadFuncionario from './pages/cadastro/cadastroFuncionario/CadFuncionario';
@@ -12,7 +12,7 @@ import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
 import DashbordFuncionario from './pages/dashboard/dashboard'
-import DocRecrutado from './pages/documentos/recrutado/DocRecrutado' 
+import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa'
 import ListRecrutado from './pages/listagem/listagemRecrutado/listagemRecrutado'
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
@@ -23,85 +23,85 @@ import PerfilRecrutado from './pages/Perfil/PerfilRecrutado/PerfilRecrutado'
 import Home from './pages/home/home'
 import NaoEncontrada from './pages/naoencontrada/naoencontrada'
 import LoginFuncionario from './pages/login/loginFuncionario/LoginFuncionario'
-// import ChatNode from '../src/publicChat'
+import Chat from './pages/chat/chat';
 
 
-const token = localStorage.getItem('token-contratoseguro') 
+const token = localStorage.getItem('token-contratoseguro')
 
 // Sem cadastro
-const RotaNaoCadastrado= ({component : Component, ...rest}) => (
+const RotaNaoCadastrado = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render = {
-      props => 
-      token !== null ?
-      <Redirect to={{pathname:'/', state:{from : props.location}}}/>:
-    <Component {...props}/>
+    render={
+      props =>
+        token !== null ?
+          <Redirect to={{ pathname: '/', state: { from: props.location } }} /> :
+          <Component {...props} />
     }
   />
 );
 
 //Somente para Recrutados
-const RotaRecrutado = ({component : Component, ...rest}) => (
+const RotaRecrutado = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render = { props => 
+    render={props =>
       token !== null && jwt_decode(token).role === 'Recrutado' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     }
   />
 );
 
 //Somente para Funcionários
-const RotaFuncionario = ({component : Component, ...rest}) => (
+const RotaFuncionario = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render = { props => 
+    render={props =>
       token !== null && jwt_decode(token).role === 'Funcionario' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     }
   />
 );
 
 //Somente para Empresa
-const RotaEmpresa = ({component : Component, ...rest}) => (
+const RotaEmpresa = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render = { props => 
+    render={props =>
       token !== null && jwt_decode(token).role === 'Empresa' ?
         <Component {...props} /> :
-        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
+        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     }
   />
 );
 
 const routing = (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route exact path='/' component={Home} />
-      <RotaNaoCadastrado path='/login' component ={LoginRecrutado}/>
-      <RotaNaoCadastrado path='/loginfunc' component ={LoginFuncionario}/>
-      <RotaNaoCadastrado path='/loginemp' component ={LoginEmpresa}/> 
+      <RotaNaoCadastrado path='/login' component={LoginRecrutado} />
+      <RotaNaoCadastrado path='/loginfunc' component={LoginFuncionario} />
+      <RotaNaoCadastrado path='/loginemp' component={LoginEmpresa} />
 
-      <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  
+      <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />
       <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
-      {/* <RotaRecrutado path='/recrutado/chat' component={Chat} /> */}
-       <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} /> 
+      <RotaRecrutado exact path='/recrutado/chat' component={Chat} />
+      <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} />
 
-     <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />   
+      <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />
       <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
-      {/* <RotaFuncionario path='/funcionario/chat' component={ChatNode} /> */}
+      <RotaFuncionario exact path='/chat' component={Chat}  />
       <RotaFuncionario path='/funcionario/cadastrorec' component={CadRecrutado} />
-      <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} /> 
- 
-      <RotaEmpresa path='/empresa/dashboard' component={ListEmpresa} /> 
+      <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} />
+
+      <RotaEmpresa path='/empresa/dashboard' component={ListEmpresa} />
       <RotaEmpresa path='/empresa/cadastrofunc' component={CadFuncionario} />
       <RotaEmpresa path='/empresa/cadastroemp' component={CadEmpresa} />
       <RotaEmpresa path='/empresa/perfilemp' component={PerfilEmpresa} />
-     
-       <Route component ={NaoEncontrada}/>
+
+      <Route component={NaoEncontrada} />
     </Switch>
   </Router>
 )

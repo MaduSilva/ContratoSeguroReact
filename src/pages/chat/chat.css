@@ -1,0 +1,22 @@
+.chat {
+  min-height: 100vh;
+  background-color: #eeeeee;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chat .Logo {
+  margin: 24px 0;
+}
+
+.chat .Logo img {
+  height: 32px;
+  transition: .25s ease;
+}
+
+.chat .Logo img:hover {
+  transform: scale(1.2);
+}

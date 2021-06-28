@@ -10,10 +10,33 @@ import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
 import ContaServicoRec from '../loginRecrutado/contaservico';
+import ReactNotification from 'react-notifications-component';
+import {store} from 'react-notifications-component';
+import 'animate.css';
+import 'react-notifications-component/dist/theme.css';
 
 
 
 const LoginRecrutado = () => {
+
+  //notificação
+  const handleOnClickDefault = () =>{
+    store.addNotification({
+      title: "Sucesso!",
+      message: "Logado com sucesso",
+      type: "success",
+      container:"top-right",
+      insert:"top",
+      animationIn: ["animated","fadeIn"],
+      animationOut: ["animated","fadeOut"],
+
+      dismiss:{
+        duration: 10000,
+        showIcon: true
+      },
+      width:300
+    })
+  }
 
   const history = useHistory();
 
@@ -49,6 +72,7 @@ return (
 
   <div class="body">
     <Menu />
+    <ReactNotification/>
     <Container>
       <div class="FundoInfo">
         <h1>Seja muito bem vindo recrutado!</h1>
@@ -86,7 +110,7 @@ return (
               <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
               <br/>
 
-              <Button className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
+              <Button onClick={handleOnClickDefault} className="ButtonSignIn" variant="primary" type="submit" disabled={formik.isSubmitting}>
                 Entrar
                     </Button>
               <br /><br />

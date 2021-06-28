@@ -20,7 +20,7 @@ import InputBase from '@material-ui/core/InputBase';
 //pages
 import Menu from "../../components/menu/menu";
 import Rodape from "../../components/rodape/rodape"
-import Chart from '../../components/chats/BarChats'
+import Chart from '../../components/charts/BarChats'
 import ContactCards from "../../pages/dashboard/ContactCards";
 
 //alert
