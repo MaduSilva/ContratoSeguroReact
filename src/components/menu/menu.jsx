@@ -70,7 +70,7 @@ else {
   }
 return (
   <div>
-    <Navbar collapseOnSelect className="d-flex justify-content-around" expand="lg" style={{ width:'100%' , backgroundColor: 'white'}} variant="dark">
+    <Navbar collapseOnSelect className="d-flex justify-content-around" expand="lg" style={{ width:'100%' , backgroundColor: 'white', marginBottom:'5em'}} variant="dark">
 
       <Navbar.Brand href="/"><img src={logo} className="nav-logo" alt="Contrato Seguro" /></Navbar.Brand>
       <Navbar.Toggle style={{ backgroundColor: '#e9e9e9', marginTop: '-4px' }} aria-controls="responsive-navbar-nav" />
