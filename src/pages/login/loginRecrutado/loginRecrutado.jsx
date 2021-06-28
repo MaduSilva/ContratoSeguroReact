@@ -70,17 +70,17 @@ return (
 
 
               <Form.Group controlId="formBasicEmail">
-                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '70%', marginLeft: '10%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
 
-                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '70%', marginLeft: '10%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
               </Form.Group>
 
               <Form.Group >
 
-                <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '20%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
+                <Form.Control style={{ backgroundColor: 'white', width: '70%', marginLeft: '10%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
               </Form.Group>
 
               <a class="LogarFuncionario" href="/loginfunc"style={{ fontSize:'0.8em'}}> <b> Logar como funcionário?<br/></b></a>

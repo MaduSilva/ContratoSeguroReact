@@ -2,7 +2,7 @@
 
 
 .ContainerFooter{
-	height: 100px;
+	height: 6em;
 	width: 100%;
 	background-color: white;
     bottom:0;
@@ -18,12 +18,12 @@
 }
 
 .allfooter img {
-   margin-top: 20px;
+   margin-top: 1em;
    
 }
 
 .textos a {
-    margin-left: 190px;
+    margin-left: 8em;
     color: black;
 }
 
@@ -31,7 +31,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
  
 }
     

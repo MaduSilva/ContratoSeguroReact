@@ -21,7 +21,14 @@
 
 @media(max-width:500px){
     .Imgem_upload, button{
-        width: 50px;
+        width: 1em;
         height: 40px;
+    }
+}
+
+@media(min-width:501px){
+    .Imgem_upload, button{
+        width: 4em;
+        height: 60px;
     }
 }

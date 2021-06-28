@@ -52,7 +52,7 @@ const LoginFuncionario = () => {
     <div class="body">
       <Menu />
       <Container>
-        <div class="FundoInfo" style={{backgroundColor:'#f27405'}}>
+        <div class="FundoInfo" style={{backgroundColor:'#f27405' , }}>
           <h1>Seja muito bem vindo funcionário!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
@@ -69,20 +69,19 @@ const LoginFuncionario = () => {
 
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
 
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
                 </Form.Group>
 
                 <Form.Group >
-
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
                 </Form.Group>
 
-                <a class="LogarFuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
+                <a class="LogarFuncionario" href="/login"style={{ fontSize:'0.8em'}}> <b > Logar como recrutado?<br/></b></a>
                 <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
                 <br/>
 

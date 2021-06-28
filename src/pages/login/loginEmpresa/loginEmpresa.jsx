@@ -70,7 +70,7 @@ const LoginEmpresa = () => {
 
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Control style={{backgroundColor: 'white', width: '200px', marginLeft: '49px'}} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                  <Form.Control style={{backgroundColor: 'white', width: '60%', marginLeft: '10%'}} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
                 <Form.Group  controlId="formBasicPassword">
