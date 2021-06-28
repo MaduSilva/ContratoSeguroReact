@@ -63,7 +63,7 @@ const PerfilRecrutado = () => {
                 <div className="Container_totality">
                     <div className="Container_perfil">
                         
-                       <form>
+                       {/* <form>
                        {preview ? (
                             <img
                                 src={preview}
@@ -97,7 +97,8 @@ const PerfilRecrutado = () => {
                                         }
                                     }}
                                     />
-                       </form>
+                       </form> */}
+                          <img src={Funcionario}></img>
                         <div className="Barra_nome">
                             <h1>{jwt_decode(token).family_name[0]}</h1>
                         </div>

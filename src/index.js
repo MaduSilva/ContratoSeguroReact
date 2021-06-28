@@ -90,12 +90,12 @@ const routing = (
       <RotaNaoCadastrado path='/resetsenha' component ={RedefinirSenha}/> 
     
       <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  
-      <RotaRecrutado exact path='/chat' component={Chat} />
+      <RotaRecrutado exact path='/recrutado/chat' component={Chat} />
       <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} />
 
       <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />
       <RotaFuncionario path='/funcionario/documentos' component={PagDocFunc} />
-      <RotaFuncionario exact path='/chat' component={Chat}  />
+      <RotaFuncionario path='/funcionario/chat' component={Chat}  />
       <RotaFuncionario path='/funcionario/cadastrorec' component={CadRecrutado} />
       <RotaFuncionario path='/funcionario/perfilfunc' component={PerfilFuncionario} />
 

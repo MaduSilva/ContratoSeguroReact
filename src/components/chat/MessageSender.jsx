@@ -1,6 +1,8 @@
 import { useState } from "react"
 import MessagingService from '../../services/messaging'
 import './MessageSender.css'
+import Button from 'react-bootstrap/Button'
+
 
 function MessageSender () {
   const [message, setMessage] = useState('')
@@ -19,9 +21,9 @@ function MessageSender () {
       onSubmit={handleSubmit}
     />
 
-    <button onClick={handleSubmit}>
+    <Button onClick={handleSubmit}>
       Enviar
-    </button>
+    </Button>
   </div>
 }
 

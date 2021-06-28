@@ -1,4 +1,6 @@
 import AuthenticationService from "../../services/authentication"
+import Button from 'react-bootstrap/Button'
+
 
 function Login () {
   function handleLogin () {
@@ -6,11 +8,11 @@ function Login () {
   }
 
   return <div className="Login">
-    <button
+    <Button
       onClick={handleLogin}
     >
       Login com o Google
-    </button>
+    </Button>
   </div>
 }
 

@@ -43,7 +43,7 @@ const Menu = () => {
     <Nav className="ml-auto" id="recrutado" >
       <Nav.Link className='hover' id="navstyle" href="/recrutado/dashboard">Dashboard</Nav.Link>
       {/* <Nav.Link className='hover' id="navstyle" href="/recrutado/documentos">Documentos</Nav.Link> */}
-      <Nav.Link className='hover' id="navstyle" href="/chat">Chat</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/recrutado/chat">Chat</Nav.Link>
       <Nav.Link  className='hover' id="navstyle" href="/recrutado/perfilrec">Perfil</Nav.Link>
       <NavDropdown className='hover ' id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
@@ -56,10 +56,10 @@ else {
     <Nav className="ml-auto" id="funcionario" >
       <Nav.Link className='hover' id="navstyle" href="/funcionario/dashboard">Dashboard</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/documentos">Documentos</Nav.Link>
-      <Nav.Link className='hover' id="navstyle" href="/chat">Chat</Nav.Link>
+      <Nav.Link className='hover' id="navstyle" href="/funcionario/chat">Chat</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/cadastrorec">Cadastro</Nav.Link>
       <Nav.Link className='hover' id="navstyle" href="/funcionario/perfilfunc">Perfil</Nav.Link>
-      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).given_name}>
+      <NavDropdown className='hover' id="navstyle" title={jwt_decode(token).family_name[0]}>
         <NavDropdown.Item onClick={event => sair(event)}>Sair da conta</NavDropdown.Item >
       </NavDropdown>
     </Nav>

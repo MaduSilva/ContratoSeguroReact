@@ -24,16 +24,15 @@ const RedefinirSenha = () => {
       email: '',
     },
     onSubmit: (values, { setSubmitting }) => {
-      redefinirsenhaServico.redefinir(values)
+      redefinirsenhaServico
+      .redefinir(values)
         .then(resultado => {
             console.log(`Resultado ${resultado.data}`)
             setSubmitting(false);
             if(resultado.data.sucesso){
                 //mensagem
                 console.log("senha redefinida")
-                //salvar local storage
-                localStorage.setItem('token-contratoseguro', resultado.data.data.token)
-                //redirecionar tela de login
+                alert('Senha redefinida, verifique email')
                 history.push('/');
             } else {
                 alert("Email não encontrado")

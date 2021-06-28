@@ -1,4 +1,5 @@
-.chat {
+
+.Chat {
   min-height: 100vh;
   background-color: #eeeeee;
 
@@ -8,15 +9,16 @@
   flex-direction: column;
 }
 
-.chat .Logo {
+.Chat .Logo {
   margin: 24px 0;
 }
 
-.chat .Logo img {
-  height: 32px;
+.Chat .Logo img {
+  height: 70px;
   transition: .25s ease;
 }
 
-.chat .Logo img:hover {
+.Chat .Logo img:hover {
   transform: scale(1.2);
 }
+
