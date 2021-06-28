@@ -208,3 +208,17 @@ display: flex;
     flex-wrap: wrap;
   }
 }
+
+@media(max-width: 320px){
+  .planocard p{
+    font-size: 14px;
+  }
+
+ 
+}
+
+@media(max-width: 500px){
+  .navbar-toggler-icon{
+    margin-left: 10px;
+  }
+}

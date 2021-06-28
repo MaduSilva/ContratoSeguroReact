@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { useFormik, Formik, Form } from 'formik';
 import {  Button } from 'react-bootstrap';
 import { TextField } from '../../../cadastro/components/textField'
 import * as Yup from 'yup';
@@ -7,9 +7,6 @@ import ReactNotification from 'react-notifications-component';
 import { store } from 'react-notifications-component';
 import 'animate.css';
 import 'react-notifications-component/dist/theme.css';
-import { useFormik, Formik, Form } from 'formik';
-import { TextField } from '../../../cadastro/components/textField'
-import * as Yup from 'yup';
 import { useToasts } from 'react-toast-notifications';
 
 //pages

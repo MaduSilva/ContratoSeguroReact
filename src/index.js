@@ -12,7 +12,6 @@ import CadRecrutado from './pages/cadastro/cadastroRecrutado/CadRecrutado';
 import CadEmpresa from './pages/cadastro/cadastroEmpresa/CadEmpresa'
 import PagDocFunc from './pages/documentos/funcionario/PagDocFunc';
 import DashbordFuncionario from './pages/dashboard/dashboard'
-import DocRecrutado from './pages/documentos/recrutado/DocRecrutado'
 import ListEmpresa from './pages/listagem/listagemEmpresa/listagemEmpresa'
 import ListRecrutado from './pages/listagem/listagemRecrutado/listagemRecrutado'
 import LoginEmpresa from './pages/login/loginEmpresa/loginEmpresa';
@@ -91,8 +90,7 @@ const routing = (
       <RotaNaoCadastrado path='/resetsenha' component ={RedefinirSenha}/> 
     
       <RotaRecrutado path='/recrutado/dashboard' component={ListRecrutado} />  
-      <RotaRecrutado path='/recrutado/documentos' component={DocRecrutado} />
-      <RotaRecrutado exact path='/recrutado/chat' component={Chat} />
+      <RotaRecrutado exact path='/chat' component={Chat} />
       <RotaRecrutado path='/recrutado/perfilrec' component={PerfilRecrutado} />
 
       <RotaFuncionario path='/funcionario/dashboard' component={DashbordFuncionario} />

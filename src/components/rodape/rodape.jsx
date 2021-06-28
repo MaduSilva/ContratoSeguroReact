@@ -8,7 +8,7 @@ export default function Rodape() {
   return (
     <div className="ContainerFooter">
       <div className="allfooter"> 
-      <img src={logo} className="footer-logo" alt="logo brq" />
+      <img href="https://www.brq.com" src={logo} className="footer-logo" alt="logo brq" />
       <div className="textos">
       <a>© 2021 BRQ</a>
       <a>Todos os direitos reservados 2021.</a>

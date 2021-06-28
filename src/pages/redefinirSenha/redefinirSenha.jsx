@@ -5,12 +5,10 @@ import Rodape from '../../components/rodape/rodape';
 import Menu from '../../components/menu/menu'
 import './redefinirsenha.css';
 import Logo from '../../assets/img/logo2.png';
-import Seta from '../../assets/img/seta.png';
-import Seta2 from '../../assets/img/seta2.png';
-import Foguete from '../../assets/img/fuguete.png'
 import { useFormik } from 'formik';
 import { useToasts } from 'react-toast-notifications';
 import * as Yup from 'yup';
+import redefinirsenhaServico from './redefinirsenhaServico'
 
 import esquecisenha from '../../assets/img/esquecisenha.png'
 
@@ -26,7 +24,7 @@ const RedefinirSenha = () => {
       email: '',
     },
     onSubmit: (values, { setSubmitting }) => {
-      ContaServico.redefinir(values)
+      redefinirsenhaServico.redefinir(values)
         .then(resultado => {
             console.log(`Resultado ${resultado.data}`)
             setSubmitting(false);
