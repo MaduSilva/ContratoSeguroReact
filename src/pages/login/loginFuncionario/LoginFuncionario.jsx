@@ -41,7 +41,7 @@ const LoginFuncionario = () => {
               //salvar local storage
               localStorage.setItem('token-contratoseguro', resultado.data.data.token)
               //redirecionar tela admin
-              history.push('/funcionario/dashboard');
+              history.push('/funcionario/perfilfunc');
             } else {
               addToast(resultado.data.mensagem, {
                 appearance: 'error',

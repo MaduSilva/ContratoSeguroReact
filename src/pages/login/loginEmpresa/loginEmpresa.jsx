@@ -38,7 +38,7 @@ const LoginEmpresa = () => {
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/empresa/dashboard');
+                history.push('/empresa/perfilemp');
             } else {
               addToast(resultado.data.mensagem, {
                 appearance: 'error',

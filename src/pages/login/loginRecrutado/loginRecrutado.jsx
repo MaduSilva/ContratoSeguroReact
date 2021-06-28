@@ -10,11 +10,11 @@ import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
 import ContaServicoRec from '../loginRecrutado/contaservico';
-
+import { useToasts } from 'react-toast-notifications';
 
 
 const LoginRecrutado = () => {
-
+  const {addToast} = useToasts(); 
   const history = useHistory();
 
   const formik = useFormik({
@@ -24,25 +24,32 @@ const LoginRecrutado = () => {
       cpf: '',
     },
     onSubmit: (values, { setSubmitting }) => {
-      ContaServicoRec.logar(values)
-        .then(resultado => {
-          console.log(`Resultado ${resultado.data}`)
-          setSubmitting(false);
-          if (resultado.data.sucesso) {
-            //mensagem
-            console.log("Logado")
-            //salvar local storage
-            localStorage.setItem('token-contratoseguro', resultado.data.data.token)
-            //redirecionar tela admin
-            history.push('/');
-          } else {
-            alert("Dados Inválidos")
-          }
-        })
-        .catch(error => console.error(error));
-    },
-    
-  });
+        ContaServicoRec
+          .logar(values)
+          .then(resultado => {
+            console.log(resultado)
+            setSubmitting(false);
+            if (resultado.data.sucesso) {
+              //mensagem
+              addToast(resultado.data.mensagem, {
+                appearance: 'success',
+                autoDismiss: true,
+            })
+              //salvar local storage
+              localStorage.setItem('token-contratoseguro', resultado.data.data.token)
+              //redirecionar tela admin
+              history.push('/recrutado/perfilrec');
+            } else {
+              addToast(resultado.data.mensagem, {
+                appearance: 'error',
+                autoDismiss: true,
+            })
+            }
+          })
+
+      }
+    }
+  );
 
 
 return (

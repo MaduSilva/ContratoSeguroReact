@@ -10,7 +10,7 @@ import RecrutadoServico from "../../../servicos/RecrutadoServico";
 
 
 //images
-import iconcadastrofuncionario from '../../../assets/img/iconcadastrofuncionario.png'
+import iconcadastrofuncionario from '../../../assets/img/20522.jpg'
 
 const CadFuncionario = () => {
 
