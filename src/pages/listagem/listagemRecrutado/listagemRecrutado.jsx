@@ -1,6 +1,6 @@
-import {React , useState , useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import  './listagemRecrutado.css';
+import './listagemRecrutado.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
 import VideoPlayer from 'react-video-js-player';
 
@@ -30,7 +30,7 @@ import Rodape from "../../../components/rodape/rodape"
 //Assets
 import iconcadastroempresa from '../../../assets/img/iconcadastroempresa.png';
 import { Toast } from 'bootstrap';
-import  recrutadolist from '../../../assets/img/recrutadolist.png';
+import recrutadolist from '../../../assets/img/recrutadolist.png';
 import information from '../../../assets/video/information.mp4'
 import Listagemui from '../../../assets/img/Listagemui.png'
 
@@ -44,71 +44,71 @@ const ListRecrutado = () => {
 
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
-    const videoSrc = information;   
+    const videoSrc = information;
     const token = localStorage.getItem('token-contratoseguro')
 
 
 
 
-    const getRecrutados = async () =>{
+    const getRecrutados = async () => {
         fetch("https://localhost:5001/v1/account/recruited/lister-recruited")
-        .then((response) => response.json())
-        .then((responseJson) => (
-            console.log(responseJson),
-            setData(responseJson.data)
-        ));
+            .then((response) => response.json())
+            .then((responseJson) => (
+                console.log(responseJson),
+                setData(responseJson.data)
+            ));
     }
 
 
-    useEffect(() =>{
+    useEffect(() => {
         getRecrutados();
-    },[])
+    }, [])
 
-    const filteredUsuarios = data.filter( funcionario =>{
-        return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
-     })
+    const filteredUsuarios = data.filter(funcionario => {
+        return funcionario.nome.toLowerCase().includes(busca.toLowerCase())
+    })
 
-    return(
+    return (
 
 
-    
+
         <div>
-            <Menu/>
-            
+            <Menu />
+
 
             <div className="containerP">
-                   <div className="fotoetexto">
-                        <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
-                        <div className="Inicial">
-                                <h5>Bem vindo </h5>
-                                <h3>{jwt_decode(token).family_name[0]}</h3>    
-                                
-                        </div>
-                    </div>
-            </div>
+                <div className="fotoetexto">
+                    <img className='perfilRecrutado' src={recrutadoPerfil} alt="" />
+                    <div className="Inicial">
+                        <h5>Bem vindo </h5>
+                        <h3>{jwt_decode(token).family_name[0]}</h3>
 
-        <div className="container completo">
-            <div className="fundotextimg">
-
-                <div className="Completo">
-
-                    <p>Parabéns! Você está a um passo <br /> de se tornar um fera BRQ </p>
-                    <img className = "bannerRecru" src= {Listagemui} alt="" />
-                    
-                    <div className="Video">
-                        <VideoPlayer src={videoSrc} width="500" height="400"  />
                     </div>
                 </div>
             </div>
 
-            
+            <div className="container completo">
+                <div className="fundotextimg">
 
+                    <div className="Completo">
+
+                        <p>Parabéns! Você está a um passo <br /> de se tornar um fera BRQ </p>
+                        <img className="bannerRecru" src={Listagemui} alt="" />
+
+                        <div className="Video">
+                            <VideoPlayer src={videoSrc} width="500" height="400" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <Rodape />
         </div>
-        
-        <Rodape/>
-        </div>
-        
-        
+
+
     )
 
 };

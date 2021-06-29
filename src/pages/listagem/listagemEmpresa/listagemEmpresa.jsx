@@ -1,6 +1,6 @@
-import {React , useState , useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import  './listagemEmpresa.css';
+import './listagemEmpresa.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
 
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -44,7 +44,7 @@ import FuncionarioServico from '../../../servicos/FuncionarioServico'
 
 
 const ListEmpresa = () => {
-    const {addToast} = useToasts(); 
+    const { addToast } = useToasts();
     const token = localStorage.getItem('token-contratoseguro')
     const nomeEmpresa = jwt_decode(token).family_name[0];;
     const [data, setData] = useState([]);
@@ -53,19 +53,19 @@ const ListEmpresa = () => {
 
 
 
-    const getFuncionario = async () =>{
+    const getFuncionario = async () => {
         fetch("https://localhost:5001/v1/account/employee/lister-employee")
-        .then((response) => response.json())
-        .then((responseJson) => (
-            console.log(responseJson),
-            setData(responseJson.data)
-        ));
+            .then((response) => response.json())
+            .then((responseJson) => (
+                console.log(responseJson),
+                setData(responseJson.data)
+            ));
     }
 
 
-    useEffect(() =>{
+    useEffect(() => {
         getFuncionario();
-    },[])
+    }, [])
 
     const remover = (id) => {
         confirmAlert({
@@ -79,7 +79,7 @@ const ListEmpresa = () => {
                     label: 'Sim',
                     onClick: () => {
                         FuncionarioServico
-                        .remover(id)
+                            .remover(id)
                             .then(resultado => {
                                 addToast(resultado.data.mensagem, {
                                     appearance: 'success',
@@ -99,94 +99,98 @@ const ListEmpresa = () => {
         });
     }
 
-   const filteredFuncionarios = data.filter( funcionario =>{
-     return funcionario.nome.toLowerCase().includes( busca.toLowerCase())
-  })
+    const filteredFuncionarios = data.filter(funcionario => {
+        return funcionario.nome.toLowerCase().includes(busca.toLowerCase())
+    })
 
 
-    return(
+    return (
 
 
-        
+
         <div>
-                <Menu/>
-                            <div className="col boasVindasempresa">
-                                <img className='perfildashboard' src={mariaPerfil} alt="" />
-                                <p>Bem vindo!</p>
-                                <h2>{nomeEmpresa} </h2>  
-                                
-                            </div>
+            <Menu />
+            <div className="containerP">
+                <div className="fotoetexto">
+                    <img className='perfilRecrutado' src={mariaPerfil} alt="" />
+                    <div className="Inicial">
+                        <h5>Bem vindo </h5>
+                        <h3>{jwt_decode(token).family_name[0]}</h3>
 
-                            <div className="titulo_situacao">
-                                    <p>Funcionarios Cadastrados</p>
-                            </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div className="container-list"> 
-                                    <section>
-                                                <form className="inputcompleto">
-                                                    
-                                                        <input 
-                                                            type="text"
-                                                            className="ml-50 mt-3 rounded-md p-2 imputpesquisa"
-                                                            placeholder="Digite o nome do recrutado"
-                                                            onChange={ e=> setBusca(e.target.value)}
-                                                        />
-                                                   
-                                                </form>
-                                            </section>
-                                    
-                                     
-                                        <div key={data} className="bg-gray listrecrutados">
-                                            
-                                            <section className="recrutadostt pb-5">
-                                            
-                                                <div className="container">
-                                                    <div className="row">
-                                                    {Object.values(filteredFuncionarios).map(funcionario => (
-                                                        <div className="col-md-3 col-sm-5  text-center">
-                                                            <div className="completo_card">
-                                                                <div className="avtar">
-                                                                    <img className="img-fluid" src={freeperfil} alt=""/>
-                                                                </div>
-    
-                                                                <div className="box_content">
-                                                                    <h3 className="title">{funcionario.nome}</h3>
-                                                                    <span className="post">{funcionario.email}</span>
-                                                                        
-                                                                </div>
-    
-                                                                <ul className="icons">
-                                                                    <li>
-                                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(funcionario.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                                                    </li>
-    
-                                                                </ul>
-    
-                                                            </div>
-                                                        </div>
-    
-                                                       
-                                                         
-    
-                                                    ))}
-                                                    </div>
-    
-                                                </div>
-                                               
-                                                
-                                            </section>
-    
-                                           
+            <div className="titulo_situacao">
+                <p>Funcionarios Cadastrados</p>
+            </div>
+
+            <div className="container-list">
+                <section>
+                    <form className="inputcompleto">
+
+                        <input
+                            type="text"
+                            className="ml-50 mt-3 rounded-md p-2 imputpesquisa"
+                            placeholder="Digite o nome do recrutado"
+                            onChange={e => setBusca(e.target.value)}
+                        />
+
+                    </form>
+                </section>
+
+
+                <div key={data} className="bg-gray listrecrutados">
+
+                    <section className="recrutadostt pb-5">
+
+                        <div className="container">
+                            <div className="row">
+                                {Object.values(filteredFuncionarios).map(funcionario => (
+                                    <div className="col-md-3 col-sm-5  text-center">
+                                        <div className="completo_card">
+                                            <div className="avtar">
+                                                <img className="img-fluid" src={freeperfil} alt="" />
+                                            </div>
+
+                                            <div className="box_content">
+                                                <h3 className="title">{funcionario.nome}</h3>
+                                                <span className="post">{funcionario.email}</span>
+
+                                            </div>
+
+                                            <ul className="icons">
+                                                <li>
+                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(funcionario.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                </li>
+
+                                            </ul>
+
                                         </div>
-                                         
                                     </div>
 
 
-        <Rodape/>
+
+
+                                ))}
+                            </div>
+
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+
+            <Rodape />
         </div>
-        
-        
-        
+
+
+
     )
 
 };

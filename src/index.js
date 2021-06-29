@@ -48,10 +48,11 @@ const RotaNaoCadastrado = ({ component: Component, ...rest }) => (
 const RotaRecrutado = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      token !== null && jwt_decode(token).role === 'Recrutado' ?
+    render = {
+      props => 
+      localStorage.getItem('token-contratoseguro') !== null  && jwt_decode(localStorage.getItem('token-contratoseguro')).role === 'Recrutado' ?
         <Component {...props} /> :
-        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
@@ -60,10 +61,11 @@ const RotaRecrutado = ({ component: Component, ...rest }) => (
 const RotaFuncionario = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      token !== null && jwt_decode(token).role === 'Funcionario' ?
+    render = {
+      props => 
+      localStorage.getItem('token-contratoseguro') !== null  && jwt_decode(localStorage.getItem('token-contratoseguro')).role === 'Funcionario' ?
         <Component {...props} /> :
-        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
@@ -72,10 +74,11 @@ const RotaFuncionario = ({ component: Component, ...rest }) => (
 const RotaEmpresa = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      token !== null && jwt_decode(token).role === 'Empresa' ?
+    render = {
+      props => 
+      localStorage.getItem('token-contratoseguro') !== null  && jwt_decode(localStorage.getItem('token-contratoseguro')).role === 'Empresa' ?
         <Component {...props} /> :
-        <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+        <Redirect to={{pathname : '/login', state :{from : props.location}}} /> 
     }
   />
 );
