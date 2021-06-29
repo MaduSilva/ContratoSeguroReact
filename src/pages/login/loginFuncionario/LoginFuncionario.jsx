@@ -10,10 +10,8 @@ import Seta from '../../../assets/img/seta.png';
 import Seta2 from '../../../assets/img/seta2.png';
 import { useFormik } from 'formik';
 import ContaServicoFunc from '../loginFuncionario/contaservicofunc';
-import { useToasts } from 'react-toast-notifications';
 
 const LoginFuncionario = () => {
-  const {addToast} = useToasts(); 
 
   const history = useHistory();
 
@@ -34,19 +32,13 @@ const LoginFuncionario = () => {
             setSubmitting(false);
             if (resultado.data.sucesso) {
               //mensagem
-              addToast(resultado.data.mensagem, {
-                appearance: 'success',
-                autoDismiss: true,
-            })
+              console.log("Logado")
               //salvar local storage
               localStorage.setItem('token-contratoseguro', resultado.data.data.token)
               //redirecionar tela admin
-              history.push('/funcionario/perfilfunc');
+              history.push('/');
             } else {
-              addToast(resultado.data.mensagem, {
-                appearance: 'error',
-                autoDismiss: true,
-            })
+              alert("Dados Inválidos")
             }
           })
 
@@ -60,7 +52,7 @@ const LoginFuncionario = () => {
     <div class="body">
       <Menu />
       <Container>
-        <div class="FundoInfo" style={{backgroundColor:'#f27405'}}>
+        <div class="FundoInfo" style={{backgroundColor:'#f27405' , }}>
           <h1>Seja muito bem vindo funcionário!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
@@ -77,20 +69,19 @@ const LoginFuncionario = () => {
 
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
 
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
                 </Form.Group>
 
                 <Form.Group >
-
-                  <Form.Control style={{ backgroundColor: 'white', width: '200px', marginLeft: '49px' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
+                  <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
                 </Form.Group>
 
-                <a class="LogarFuncionario" href="/login"> <b > Logar como recrutado?<br/></b></a>
+                <a class="LogarFuncionario" href="/login"style={{ fontSize:'0.8em'}}> <b > Logar como recrutado?<br/></b></a>
                 <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
                 <br/>
 
@@ -98,7 +89,7 @@ const LoginFuncionario = () => {
                   Entrar
                     </Button>
                 <br /><br />
-                <a href="/resetsenha" style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
+                <a style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
               </Form>
             </div>
           </div>

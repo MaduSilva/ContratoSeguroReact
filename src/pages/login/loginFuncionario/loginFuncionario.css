@@ -17,3 +17,9 @@
         
         font-family: 'Comfortaa', cursive;
 }
+
+@media(max-width:500px){
+        .FundoInfo {
+                height: 31.2em;
+            }
+}
