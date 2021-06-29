@@ -29,8 +29,7 @@ const LoginEmpresa = () => {
             console.log(`Resultado ${resultado.data}`)
             setSubmitting(false);
             if(resultado.data.sucesso){
-                //mensagem
-                //mensagem
+               //mensagem
               addToast(resultado.data.mensagem, {
                 appearance: 'success',
                 autoDismiss: true,
@@ -38,12 +37,9 @@ const LoginEmpresa = () => {
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/empresa/perfilemp');
+                history.push('/');
             } else {
-              addToast(resultado.data.mensagem, {
-                appearance: 'error',
-                autoDismiss: true,
-            })
+                alert("Dados Inválidos")
             }
         })
         .catch(error => console.error(error));

@@ -6,7 +6,6 @@
 .FundoForm{
     background-color: #FFF8F8;
     width: 60%;
-    height: 110%;
 }
 
 .FundoInfo{
@@ -142,7 +141,6 @@
     .FundoForm {
         background-color: #FFF8F8;
         width: 50%;
-        height: 110%;
     }
 
     .FundoInfo ul li {

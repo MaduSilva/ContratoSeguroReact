@@ -56,7 +56,7 @@ return (
         <ul>
           <li><a><b>+ Praticidade!</b></a></li>
           <li><a><b>+ Rapidez</b></a></li>
-          <li><a><b>Menos burocracia!</b></a></li>
+          <li><a><b>- Burocracia!</b></a></li>
         </ul>
         <img src={Foguete} className="foguete-logo" alt="foguete" />
       </div>
