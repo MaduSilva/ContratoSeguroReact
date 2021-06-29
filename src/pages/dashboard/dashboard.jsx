@@ -44,7 +44,7 @@ const token = localStorage.getItem('token-contratoseguro')
 
 
 const DashbordFuncionario = () => {
-    const {addToast} = useToasts(); 
+    const { addToast } = useToasts();
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
 
@@ -108,8 +108,8 @@ const DashbordFuncionario = () => {
             <div className="col boasVindas">
                 <img className='perfildashboard' src={mariaPerfil} alt="" />
                 <p> Bem vindo {jwt_decode(token).given_name} !</p>
-               
-                
+
+
 
             </div>
 
@@ -197,10 +197,13 @@ const DashbordFuncionario = () => {
 
                                             <ul className="icons">
                                                 <li>
-                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                    <a href="#deleteEmployeeModal" className="remover" onClick={() => remover(recrutado.id)} data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+
+                                                    <a href="/funcionario/documentos"><i className="material-icons" data-toggle="tooltip" title="Chat"></i></a>
                                                 </li>
 
                                             </ul>
+
 
                                         </div>
                                     </div>

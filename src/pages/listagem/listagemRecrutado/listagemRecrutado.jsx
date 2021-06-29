@@ -100,7 +100,31 @@ const ListRecrutado = () => {
                         </div>
                     </div>
                 </div>
+                <div className="card">
 
+                    <div class="containercards">
+                        <img id="cardimg" src="https://blog.brq.com/wp-content/uploads/2021/06/1.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Lorem ipsum dolor, sit amet consectetur adipisicing </div>
+                        </div>
+                    </div>
+
+                    <div class="containercards">
+                        <img id="cardimg" src="https://blog.brq.com/wp-content/uploads/2021/05/intelligent-business-automation.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Lorem ipsum dolor, sit amet consectetur adipisicing</div>
+                        </div>
+                    </div>
+
+                    <div class="containercards">
+                        <img id="cardimg" src="https://blog.brq.com/wp-content/uploads/2021/05/aplicacoes-de-intelligent-business-automation.jpg" alt="Imagem de capa do card" class="image" />
+                        <div class="overlay">
+                            <div class="text">Lorem ipsum dolor, sit amet consectetur adipisicing </div>
+                        </div>
+                    </div>
+
+
+                </div>
 
 
             </div>

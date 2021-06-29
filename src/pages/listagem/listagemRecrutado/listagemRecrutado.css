@@ -176,3 +176,47 @@ input{
     margin-left: 550px;
     margin-top: -400px;
 }
+.card{
+    position: relative;
+    display: flex;
+   justify-content: center;
+  }
+  
+  #cardimg{
+    display: block;
+    width: 257px;
+    height: 257px;
+    object-fit: cover;
+  }
+  
+  .containercards {
+    position: relative;
+    margin: 50px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    height: 257px;
+    width: 257px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #011826;
+  }
+  
+  .containercard:hover .overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
