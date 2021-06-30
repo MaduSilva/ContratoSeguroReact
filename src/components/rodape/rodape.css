@@ -2,12 +2,8 @@
 
 
 .ContainerFooter{
-	height: 6em;
-	width: 100%;
-	background-color: white;
-    bottom:0;
-   position: relative;
-   margin: auto;
+   width: 100%;
+   background-color: white;
 }
 
 .footer-logo {
@@ -28,10 +24,14 @@
 }
 
 .allfooter{
+    position: relative;
+    text-align: center;
+    height: 150px;
+    margin-left: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 5em;
+    color: black;
+    background-color: white;
  
 }
 
@@ -40,9 +40,14 @@
 }
     
 
-@media(max-width: 1240px) {
+@media(max-width: 1118px) {
     .textos{
-        display: none;
+       display: none;
     }
+    .allfooter {
+display: flex;
+justify-content: center;
+    
+ }
 
 }

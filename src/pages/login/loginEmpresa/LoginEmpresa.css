@@ -47,15 +47,16 @@
 }
 
 
-.container{
+.containerloginemp{
     display: flex;
     font-family: 'Montserrat';
     justify-content: center;
-    width: 1500px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #E9E9E9;
     align-items: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 .FormInputs{
@@ -114,6 +115,12 @@
 .body{
      background-color: #E9E9E9;
      overflow: hidden;
+}
+
+.foguete-logo{
+    width: 53px;
+    margin-top: 28px;
+    margin-left: 130px;
 }
 
 

@@ -49,43 +49,44 @@ const LoginFuncionario = () => {
 
   return (
 
-    <div class="body">
+    <div>
       <Menu />
-      <Container>
-        <div class="FundoInfo" style={{backgroundColor:'#f27405' , }}>
+      <div class="containerloginfunc">
+      <div class="medialoginfunc">
+        <div class="FundoInfofunc" style={{backgroundColor:'#f27405' , }}>
           <h1>Seja muito bem vindo funcionário!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
             <li><a><b>+ Rapidez</b></a></li>
-            <li><a><b>Menos burocracia!</b></a></li>
+            <li><a><b>- Burocracia!</b></a></li>
           </ul>
-          <img src={Foguete} className="foguete-logo" alt="foguete" />
+          <img src={Foguete} className="foguete-logofunc" alt="foguete" />
         </div>
-        <div Class="FundoForm">
-          <div class="InputsForm">
+        <div Class="FundoFormfunc">
+          <div class="InputsFormfunc">
             <div>
-              <Form className='form-signin' onSubmit={formik.handleSubmit} >
-                <img src={Logo} class="logo-a" alt="logo" />
+              <Form className='form-signinfunc' onSubmit={formik.handleSubmit} >
+                <img src={Logo} class="logo-afunc" alt="logo" />
 
 
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicEmail" id="inputfunc">
                   <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="email" placeholder="EMAIL" name="email" onChange={formik.handleChange} value={formik.values.email} required />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group controlId="formBasicPassword" id="inputfunc">
 
                   <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="password" placeholder="SENHA" name="senha" onChange={formik.handleChange} value={formik.values.senha} required />
                 </Form.Group>
 
-                <Form.Group >
+                <Form.Group  id="inputfunc">
                   <Form.Control style={{ backgroundColor: 'white', width: '60%', marginLeft: '10%' }} type="text" placeholder="CPF" name="cpf" onChange={formik.handleChange} value={formik.values.cpf} required />
                 </Form.Group>
 
-                <a class="LogarFuncionario" href="/login"style={{ fontSize:'0.8em'}}> <b > Logar como recrutado?<br/></b></a>
-                <a class="LogarEmpresa" href="/loginemp"> <b > Logar como empresa?</b></a>
+                <a class="LogarFuncionariofunc" href="/login"style={{ fontSize:'0.8em'}}> <b > Logar como recrutado?<br/></b></a>
+                <a class="LogarEmpresafunc" href="/loginemp"> <b > Logar como empresa?</b></a>
                 <br/>
 
-                <Button  style={{backgroundColor:'#f27405'}} className="ButtonSignIn" variant="default" type="submit" disabled={formik.isSubmitting}>
+                <Button  style={{backgroundColor:'#f27405'}} className="ButtonSignInfunc" variant="default" type="submit" disabled={formik.isSubmitting}>
                   Entrar
                     </Button>
                 <br /><br />
@@ -94,7 +95,8 @@ const LoginFuncionario = () => {
             </div>
           </div>
         </div>
-      </Container>
+        </div>
+      </div>
       <Rodape/>
     </div>
 

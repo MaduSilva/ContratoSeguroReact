@@ -51,13 +51,13 @@ const LoginEmpresa = () => {
     
     <div class="body">
       <Menu />
-      <Container>
+      <div class="containerloginemp">
         <div class="Bemvindo">
           <h1>Seja muito bem vindo!</h1>
           <ul>
             <li><a><b>+ Praticidade!</b></a></li>
             <li><a><b>+ Rapidez</b></a></li>
-            <li><a><b>Menos burocracia!</b></a></li>
+            <li><a><b>- Burocracia!</b></a></li>
           </ul>
           <img src={Foguete} className="foguete-logo" alt="foguete" />
         </div>
@@ -96,7 +96,7 @@ const LoginEmpresa = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
       <Rodape />
     </div>
 

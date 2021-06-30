@@ -12,7 +12,7 @@ label {
 }
 
 
-.container{
+.containercadrec{
 background-color: #fff;
 }
 
@@ -32,7 +32,7 @@ background-color: #fff;
     height: 50px;
 }
 
-button{
+buttoncadrecrutado{
     display: flex;
     height: 50px;
     font-family: 'Montserrat', sans-serif;

@@ -187,7 +187,7 @@ const DashbordFuncionario = () => {
                                     <div className="col-md-3 col-sm-5  text-center">
                                         <div className="completo_card">
                                             <div className="avtar">
-                                                <img className="img-fluid" src={freeperfil} alt="" />
+                                                <img  style={{ width : '120px'}}  src={recrutado.urlFoto} alt="" />
                                             </div>
 
                                             <div className="box_content">
