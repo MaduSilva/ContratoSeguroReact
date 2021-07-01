@@ -42,11 +42,20 @@ const alterarSenha = dados => {
     });
 }
 
+const alterarImagem = dados => {
+    return http.put('/account/users/image', JSON.stringify(dados), {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        }
+    });
+}
+
 
 export default {
     listar,
     cadastrar,
     remover,
     buscarId,
-    alterarSenha
+    alterarSenha,
+    alterarImagem
 }

@@ -16,6 +16,7 @@ import esquecisenha from '../../assets/img/esquecisenha.png'
 const RedefinirSenha = () => {
 
   const history = useHistory();
+  const {addToast} = useToasts(); 
   
   
 
@@ -30,9 +31,12 @@ const RedefinirSenha = () => {
             console.log(`Resultado ${resultado.data}`)
             setSubmitting(false);
             if(resultado.data.sucesso){
+              addToast(resultado.data.mensagem, {
+                appearance: 'success',
+                autoDismiss: true,
+              })
                 //mensagem
                 console.log("senha redefinida")
-                alert('Senha redefinida, verifique email')
                 history.push('/');
             } else {
                 alert("Email não encontrado")
@@ -46,7 +50,7 @@ const RedefinirSenha = () => {
     
     <div class="body">
       <Menu />
-      <Container>
+      <div class="containersenha">
         <div class="redefinir">
         <div class="FundoInfo">
           <h1>Redefinir senha</h1>
@@ -81,7 +85,7 @@ const RedefinirSenha = () => {
           </div>
         </div>
         </div>
-      </Container>
+      </div>
       <Rodape />
     </div>
 

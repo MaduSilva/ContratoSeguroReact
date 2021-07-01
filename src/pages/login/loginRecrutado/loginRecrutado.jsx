@@ -38,7 +38,7 @@ const LoginRecrutado = () => {
             //salvar local storage
             localStorage.setItem('token-contratoseguro', resultado.data.data.token)
             //redirecionar tela admin
-            history.push('/');
+            history.push('/recrutado/perfilrec');
           } else {
             addToast(resultado.data.mensagem, {
               appearance: 'error',

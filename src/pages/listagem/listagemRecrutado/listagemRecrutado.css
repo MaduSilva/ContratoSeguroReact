@@ -152,7 +152,7 @@ input{
     background-color: #ffff;
     max-width: 1200px;
     height: 500px;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: -4px 6px 16px -1px rgba(0,0,0,0.45);
@@ -161,7 +161,7 @@ input{
     align-content: center;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 102px;
     
 }
 
@@ -175,6 +175,11 @@ input{
     
     margin-left: 550px;
     margin-top: -400px;
+}
+
+.Videos{
+    display: flex;
+    justify-content: space-around;
 }
 .card{
     position: relative;
@@ -219,4 +224,16 @@ input{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+
+  @media(max-width:960px) {
+    .Video{
+          width: 200px;
+
+      }
+
+      .bannerRecru img{
+          width: 100px;
+      }
   }

@@ -14,8 +14,17 @@ const cadastrar = dados => {
 const buscarId = id => {
     return http.get('/account/company/profile-company/' + id)
 }
+
 const alterarSenha = dados => {
     return http.put('/account/users/update-password', JSON.stringify(dados), {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+        }
+    });
+}
+
+const alterarImagem = dados => {
+    return http.put('/account/users/image', JSON.stringify(dados), {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
         }
@@ -26,5 +35,6 @@ const alterarSenha = dados => {
 export default {
     cadastrar,
     buscarId,
-    alterarSenha
+    alterarSenha,
+    alterarImagem
 }

@@ -5,11 +5,11 @@ import Rodape from "../../../components/rodape/rodape"
 import Funcionario from '../../../assets/img/avatar.jpg'
 import jwt_decode from 'jwt-decode';
 import { Button, Form, Col, Container, Row } from 'react-bootstrap';
-import FuncionarioServico from '../../../servicos/FuncionarioServico';
 import RecrutadoServico from '../../../servicos/RecrutadoServico';
 import "./PerfilRecrutado.css";
 import { useToasts } from 'react-toast-notifications';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 
 const PerfilRecrutado = () => {
@@ -21,24 +21,18 @@ const PerfilRecrutado = () => {
     const [preview, setPreview] = useState();
     const fileInputRef = useRef();
     const [recruited, setRecruited] = useState("");
-
+    const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+    const [isSelected ,setIsSelected] = useState();
     
+
+    const history = useHistory();
+
+
     useEffect(() => {
         listarUser()
     }, []);
 
-    useEffect(() => {
-        if (image) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setPreview(reader.result);
-
-            };
-            reader.readAsDataURL(image);
-        } else {
-            setPreview(null);
-        }
-    }, [image]);
 
 
     const listarUser = () => {
@@ -92,6 +86,40 @@ const PerfilRecrutado = () => {
 
     })
 
+    const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		setIsSelected(true);
+	};
+
+    const handleSubmission = () => {
+		const formData = new FormData();
+
+		formData.append('Arquivo', selectedFile);
+
+		fetch(
+			'https://localhost:5001/v1/account/users/image',
+			{
+				method: 'PUT',
+				body: formData,
+                data: {
+                    idUsuario: jwt_decode(token).jti[1],
+                },
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+                }
+			}
+		)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Success:', result);
+                alert('Imagem alterada com sucesso')
+                history.push('/')
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
 
     return (
 
@@ -106,10 +134,20 @@ const PerfilRecrutado = () => {
                 <div className="Container_totality">
                     <div className="Container_perfil">
 
-                    <img src={Funcionario}></img>
-                        <div className="Barra_nome">
+                    <div className="Barra_nome">
                             <h1>{jwt_decode(token).given_name}</h1>
                         </div>
+
+                    <div className="ImageAndButton">
+                          <img src={recruited.urlFoto}></img>
+
+                        <div className="inputimage">
+                        <input  type="file" name="file" onChange={changeHandler} />
+
+                            <button onClick={handleSubmission}>Salvar Imagem</button>
+                        </div>
+                  </div>
+
 
 
                         <div className="mb-2">

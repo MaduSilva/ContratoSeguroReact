@@ -30,7 +30,7 @@ const CadFuncionario = () => {
                     <CadastroFuncio/>
                 </div>
                 <div className="col-md-7">
-                        <img className="img-fluid w-500" src={iconcadastrofuncionario} style={{marginTop: '90px'}} alt="" />
+                        <img className="img-fluid w-500" src={iconcadastrofuncionario} style={{marginTop: '90px', marginLeft: '100px'}} alt="" />
                     </div>
                     </div>
                 

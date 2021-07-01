@@ -10,22 +10,23 @@ import EmpresaServico from '../../../servicos/EmpresaServico';
 import { useToasts } from 'react-toast-notifications';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-
+import { useHistory } from 'react-router-dom';
 
 const PerfilEmpresa = () => {
     const {addToast} = useToasts(); 
     const token = localStorage.getItem('token-contratoseguro')
     const nomeFuncionario = jwt_decode(token).family_name.Nome;
     const emailFuncionario = jwt_decode(token).email;
-
+    const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+    const [isSelected ,setIsSelected] = useState();
     const [recruited, setRecruited] = useState("");
 
+    const history = useHistory();
 
      useEffect(() => {
         listarUser()
     }, []);
-
-
 
     const listarUser = () => {
         EmpresaServico
@@ -78,6 +79,42 @@ const PerfilEmpresa = () => {
 
     })
 
+    const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		setIsSelected(true);
+	};
+
+    const handleSubmission = () => {
+		const formData = new FormData();
+
+		formData.append('Arquivo', selectedFile);
+
+		fetch(
+			'https://localhost:5001/v1/account/users/image',
+			{
+				method: 'PUT',
+				body: formData,
+                data: {
+                    idUsuario: jwt_decode(token).jti[1],
+                },
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+                }
+			}
+		)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Success:', result);
+                alert('Imagem alterada com sucesso')
+                history.push('/')
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
+
+
 
     return (
         <div>
@@ -90,10 +127,22 @@ const PerfilEmpresa = () => {
             <div className="teste">
                 <div className="Container_totality">
                     <div className="Container_perfil">
-                    <img src={Empresa}></img>
-                        <div className="Barra_nome">
+
+                    <div className="Barra_nome">
                             <h1>{jwt_decode(token).given_name}</h1>
                         </div>
+
+                    <div className="ImageAndButton">
+                          <img src={recruited.urlFoto}></img>
+
+                        <div className="inputimage">
+                        <input  type="file" name="file" onChange={changeHandler} />
+
+                            <button onClick={handleSubmission}>Salvar Imagem</button>
+                        </div>
+                  </div>
+
+
 
 
                         <div className="mb-2">
@@ -135,33 +184,33 @@ const PerfilEmpresa = () => {
 
                     <div className="Container_totality2">
                         <div className="infoprofile">
-                            <h3>Email</h3>
+                            <h4>Email</h4>
                             <a >{recruited.email}</a>
                         </div>
 
                         <div className="infoprofile">
-                            <h3 >Telefone</h3>
+                            <h4>Telefone</h4>
                             <a >+55 11986628675</a>
                         </div>
 
                         <div className="infoprofile">
-                            <h3 >Logradouro</h3>
+                            <h4 >Logradouro</h4>
                             <a >{recruited.logradouro}</a>
                         </div>
                         <div className="infoprofile">
-                            <h3 >CNPJ</h3>
+                            <h4 >CNPJ</h4>
                             <a >{recruited.cnpj}</a>
                         </div>
                         <div className="infoprofile">
-                            <h3 >Matriz</h3>
+                            <h4>Matriz</h4>
                             <a >{recruited.matriz}</a>
                         </div>
                         <div className="infoprofile">
-                            <h3 >UF</h3>
+                            <h4>UF</h4>
                             <a >{recruited.uf}</a>
                         </div>
                         <div className="infoprofile">
-                            <h3 >Cidade</h3>
+                            <h4>Cidade</h4>
                             <a >{recruited.cidade}</a>
                         </div>
                         {/* <div className="infoprofile">

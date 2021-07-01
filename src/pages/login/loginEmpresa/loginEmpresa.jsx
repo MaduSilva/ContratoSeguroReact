@@ -37,7 +37,7 @@ const LoginEmpresa = () => {
                 //salvar local storage
                 localStorage.setItem('token-contratoseguro', resultado.data.data.token)
                 //redirecionar tela admin
-                history.push('/');
+                history.push('/empresa/perfilemp');
             } else {
                 alert("Dados Inválidos")
             }

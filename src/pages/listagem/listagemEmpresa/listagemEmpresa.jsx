@@ -3,18 +3,7 @@ import { Table } from 'react-bootstrap';
 import './listagemEmpresa.css';
 import recrutadoPerfil from '../../../assets/img/recrutadoperfil.PNG'
 
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
+import EmpresaServico from '../../../servicos/EmpresaServico'
 import jwt_decode from 'jwt-decode';
 
 
@@ -49,6 +38,21 @@ const ListEmpresa = () => {
     const nomeEmpresa = jwt_decode(token).family_name[0];;
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
+    const [usuario, setUsuario] = useState("");
+
+
+    useEffect(() => {
+        listarUser()
+    }, []);
+
+    const listarUser = () => {
+        EmpresaServico
+            .buscarId(jwt_decode(token).jti[0])
+            .then(response => {
+                setUsuario(response.data.data)
+
+            })
+    }
 
 
 
@@ -112,7 +116,7 @@ const ListEmpresa = () => {
             <Menu />
             <div className="containerP">
                 <div className="fotoetexto">
-                    <img className='perfilRecrutado' src={mariaPerfil} alt="" />
+                    <img className='perfilRecrutado' src={usuario.urlFoto} alt="" />
                     <div className="Inicial">
                         <h5>Bem vindo </h5>
                         <h3>{jwt_decode(token).family_name[0]}</h3>
@@ -150,7 +154,7 @@ const ListEmpresa = () => {
                                     <div className="col-md-3 col-sm-5  text-center">
                                         <div className="completo_card">
                                             <div className="avtar">
-                                                <img className="img-fluid" src={freeperfil} alt="" />
+                                                <img className="img-fluid" src={funcionario.urlFoto} alt="" />
                                             </div>
 
                                             <div className="box_content">

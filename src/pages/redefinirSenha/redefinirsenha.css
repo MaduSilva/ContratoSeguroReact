@@ -37,16 +37,14 @@
     
 }
 
-/* .Container{
+.containersenha{
     display: flex;
     font-family: 'Montserrat';
     justify-content: center;
-    width: 1440px;
-    
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 80px;
     background-color: #E9E9E9;
-} */
+} 
 
 .InputForms{
     

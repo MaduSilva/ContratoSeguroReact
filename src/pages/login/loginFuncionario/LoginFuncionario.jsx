@@ -36,7 +36,7 @@ const LoginFuncionario = () => {
               //salvar local storage
               localStorage.setItem('token-contratoseguro', resultado.data.data.token)
               //redirecionar tela admin
-              history.push('/');
+              history.push('/funcionario/perfilfunc');
             } else {
               alert("Dados Inválidos")
             }
@@ -90,7 +90,7 @@ const LoginFuncionario = () => {
                   Entrar
                     </Button>
                 <br /><br />
-                <a style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
+                <a href="/resetsenha" style={{ marginTop: '30px', fontSize: '10px',  }}>Esqueci a senha!</a>
               </Form>
             </div>
           </div>

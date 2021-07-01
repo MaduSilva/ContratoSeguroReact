@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Menu from "../../components/menu/menu";
@@ -9,12 +9,21 @@ import { Button, Form, Col, Container, Row } from 'react-bootstrap';
 import FuncionarioServico from '../../servicos/FuncionarioServico';
 import './index.css';
 import { useToasts } from 'react-toast-notifications';
+import { useHistory } from 'react-router-dom';
 
 const PerfilFuncionario = () => {
-    const {addToast} = useToasts(); 
+    const { addToast } = useToasts();
     const token = localStorage.getItem('token-contratoseguro')
     const nomeFuncionario = jwt_decode(token).family_name.Nome;
     const emailFuncionario = jwt_decode(token).email;
+    const [image, setImage] = useState();
+    const [preview, setPreview] = useState();
+    const fileInputRef = useRef();
+    const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+    const [isSelected ,setIsSelected] = useState();
+
+    const history = useHistory();
 
     const [recruited, setRecruited] = useState("");
     useEffect(() => {
@@ -33,60 +42,88 @@ const PerfilFuncionario = () => {
 
     const alterar = (values) => {
         FuncionarioServico
-                .alterarSenha(values)
-                .then(resultado => {
-                    if(resultado.data.sucesso){
-                        addToast(resultado.data.mensagem, {
-                            appearance: 'success',
-                            autoDismiss: true,
-                        })
-                        formik.resetForm();
-                    } else {
-                        addToast(resultado.data.mensagem, {
-                            appearance: 'warning',
-                            autoDismiss: true,
-                        })
-                    }
+            .alterarSenha(values)
+            .then(resultado => {
+                if (resultado.data.sucesso) {
+                    addToast(resultado.data.mensagem, {
+                        appearance: 'success',
+                        autoDismiss: true,
+                    })
+                    formik.resetForm();
+                } else {
+                    addToast(resultado.data.mensagem, {
+                        appearance: 'warning',
+                        autoDismiss: true,
+                    })
+                }
 
-                    formik.setSubmitting(false);
-                })
+                formik.setSubmitting(false);
+            })
     }
 
+
+
     const formik = useFormik({
-        initialValues : {
-            idUsuario : jwt_decode(token).jti[1] ,
-            senhaAtual : '',
-            novaSenha : '',
-            
+        initialValues: {
+            idUsuario: jwt_decode(token).jti[1],
+            senhaAtual: '',
+            novaSenha: '',
+            urlFoto: '',
         },
-        onSubmit : values => {
+        onSubmit: values => {
             console.log(values);
-                alterar(values);
+            alterar(values);
         },
-        validationSchema : Yup.object().shape({
-            novaSenha: Yup.string()         
-              .min(6, 'A nova senha deve ter no mínimo 6 caracteres')
-              .required('Campo nova senha obrigatório'),
+        validationSchema: Yup.object().shape({
+            novaSenha: Yup.string()
+                .min(6, 'A nova senha deve ter no mínimo 6 caracteres')
+                .required('Campo nova senha obrigatório'),
             senhaAtual: Yup.string()
-            .required('Campo senha atual obrigatório'),
-          })
+                .required('Campo senha atual obrigatório'),
+        })
 
     })
 
-    // const imageHandler = (e) => {
-    //     const reader = new FileReader();
-    //     reader.onload = () =>{
-    //       if(reader.readyState === 2){
-    //         this.setState({profileImg: reader.result})
-    //       }
-    //     }
-    //     reader.readAsDataURL(e.target.files[0])
-    //   };
+    const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		setIsSelected(true);
+	};
 
-    // const {perfilimage} = this.state
-    
+    const handleSubmission = () => {
+		const formData = new FormData();
+
+		formData.append('Arquivo', selectedFile);
+
+		fetch(
+			'https://localhost:5001/v1/account/users/image',
+			{
+				method: 'PUT',
+				body: formData,
+                data: {
+                    idUsuario: jwt_decode(token).jti[1],
+                },
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('token-contratoseguro')}`
+                }
+			}
+		)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Success:', result);
+                alert('Imagem alterada com sucesso')
+                history.push('/')
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
+
+
+
+
     return (
-        
+
         <div>
             <Menu />
 
@@ -97,10 +134,20 @@ const PerfilFuncionario = () => {
             <div className="teste">
                 <div className="Container_totality">
                     <div className="Container_perfil">
-                        <img src={Funcionario}></img>
-                        <div className="Barra_nome">
+
+                    <div className="Barra_nome">
                             <h1>{jwt_decode(token).given_name}</h1>
                         </div>
+
+                    <div className="ImageAndButton">
+                          <img src={recruited.urlFoto}></img>
+
+                        <div className="inputimage">
+                        <input  type="file" name="file" onChange={changeHandler} />
+
+                            <button onClick={handleSubmission}>Salvar Imagem</button>
+                        </div>
+                  </div>
 
 
                         <div className="mb-2">

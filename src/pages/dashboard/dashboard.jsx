@@ -39,6 +39,8 @@ import RecrutadoServico from '../../servicos/RecrutadoServico';
 import fundoDashboard from '../../assets/img/fundoDashboard.png';
 import freeperfil from "../../assets/img/freeperfil.png";
 import { useToasts } from 'react-toast-notifications';
+import FuncionarioImg from '../../assets/img/avatar.jpg'
+import FuncionarioServico from '../../servicos/FuncionarioServico';
 
 const token = localStorage.getItem('token-contratoseguro')
 
@@ -47,7 +49,7 @@ const DashbordFuncionario = () => {
     const { addToast } = useToasts();
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState("");
-
+    const [funcionario, setFuncionario] = useState("");
 
 
     const getRecrutados = async () => {
@@ -57,6 +59,19 @@ const DashbordFuncionario = () => {
                 console.log(responseJson),
                 setData(responseJson.data)
             ));
+    }
+
+    useEffect(() => {
+        listarUser()
+    }, []);
+
+    const listarUser = () => {
+        FuncionarioServico
+            .buscarId(jwt_decode(token).jti[0])
+            .then(response => {
+                setFuncionario(response.data.data)
+
+            })
     }
 
 
@@ -106,8 +121,9 @@ const DashbordFuncionario = () => {
         <div>
             <Menu />
             <div className="col boasVindas">
-                <img className='perfildashboard' src={mariaPerfil} alt="" />
-                <p> Bem vindo {jwt_decode(token).given_name} !</p>
+                <img className='perfildashboard' 
+                src={funcionario.urlFoto} alt="" />
+                <p> Bem-vindo, {jwt_decode(token).family_name[0]} !</p>
 
 
 
