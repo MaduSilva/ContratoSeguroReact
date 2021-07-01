@@ -33,10 +33,11 @@ const Chat = () => {
   return (
     <div className="styleloginchat">
       <Menu/>
+      
     
     <div className="Chat">
       <div className="Logo">
-        <img src="https://icon-library.com/images/chat-icon-white/chat-icon-white-26.jpg" alt="BRQ logo"/>
+        <img src={logo} alt="BRQ logo"/>
         <IconButton  onClick={() => logout()}><ExitToAppIcon/></IconButton >
       </div>
       { logged ? <ChatInterface /> : <Login /> }

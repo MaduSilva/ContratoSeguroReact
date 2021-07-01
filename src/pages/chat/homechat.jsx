@@ -13,14 +13,10 @@ const ChatInterface = () => {
  
 
   return (
-  <div className="ChatInterface">
-    <Messages messages={messages} />
-    <MessageSender />
-    
-   
-  </div>
-  )
-  
-
+        <div className="ChatInterface">
+          <Messages messages={messages} />
+          <MessageSender />
+    </div>
+  );
 }
 export default ChatInterface

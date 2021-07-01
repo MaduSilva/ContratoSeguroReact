@@ -1,12 +1,23 @@
+:root {
+	--dark-color-a: #889ee7;
+	--dark-color-b: #a3b0ff;
+	--light-color: #e6e9ff;
+	--success-color: #5cb85c;
+	--error-color: #d9534f;
+}
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 .Chat {
-  min-height: 100vh;
-  background-color: #eeeeee;
-
+  min-height: 53vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 127px;
 }
 
 .Chat .Logo {
@@ -14,11 +25,16 @@
 }
 
 .Chat .Logo img {
-  height: 70px;
+  height: 200px;
+  width: 300px;
   transition: .25s ease;
 }
 
 .Chat .Logo img:hover {
   transform: scale(1.2);
 }
+.styleloginchat{
+  background: url('https://www.zazproducoes.com/uploads/blog/4g.png') no-repeat;
+  background-size: cover;
 
+}

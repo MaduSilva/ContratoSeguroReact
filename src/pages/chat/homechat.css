@@ -1,7 +1,25 @@
+:root {
+	--dark-color-a: #889ee7;
+	--dark-color-b: #a3b0ff;
+	--light-color: #e6e9ff;
+	--success-color: #5cb85c;
+	--error-color: #d9534f;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+/* .topo{
+    width: 1000px;
+    height: 1000px;
+    background-color: var(--dark-color-a);
+} */
 .ChatInterface {
     display: flex;
     flex-direction: column;
-   background-color: #fff;
+    background-color: #fff;
     width: 80%;
     height: 480px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
@@ -15,3 +33,4 @@
         height: calc(100vh - 84px);
    }
 }
+
