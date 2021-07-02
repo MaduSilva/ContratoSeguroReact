@@ -7,6 +7,7 @@ ___________________________________
 ## EQUIPE ATTACK ON DEV
 
 P.O : @KauaDeja
+<br/>
 Scrum Master: @Lucca-GB
 Frontend Developer: @MaduSilva
 Frontend Developer: @dev-Barboza
