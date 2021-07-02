@@ -25,6 +25,4 @@ Backend Developer: @GabrielBenjamin10
 <br/>
 _____________________________
 
-Para mais informações sobre o projeto pode me chamar no linkedin :) https://www.linkedin.com/in/madudev/
-<br/>
-For more information about the project you can call me on linkedin :) https://www.linkedin.com/in/madudev/
+
